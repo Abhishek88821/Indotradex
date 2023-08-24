@@ -11,22 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tranding_products', function (Blueprint $table) {
+        Schema::create('sub_categories', function (Blueprint $table) {
             $table->id();
+            $table->integer('category_id');
+            $table->integer('parent_id')->nullable();
             $table->string('name');
-            $table->string('slug');
-            $table->string('image');
-            $table->string('icon');
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('tranding_categories');
-            $table->longText('description');
-            $table->longText('specifications');
+            $table->longText('short_desc')->nullable();
+            $table->longText('description')->nullable();
+            $table->integer('image')->nullable();
+            $table->integer('banner')->nullable();
+            $table->string('slug')->nullable();
             $table->boolean('status')->default(true);
-            $table->string('created_by');  
-            $table->integer('display_order');
+            $table->string('order')->nullable();
+            $table->string('created_by');
             $table->string('meta_title')->nullable();
+            $table->string('meta_keyword')->nullable();
             $table->string('meta_description')->nullable();
-            $table->string('meta_keywords')->nullable();       
             $table->softDeletes();
             $table->timestamps();
         });
@@ -37,6 +37,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tranding_products');
+        Schema::dropIfExists('tranding_categories');
     }
 };

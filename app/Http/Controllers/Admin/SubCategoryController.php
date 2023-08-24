@@ -1,18 +1,17 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Models\SubCategory;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use App\Models\TrandingCategory;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CategoryRequest;
+use App\Http\traits\SubCategoryTraits;
 use App\Http\Traits\Upload\UploadTraits;
-use App\Http\traits\Tranding\TrandingCategoryTraits;
-use App\Http\Requests\TrandingCategory as TrandingCategoryRequest;
 
-class TrandingCategoryController extends Controller
+class SubCategoryController extends Controller
 {
-    use TrandingCategoryTraits , UploadTraits;
+    use SubCategoryTraits , UploadTraits;
 
     Public function index(){
       $category = $this->getCategory();
@@ -23,13 +22,13 @@ class TrandingCategoryController extends Controller
         return view('adminpanel.Tranding.Category.create');
     }
 
-    Public function store(TrandingCategoryRequest $request){
-      $category = new TrandingCategory;
+    Public function store(CategoryRequest $request){
+      $category = new SubCategory;
       $category->name = $request->name;
       $category->image = $this->createUpload($request->file('image'));
       $category->slug = $request->slug ? Str::of($request->slug)->slug('-') : Str::of($request->name)->slug('-');
       $category->status = $request->status;
-      $category->order = $request->order ?? TrandingCategory::max('order') + 1 ;
+      $category->order = $request->order ?? SubCategory::max('order') + 1 ;
       $category->created_by = Auth::guard('admin')->user()->id;
       $category->meta_title = $request->meta_title ?? $request->name;
       $category->meta_keyword = $request->meta_keywords ?? " ";
@@ -56,7 +55,7 @@ class TrandingCategoryController extends Controller
       return view('adminpanel.Tranding.Category.edit',compact('category'));
     }
 
-    public function update(TrandingCategoryRequest $request)
+    public function update(CategoryRequest $request)
     {
         $category = $this->getById($request->id);
         $category->name = $request->name;

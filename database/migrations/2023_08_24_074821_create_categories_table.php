@@ -11,17 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tranding_categories', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('image')->nullable();
+            $table->string('name')->nullable();
             $table->string('slug')->nullable();
+            $table->longText('short_desc')->nullable();
+            $table->longText('description')->nullable();
+            $table->integer('image')->nullable();
+            $table->string('created_by')->nullable(); 
+            $table->integer('banner')->nullable();
+            $table->integer('order')->nullable();
             $table->boolean('status')->default(true);
-            $table->string('order')->nullable();
-            $table->string('created_by');
             $table->string('meta_title')->nullable();
-            $table->string('meta_keyword')->nullable();
             $table->string('meta_description')->nullable();
+            $table->string('meta_keywords')->nullable();   
             $table->softDeletes();
             $table->timestamps();
         });
@@ -32,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tranding_categories');
+        Schema::dropIfExists('categories');
     }
 };

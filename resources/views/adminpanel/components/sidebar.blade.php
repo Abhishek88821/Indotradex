@@ -27,7 +27,17 @@
         </ul>
       </li>
      
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ route('admin.category')}}" aria-expanded="false">
+          <span class="d-flex">
+            <i class="ti ti-archive"></i>
+          </span>
+          <span class="hide-menu">Category</span>
+        </a>
+      </li>
     </ul>
+
+
     
   </nav>
   <div class="fixed-profile p-3 bg-light-secondary rounded sidebar-ad mt-3">

@@ -1,22 +1,22 @@
 <?php 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Product;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Models\TrandingProduct;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Traits\Upload\UploadTraits;
 use App\Http\Requests\trandingProductStore;
-use App\Http\traits\Tranding\TrandingCategoryTraits;
-use App\Http\traits\Tranding\TrandingProductsTraits;
+use App\Http\traits\ProductsTraits;
+use App\Http\traits\SubCategoryTraits;
 
 
-class TrandingController extends Controller
+class ProductController extends Controller
 {
-    use TrandingProductsTraits;
+    use ProductsTraits;
     use UploadTraits;
-    use TrandingCategoryTraits;
+    use SubCategoryTraits;
 
     public function index(Request $request)
     {
@@ -38,12 +38,12 @@ class TrandingController extends Controller
              'meta_keywords', 'meta_description'
         ]);
 
-        $product = new TrandingProduct($productData);
+        $product = new Product($productData);
         $product->slug = $request->slug ? Str::of($request->slug)->slug('-') :  Str::of($request->name)->slug('-');
         $product->image = $this->createUpload($request->file('image'));
         $product->icon = $this->createUpload($request->file('icon'));
         $product->created_by = Auth::guard('admin')->user()->id;
-        $maxDisplayOrder = TrandingProduct::max('display_order') ?? 0;
+        $maxDisplayOrder = Product::max('display_order') ?? 0;
         $product->display_order = $request->display_order ?? $maxDisplayOrder + 1;
         $product->meta_title = $request->meta_title ?? $request->name;
         $product->specifications = json_encode(array_combine($request->input('specifications_key'), $request->input('specifications_value')));
@@ -85,7 +85,7 @@ class TrandingController extends Controller
         if($request->display_order){
             $product->display_order = $request->display_order;
         }else{
-        $maxDisplayOrder = TrandingProduct::max('display_order') ?? 0;
+        $maxDisplayOrder = Product::max('display_order') ?? 0;
         $product->display_order = $maxDisplayOrder + 1;
         }
 
