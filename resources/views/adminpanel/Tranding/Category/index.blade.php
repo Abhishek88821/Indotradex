@@ -28,11 +28,11 @@
                                     <tr>
                                       <td>{{ ++$key }}</td>
                                        <td>{{ $item->name }}</td>
-                                      <td> <a href="{{ route('admin.tranding.product.status', $item->id )}}" class="text-primary"> <i class="fa-solid {{ $item->status == 1 ? 'fa-toggle-on' : 'fa-toggle-off' }}"></i> </a></td>
-                                      <td class="d-flex align-items-baseline justify-content-between">
-                                          <i class="fa-solid fa-eye"></i>
-                                         <a href="{{ route('admin.tranding.product.edit', $item->id )}}" class="text-success"> <i class="fa-solid fa-pen-to-square"></i> </a> 
-                                          <a href="{{ route('admin.tranding.product.destroy', $item->id )}}"> <i class="fa-solid fa-trash"></i> </a>
+                                      <td> <a href="{{ route('admin.tranding.category.status', $item->id )}}" class="text-primary"> <i class="fa-solid {{ $item->status == 1 ? 'fa-toggle-on' : 'fa-toggle-off' }}"></i> </a></td>
+                                      <td>
+                                         <a href="text-primary p-2"> <i class="fa-solid fa-eye"></i> </a> 
+                                         <a href="{{ route('admin.tranding.category.edit', $item->id )}}" class="text-success p-2"> <i class="fa-solid fa-pen-to-square"></i> </a> 
+                                          <a href="{{ route('admin.tranding.category.destroy', $item->id )}}" class="text-danger p-2"> <i class="fa-solid fa-trash"></i> </a>
                                       </td>
                                   </tr>
                                     @endforeach

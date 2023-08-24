@@ -39,7 +39,15 @@ class TrandingProduct extends Model
     {
         return $this->belongsTo(Upload::class, 'icon');
     }
+
+    public function categorys()
+    {
+        return $this->belongsTo(TrandingCategory::class, 'category_id');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
     
-
-
 }

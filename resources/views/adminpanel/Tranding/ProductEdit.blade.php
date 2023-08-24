@@ -36,8 +36,9 @@
                                     <div class="col-sm-9">
                                         <input type="file" name="image" class="d-none image-input" id="image-input" accept="image/*"  value="{{ old('image') }}"/>
                                         <label for="image-input" class="image-label">
-                                        
+                                            <div class="image-container">
                                             <img src="{{ asset($product->images->filepath)}}" alt="{{ $product->images->file_original_name }}" class="preview" id="image-preview">
+                                            </div>
                                         </label>
 
                                     </div>
@@ -47,7 +48,9 @@
                                     <div class="col-sm-9">
                                         <input type="file" name="icon" class="d-none image-input" id="icon-input" accept="image/*" value="{{ old('icon') }}" />                                       
                                         <label for="icon-input" class="image-label">
+                                            <div class="image-container">
                                             <img src="{{ asset($product->icons->filepath)}}" alt="{{ $product->icons->file_original_name }}" class="preview" id="icon-preview" style="height: 50px ; width: auto;">
+                                            </div>
                                         </label>
                                     </div>
                                 </div>

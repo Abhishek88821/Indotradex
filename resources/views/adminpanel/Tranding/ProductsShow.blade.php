@@ -1,4 +1,5 @@
 <x-app-layout>
+ 
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -27,18 +28,32 @@
                                 <tbody>
                                     @foreach ($TrandingProducts as $key => $item)
                                     <tr>
-                                      <td>{{ ++$key }}</td>
-                                      <td>{{ $item->name }}</td>
-                                      <td>{{ $item->image }}</td>
-                                      <td>{{ $item->category_id }}</td>
-                                      <td> <a href="{{ route('admin.tranding.product.status', $item->id )}}" class="text-primary"> <i class="fa-solid {{ $item->status == 1 ? 'fa-toggle-on' : 'fa-toggle-off' }}"></i> </a></td>
-                                      <td class="d-flex align-items-baseline justify-content-between">
-                                          <i class="fa-solid fa-eye"></i>
-                                         <a href="{{ route('admin.tranding.product.edit', $item->id )}}" class="text-success"> <i class="fa-solid fa-pen-to-square"></i> </a> 
-                                          <a href="{{ route('admin.tranding.product.destroy', $item->id )}}"> <i class="fa-solid fa-trash"></i> </a>
-                                      </td>
-                                  </tr>
+                                        <td>{{ ++$key }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td class="image-cell">
+                                            <div class="image-container">
+                                                <img src="{{ asset($item->images->filepath)}}" alt="{{ $item->images->file_original_name }}" class="preview">
+                                            </div>
+                                        </td>
+                                        <td>{{ $item->categorys->name }}</td>
+                                        <td>
+                                            <a href="{{ route('admin.tranding.product.status', $item->id )}}" class="text-primary">
+                                                <i class="fa-solid {{ $item->status == 1 ? 'fa-toggle-on' : 'fa-toggle-off' }}"></i>
+                                            </a>
+                                        </td>
+                                        <td class="action-cell">
+                                           <a href="#" class="text-primary p-2">  <i class="fa-solid fa-eye"></i> </a>
+                                            <a href="{{ route('admin.tranding.product.edit', $item->id )}}" class="text-success p-2">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </a> 
+                                            <a href="{{ route('admin.tranding.product.destroy', $item->id )}}" class="text-danger p-2">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
                                     @endforeach
+                                </tbody>
+                                
                             </table>
                         </div>
                     </div>

@@ -23,8 +23,11 @@ Route::middleware('admin')->group( function(){
 
         Route::get('/category', [TrandingCategoryController::class, 'index'])->name("admin.tranding.category");
         Route::get('category/create', [TrandingCategoryController::class, 'create'])->name("admin.tranding.category.create");
+        Route::post('category/store', [TrandingCategoryController::class, 'store'])->name("admin.tranding.category.store");
+        Route::get('category/edit/{id}', [TrandingCategoryController::class, 'edit'])->name("admin.tranding.category.edit");
+        Route::put('category/update', [TrandingCategoryController::class, 'update'])->name("admin.tranding.category.update");
+        Route::get('category/status/{id}', [TrandingCategoryController::class, 'status'])->name("admin.tranding.category.status");
+        Route::get('category/destroy/{id}', [TrandingCategoryController::class, 'destroy'])->name("admin.tranding.category.destroy");
     });
 
 });
-
-

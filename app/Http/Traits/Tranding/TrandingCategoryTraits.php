@@ -10,5 +10,9 @@ trait TrandingCategoryTraits
     {
         return TrandingCategory::get();
     }
+
+    Public function getById($id){
+       return TrandingCategory::findorfail($id);
+    }
     
 }

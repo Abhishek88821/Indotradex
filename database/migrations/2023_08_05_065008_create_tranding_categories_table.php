@@ -14,10 +14,14 @@ return new class extends Migration
         Schema::create('tranding_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('image')->nullable();
             $table->string('slug')->nullable();
             $table->boolean('status')->default(true);
             $table->string('order')->nullable();
             $table->string('created_by');
+            $table->string('meta_title')->nullable();
+            $table->string('meta_keyword')->nullable();
+            $table->string('meta_description')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
