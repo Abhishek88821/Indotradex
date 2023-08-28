@@ -17,7 +17,7 @@ class ProductController extends Controller
     use ProductsTraits;
     use UploadTraits;
     use SubCategoryTraits;
-
+    
     public function index(Request $request)
     {
         $TrandingProducts = $this->getAll();

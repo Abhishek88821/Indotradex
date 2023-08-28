@@ -17,16 +17,11 @@ return new class extends Migration
             $table->string('slug');
             $table->string('image');
             $table->string('icon');
-            $table->unsignedBigInteger('sub_category_id')->nullable();
-            $table->foreign('sub_category_id')->references('id')->on('sub_categories');
+            $table->integer('category_id')->nullable();
+            $table->integer('tranding_category_id')->nullable();
             $table->longText('shot_desc')->nullable();
             $table->longText('description')->nullable();
             $table->longText('specifications')->nullable();
-            $table->longText('features')->nullable();
-            $table->longText('parameters')->nullable();
-            $table->longText('resouces')->nullable();
-            $table->longText('resouces_images')->nullable();
-            $table->longText('resouces_pdf')->nullable();
             $table->integer('status')->default(1);
             $table->string('created_by');  
             $table->integer('display_order');

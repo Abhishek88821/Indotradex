@@ -38,7 +38,7 @@
                   <!-- Sidebar scroll-->
                   <div>
                     <div class="brand-logo d-flex align-items-center justify-content-between">
-                      <a href="index-2.html" class="text-nowrap logo-img">
+                      <a href="{{route('admin')}}" class="text-nowrap logo-img">
                         <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/dark-logo.svg" class="dark-logo" width="180" alt="" />
                         <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/light-logo.svg" class="light-logo"  width="180" alt="" />
                       </a>

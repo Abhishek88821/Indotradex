@@ -13,16 +13,16 @@ class SubCategoryController extends Controller
 {
     use SubCategoryTraits , UploadTraits;
 
-    Public function index(){
+    Public function index( $type = null){
       $category = $this->getCategory();
-      return view('adminpanel.Tranding.Category.index', compact('category'));
+      return view('adminpanel.pages.subCategory.index', compact('category' ,'type'));
     }
 
-    Public function create(){
-        return view('adminpanel.Tranding.Category.create');
+    Public function create( $type = null){
+        return view('adminpanel.pages.subCategory.create' , compact('type'));
     }
 
-    Public function store(CategoryRequest $request){
+    Public function store(CategoryRequest $request , $type = null){
       $category = new SubCategory;
       $category->name = $request->name;
       $category->image = $this->createUpload($request->file('image'));
@@ -34,10 +34,10 @@ class SubCategoryController extends Controller
       $category->meta_keyword = $request->meta_keywords ?? " ";
       $category->meta_description = $request->meta_description ?? " ";
       $category->save();
-      return redirect()->route('admin.tranding.category')->with('success','Category Creation Success');
+      return redirect()->route('admin.tranding.category',['type' => $type])->with('success','Category Creation Success');
     }
 
-    Public function status($id){
+    Public function status($id ){
         $category = $this->getById($id);
         $category->status = $category->status == 1 ? 0 : 1;
         $category->update();
@@ -50,12 +50,12 @@ class SubCategoryController extends Controller
       return redirect()->back()->with('success','Category Deleted Success');
     }
 
-    Public function edit($id){
+    Public function edit($id , $type){
       $category = $this->getById($id);
-      return view('adminpanel.Tranding.Category.edit',compact('category'));
+      return view('adminpanel.Tranding.Category.edit',compact('category' , 'type'));
     }
 
-    public function update(CategoryRequest $request)
+    public function update(CategoryRequest $request , $type)
     {
         $category = $this->getById($request->id);
         $category->name = $request->name;
@@ -69,7 +69,7 @@ class SubCategoryController extends Controller
         $category->meta_keyword = $request->meta_keywords ?? $category->meta_keywords;
         $category->meta_description = $request->meta_description ?? $category->meta_description;
         $category->update();
-        return redirect()->route('admin.tranding.category')->with('success', 'Category Update Success');
+        return redirect()->route('admin.tranding.category', ['type' => $type ])->with('success', 'Category Update Success');
     }
     
 }
