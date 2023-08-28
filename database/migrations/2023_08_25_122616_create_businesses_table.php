@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->longText('description');
+            $table->integer('image');
             $table->string('created_by');
             $table->integer('order');
             $table->boolean('status');

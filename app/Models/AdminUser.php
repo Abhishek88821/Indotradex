@@ -3,14 +3,15 @@
 namespace App\Models;
 
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class AdminUser extends Authenticatable
 {   
-    use HasFactory;
+    use HasFactory , SoftDeletes;
 
     protected $primaryKey = 'id';
     protected $keyType = 'string';
