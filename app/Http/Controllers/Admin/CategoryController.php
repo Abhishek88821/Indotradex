@@ -62,8 +62,6 @@ Public function edit($id){
 
 public function update(CategoryRequest $request)
 {
-
-    
     $category = $this->getById($request->id);
     $category->name = $request->name;
     if ($request->file('image')) {

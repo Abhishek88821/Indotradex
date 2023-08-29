@@ -5,14 +5,28 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
-                            <h5 class="mb-3">Add New Category</h5>
-                            <a href="{{ route('admin.category') }}" class="btn btn-outline-primary">List</a>
+                            <h5 class="mb-3">Add New Tranding Category</h5>
+                            <a href="{{ route('admin.tranding.category') }}" class="btn btn-outline-primary">List</a>
                         </div>
                         @include('partials.errors')
-                        <form method="POST" action="{{ route('admin.category.store') }}"
+                        <form method="POST" action="{{ route('admin.tranding.category.store') }}"
                             class="form-horizontal r-separator" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
+                              @if(isset($id))
+                                <div class="form-group mb-3 row pb-3">
+                                    <label for="name"
+                                        class="col-sm-3 text-end control-label col-form-label">Category</label>
+                                    <div class="col-sm-9">
+                                        <select name="category_id" class="form-control" id="">
+                                            @foreach($category as $list)
+                                            <option {{ getTrandingCategory($id)->id == $list->id ? 'selected' : ''}} value="{{$list->id}}" > {{ $list->name}}</option>
+                                            @endforeach
+                                         
+                                        </select>
+                                    </div>
+                                </div>
+                              @endif
                                 <div class="form-group mb-3 row pb-3">
                                     <label for="name"
                                         class="col-sm-3 text-end control-label col-form-label">Name</label>
@@ -21,8 +35,6 @@
                                             placeholder="Enter Product Name Here" value="{{old('name')}}" />
                                     </div>
                                 </div>
-                              
-
                                 <div class="form-group mb-3 row pb-3">
                                     <label for="name" class="col-sm-3 text-end control-label col-form-label">Image  {{old('image')}} </label>
                                     <div class="col-sm-9">
@@ -113,7 +125,7 @@
                                 <div class="form-group text-end">
                                     <button type="submit"
                                         class="btn btn-info rounded-pill px-4 waves-effect waves-light">Save</button>
-                                    <a href="{{ route('admin.category.store') }}"
+                                    <a href="{{ route('admin.tranding.category.store') }}"
                                         class="btn btn-dark rounded-pill px-4 waves-effect waves-light">Cancel</a>
                                 </div>
                             </div>

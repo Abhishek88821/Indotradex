@@ -9,7 +9,7 @@
                             <a href="{{ route('admin.tranding.category') }}" class="btn btn-outline-primary">List</a>
                         </div>
                         @include('partials.errors')
-                        <form method="POST" action="{{ route('admin.category.update' ,['id' => $category->id ]) }}"
+                        <form method="POST" action="{{ route('admin.category.update') }}"
                             class="form-horizontal r-separator" enctype="multipart/form-data">
                             @method('put')
                             @csrf
@@ -19,7 +19,7 @@
                                         class="col-sm-3 text-end control-label col-form-label">Name</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="name" class="form-control"
-                                            placeholder="Enter Product Name Here" value="{{ $category->name ?? ''}}" />
+                                            placeholder="Enter Product Name Here" value="{{ $TrandingCategory->name ?? ''}}" />
                                     </div>
                                 </div>
                               
@@ -30,7 +30,7 @@
                                         <input type="file" name="image" class="d-none image-input" id="image-input" accept="image/*"  value="{{ old('image') }}"/>
                                         <label for="image-input" class="image-label">
                                             <div class="image-container">
-                                            <img src="{{ asset( $category->images->filepath) }}" alt="no_image" class="preview" id="image-preview">
+                                            <img src="{{ asset( $TrandingCategory->images->filepath) }}" alt="no_image" class="preview" id="image-preview">
                                             </div>
                                         </label>
 
@@ -43,7 +43,7 @@
                                         <input type="file" name="banner" class="d-none image-input" id="icon-input" accept="image/*" value="{{ old('icon') }}" />                                       
                                         <label for="icon-input" class="image-label">
                                             <div class="image-container">
-                                            <img src="{{ asset( $category->banner->filepath ?? 'images/no_image.png') }}" alt="no_image" class="preview" id="icon-preview" style="height: 50px ; width: auto;">
+                                            <img src="{{ asset( $TrandingCategory->banners->filepath ?? 'images/no_image.png') }}" alt="no_image" class="preview" id="icon-preview" style="height: 50px ; width: auto;">
                                             </div>
                                         </label>
                                     </div>
@@ -55,7 +55,7 @@
                                         class="col-sm-3 text-end control-label col-form-label">Discription</label>
                                     <div class="col-sm-9">
                                         <textarea type="text" name="short_desc" class="form-control"
-                                            placeholder="Enter Product Name Here"  >{{ $category->short_desc ?? ' '}} </textarea>
+                                            placeholder="Enter Product Name Here"  >{{ $TrandingCategory->short_desc ?? ' '}} </textarea>
                                     </div>
                                 </div>
 
@@ -65,7 +65,7 @@
                                         class="col-sm-3 text-end control-label col-form-label">Display Order</label>
                                     <div class="col-sm-9">
                                         <input type="number" name="order" class="form-control"
-                                            placeholder=" Enter Display Order Here" value="{{  $category->order ?? '' }}" />
+                                            placeholder=" Enter Display Order Here" value="{{  $TrandingCategory->order ?? '' }}" />
                                     </div>
                                 </div>
                                 <div class="form-group mb-3 row pb-3">
@@ -73,8 +73,8 @@
                                         class="col-sm-3 text-end control-label col-form-label">Display Status</label>
                                     <div class="col-sm-9">
                                         <select name="status" class="form-control">
-                                            <option value="1" {{ $category->status == '1' ? 'selected' : '' }}>Active</option>
-                                            <option value="0" {{ $category->status == '0' ? 'selected' : '' }}>Deactive</option>
+                                            <option value="1" {{ $TrandingCategory->status == '1' ? 'selected' : '' }}>Active</option>
+                                            <option value="0" {{ $TrandingCategory->status == '0' ? 'selected' : '' }}>Deactive</option>
                                         </select>                                        
                                     </div>
                                 </div>
@@ -83,7 +83,7 @@
                                         class="col-sm-3 text-end control-label col-form-label">Meta Title</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="meta_title" class="form-control"
-                                            placeholder=" Enter Meta Title Here" value="{{ $category->meta_title ?? ''}}"  />
+                                            placeholder=" Enter Meta Title Here" value="{{ $TrandingCategory->meta_title ?? ''}}"  />
                                     </div>
                                 </div>
                                 <div class="form-group mb-3 row pb-3">
@@ -91,14 +91,14 @@
                                         class="col-sm-3 text-end control-label col-form-label">Meta KayWord</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="meta_keywords" class="form-control"
-                                            placeholder=" Enter Meta KeyWord Here"value="{{ $category->meta_keyword ?? '' }}"/>
+                                            placeholder=" Enter Meta KeyWord Here"value="{{ $TrandingCategory->meta_keyword ?? '' }}"/>
                                     </div>
                                 </div>
                                 <div class="form-group mb-3 row pb-3">
                                     <label for="description"
                                         class="col-sm-3 text-end control-label col-form-label">Meta Description</label>
                                     <div class="col-sm-9">
-                                        <Textarea name="meta_description"   placeholder=" Enter Meta Description Here" class="form-control" > {{ $category->meta_description ?? '' }}</Textarea>
+                                        <Textarea name="meta_description"   placeholder=" Enter Meta Description Here" class="form-control" > {{ $TrandingCategory->meta_description ?? '' }}</Textarea>
                                     </div>
                                 </div>
                                 <div class="form-group mb-3 row pb-3">
@@ -106,7 +106,7 @@
                                         class="col-sm-3 text-end control-label col-form-label">Slug</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="slug" class="form-control"
-                                            placeholder=" Enter Product Slug Here" value="{{ $category->slug ?? ''}}" />
+                                            placeholder=" Enter Product Slug Here" value="{{ $TrandingCategory->slug ?? ''}}" />
                                     </div>
                                 </div>
                             </div>
