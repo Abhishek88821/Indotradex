@@ -10,19 +10,6 @@ class TrandingCategory extends Model
 {
     use HasFactory , SoftDeletes;
 
-    protected $table = 'tranding_categories';
+    protected $table = 'trandingcategories';
 
-    public function images()
-    {
-        return $this->belongsTo(Upload::class, 'image');
-    }
-    
-    public function banners()
-    {
-        return $this->belongsTo(Upload::class, 'banner');
-    }
-
-    Public function childCount($id){
-        return $this->where('category_id' , $id )->count();
-    }
 }

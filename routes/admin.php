@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\Business\BusinessController;
 use App\Http\Controllers\Admin\Tranding\ProjectsController;
 use App\Http\Controllers\Admin\Trading\TradingCategoryController;
 use App\Http\Controllers\Admin\Tranding\TrandingCategoryController;
+use App\Http\Controllers\Admin\Trading\TrandingSubcategoryController;
 
 
 
@@ -31,6 +32,15 @@ Route::middleware('admin')->group( function(){
    Route::put('trading/category/update', [TradingCategoryController::class, 'update'])->name("admin.trading.category.update");
    Route::get('trading/category/status/{id}', [TradingCategoryController::class, 'status'])->name("admin.trading.category.status");
    Route::get('trading/category/destroy/{id}', [TradingCategoryController::class, 'destroy'])->name("admin.trading.category.destroy");
+
+   Route::get('trading/subcategory',[TrandingSubcategoryController::class,'index'])->name('admin.trading.subcategory');
+   Route::get('trading/subcategory/create', [TrandingSubcategoryController::class, 'create'])->name("admin.trading.subcategory.create");
+   Route::post('trading/subcategory/store', [TrandingSubcategoryController::class, 'store'])->name("admin.trading.subcategory.store");
+   Route::get('trading/subcategory/edit/{id}', [TrandingSubcategoryController::class, 'edit'])->name("admin.trading.subcategory.edit");
+   Route::put('trading/subcategory/update', [TrandingSubcategoryController::class, 'update'])->name("admin.trading.subcategory.update");
+   Route::get('trading/subcategory/status/{id}', [TrandingSubcategoryController::class, 'status'])->name("admin.trading.subcategory.status");
+   Route::get('trading/subcategory/destroy/{id}', [TrandingSubcategoryController::class, 'destroy'])->name("admin.trading.subcategory.destroy");
+
 
    Route::get('product/' ,[ProductsController::class,'index'])->name('admin.product');
    Route::get('product/create/' ,[ProductsController::class,'create'])->name("admin.product.create");
