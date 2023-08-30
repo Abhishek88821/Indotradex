@@ -18,10 +18,8 @@ class TrandingCategoryController extends Controller
             $TrandingCategory = $id
             ? TrandingCategory::where('category_id', $id)->get()
             : TrandingCategory::where('category_id', NULL)->get();
-        
+            
         return view('adminpanel.pages.tranding.category.index', compact('TrandingCategory', 'id'));
-        
-
         }
 
         Public function create($id = null){

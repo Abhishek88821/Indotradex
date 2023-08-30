@@ -12,8 +12,26 @@ $(document).ready(function (e) {
     $(".label > input[type='checkbox']").click(function (e) {
         $(this).toggleClass('active');
     })
-
     /* active end */
+    /* mobile menu start */
+    $("#menu-icon").click(function() {
+        $('.nav-div').toggleClass('active');
+    });
+    $("#agro-div-filter-mobile").click(function() {
+        $('.filter-div').addClass('active');
+    });
+    $(".filter-close").click(function() {
+        $('.filter-div').removeClass('active');
+    });
+    $(".profile-menu").click(function() {
+        $(".profile-navbar").addClass('active');
+    });
+
+    $(".profile-close").click(function() {
+        $(".profile-navbar").removeClass('active');
+    });
+
+    /* mobile menu end */
     /* password eye start */
     $(".password-icn").click(function(e) {
         var input = $($(this).attr("toggle"));
@@ -33,10 +51,11 @@ $(document).ready(function (e) {
         itemsDesktop: [1000, 6],
         itemsDesktopSmall: [980, 4],
         itemsTablet: [768, 3],
+        itemsMobile: [568, 3],
         pagination: false,
         navigation: false,
         autoPlay: false,
-        navigationText: ['<i class="ri-arrow-left-fill"></i>', '<i class="ri-arrow-right-fill"></i>']
+        navigationText: ['<i class="ri-arrow-left-line"></i>', '<i class="ri-arrow-right-line"></i>']
     });
     /* icon end */
     /* tranding start   */
@@ -45,10 +64,12 @@ $(document).ready(function (e) {
         itemsDesktop: [1000, 3],
         itemsDesktopSmall: [980, 3],
         itemsTablet: [768, 2],
+        
+        itemsMobile: [568, 1.5],
         pagination: false,
         navigation: false,
         autoPlay: true,
-        navigationText: ['<i class="ri-arrow-left-fill"></i>', '<i class="ri-arrow-right-fill"></i>']
+        navigationText: ['<i class="ri-arrow-left-line"></i>', '<i class="ri-arrow-right-line"></i>']
     });
 
     $("#tra-div-box, #tre-div-box").owlCarousel({
@@ -56,20 +77,22 @@ $(document).ready(function (e) {
         itemsDesktop: [1000, 3],
         itemsDesktopSmall: [980, 3],
         itemsTablet: [768, 2],
+        itemsMobile: [568, 1.2],
         pagination: false,
         navigation: true,
         autoPlay: true,
-        navigationText: ['<i class="ri-arrow-left-fill"></i>', '<i class="ri-arrow-right-fill"></i>']
+        navigationText: ['<i class="ri-arrow-left-line"></i>', '<i class="ri-arrow-right-line"></i>']
     });
     $("#bus-div-box").owlCarousel({
         items: 3,
         itemsDesktop: [1000, 3],
         itemsDesktopSmall: [980, 3],
         itemsTablet: [768, 2],
+        itemsMobile: [568, 1.5],
         pagination: true,
         navigation: false,
         autoPlay: true,
-        navigationText: ['<i class="ri-arrow-left-fill"></i>', '<i class="ri-arrow-right-fill"></i>']
+        navigationText: ['<i class="ri-arrow-left-line"></i>', '<i class="ri-arrow-right-line"></i>']
     });
 
     $("#rel-div-box").owlCarousel({
@@ -77,10 +100,11 @@ $(document).ready(function (e) {
         itemsDesktop: [1000, 3],
         itemsDesktopSmall: [980, 3],
         itemsTablet: [768, 2],
+        itemsMobile: [568, 1.5],
         pagination: true,
         navigation: true,
         autoPlay: true,
-        navigationText: ['<i class="ri-arrow-left-fill"></i>', '<i class="ri-arrow-right-fill"></i>']
+        navigationText: ['<i class="ri-arrow-left-line"></i>', '<i class="ri-arrow-right-line"></i>']
     });
     /* tranding end */
     

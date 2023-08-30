@@ -56,9 +56,6 @@ Route::middleware('admin')->group( function(){
    Route::get('project/status/{id}', [ProjectsController::class, 'status'])->name("admin.project.status");
    Route::get('project/destroy/{id}', [ProjectsController::class, 'destroy'])->name("admin.project.destroy");
 
- 
-
-
    Route::get('business',[BusinessController::class,'index'])->name('admin.business');
    Route::get('business/create', [BusinessController::class, 'create'])->name("admin.business.create");
    Route::post('business/store', [BusinessController::class, 'store'])->name("admin.business.store");
@@ -66,10 +63,5 @@ Route::middleware('admin')->group( function(){
    Route::put('business/update', [BusinessController::class, 'update'])->name("admin.business.update");
    Route::get('business/status/{id}', [BusinessController::class, 'status'])->name("admin.business.status");
    Route::get('business/destroy/{id}', [BusinessController::class, 'destroy'])->name("admin.business.destroy");
-
- 
-
-
-
 
 });
