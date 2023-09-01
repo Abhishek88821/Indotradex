@@ -6,10 +6,10 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <h5 class="mb-3"> Edit Treanding Product</h5>
-                            <a href="{{ route('admin.product',['type' => 'tranding']) }}" class="btn btn-outline-primary">List</a>
+                            <a href="{{ route('admin.product') }}" class="btn btn-outline-primary">List</a>
                         </div>
                         @include('partials.errors')
-                        <form method="post" action="{{ route('admin.tranding.product.update',['id' => $product->id]) }}"
+                        <form method="post" action="{{ route('admin.product.update',['id' => $product->id]) }}"
                             class="form-horizontal r-separator" enctype="multipart/form-data">
                             @method('put')
                             @csrf
@@ -37,7 +37,7 @@
                                         <input type="file" name="image" class="d-none image-input" id="image-input" accept="image/*"  value="{{ old('image') }}"/>
                                         <label for="image-input" class="image-label">
                                             <div class="image-container">
-                                            <img src="{{ asset($product->images->filepath)}}" alt="{{ $product->images->file_original_name }}" class="preview" id="image-preview">
+                                            <img src="{{ asset($product->images?->filepath)}}" alt="{{ $product->images?->file_original_name }}" class="preview" id="image-preview">
                                             </div>
                                         </label>
 
@@ -62,9 +62,13 @@
                                         <select name="category_id" class="form-control">
                                             <option value="" disabled>Select Category</option>
                                             @foreach ($trandingCategory as $category)
-                                                <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>
-                                                    {{ $category->name }}
-                                                </option>
+                                            <optgroup label="{{$category->name }}">
+                                              @foreach ($category->childCategories as $childCategory)
+                                              <option value="{{ $childCategory->id }}" {{ $product->category_id == $childCategory->id ? 'selected' : '' }}>
+                                                {{ $childCategory->name }}
+                                            </option>
+                                              @endforeach
+                                            </optgroup>
                                             @endforeach
                                         </select>
                                     </div>
@@ -152,7 +156,7 @@
                                 <div class="form-group text-end">
                                     <button type="submit"
                                         class="btn btn-info rounded-pill px-4 waves-effect waves-light">Save</button>
-                                    <a href="{{ route('admin.product',['type' => 'tranding']) }}"
+                                    <a href="{{ route('admin.product') }}"
                                         class="btn btn-dark rounded-pill px-4 waves-effect waves-light">Cancel</a>
                                 </div>
                             </div>

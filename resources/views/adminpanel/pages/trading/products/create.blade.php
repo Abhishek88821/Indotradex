@@ -6,10 +6,10 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <h5 class="mb-3">Add New Product</h5>
-                            <a href="{{ route('admin.product' , ['type' => 'tranding']) }}" class="btn btn-outline-primary">List</a>
+                            <a href="{{ route('admin.product') }}" class="btn btn-outline-primary">List</a>
                         </div>
                         @include('partials.errors')
-                        <form method="POST" action="{{ route('admin.product.store' ,['type' => 'tranding']) }}"
+                        <form method="POST" action="{{ route('admin.product.store')}}"
                             class="form-horizontal r-separator" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
@@ -54,9 +54,13 @@
                                         <select name="category_id" class="form-control">
                                             <option value="" disabled>Select Category</option>
                                             @foreach ($trandingCategory as $category)
-                                                <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
-                                                    {{ $category->name }}
-                                                </option>
+                                            <optgroup label="{{$category->name }}">
+                                              @foreach ($category->childCategories as $childCategory)
+                                              <option value="{{ $childCategory->id }}" {{ old('category_id') == $childCategory->id ? 'selected' : '' }}>
+                                                {{ $childCategory->name }}
+                                            </option>
+                                              @endforeach
+                                            </optgroup>
                                             @endforeach
                                         </select>
                                     </div>

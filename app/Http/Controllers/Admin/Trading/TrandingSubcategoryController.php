@@ -58,7 +58,7 @@ class TrandingSubcategoryController extends Controller
 
     Public function edit($id){
     $trandingSubCategoties = TradingCategory::findorfail($id);
-    $categories = TradingCategory::get('category_id' , Null)->get();
+    $categories =  TradingCategory::whereNull('category_id')->get();
     return view('adminpanel.pages.trading.subcategory.edit',compact('trandingSubCategoties' ,'categories'));
     }
 

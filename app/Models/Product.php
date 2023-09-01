@@ -37,12 +37,12 @@ class Product extends Model
     
     public function icons()
     {
-        return $this->belongsTo(Upload::class, 'icon');
+        return $this->belongsTo(Upload::class,'icon');
     }
 
     public function categorys()
     {
-        return $this->belongsTo(TrandingCategory::class, 'category_id');
+        return $this->belongsTo(TradingCategory::class, 'category_id');
     }
 
     public function scopeActive($query)

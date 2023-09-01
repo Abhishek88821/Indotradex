@@ -7,9 +7,7 @@
                     <div class="card-body">
                         <div class="mb-2 d-flex justify-content-between">
                             <h4 class="mb-0">Tranding Products</h4>
-
-                            <a href="{{ route('admin.product.create',['type' => 'tranding']) }}" class="btn btn-success">Create New</a>
-
+                            <a href="{{ route('admin.product.create') }}" class="btn btn-success">Create New</a>
                         </div>
 
                         <div class="">
@@ -26,7 +24,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($TrandingProducts as $key => $item)
+                                    @foreach ($products as $key => $item)
                                     <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $item->name }}</td>
@@ -37,16 +35,16 @@
                                         </td>
                                         <td>{{ $item->categorys->name }}</td>
                                         <td>
-                                            <a href="{{ route('admin.product.status',['id' => $item->id , 'type' => 'tranding' ])}}" class="text-primary">
+                                            <a href="{{ route('admin.product.status',['id' => $item->id ])}}" class="text-primary">
                                                 <i class="fa-solid {{ $item->status == 1 ? 'fa-toggle-on' : 'fa-toggle-off' }}"></i>
                                             </a>
                                         </td>
                                         <td class="action-cell">
                                            <a href="#" class="text-primary p-2">  <i class="fa-solid fa-eye"></i> </a>
-                                            <a href="{{ route('admin.product.edit', ['id' =>$item->id , 'type' => 'tranding' ])}}" class="text-success p-2">
+                                            <a href="{{ route('admin.product.edit', ['id' =>$item->id ])}}" class="text-success p-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a> 
-                                            <a href="{{ route('admin.product.destroy',['id' =>  $item->id , 'type' => 'tranding' ])}}" class="text-danger p-2">
+                                            <a href="{{ route('admin.product.destroy',['id' =>  $item->id])}}" class="text-danger p-2">
                                                 <i class="fa-solid fa-trash"></i>
                                             </a>
                                         </td>
