@@ -41,7 +41,6 @@ Route::middleware('admin')->group( function(){
    Route::get('trading/subcategory/status/{id}', [TrandingSubcategoryController::class, 'status'])->name("admin.trading.subcategory.status");
    Route::get('trading/subcategory/destroy/{id}', [TrandingSubcategoryController::class, 'destroy'])->name("admin.trading.subcategory.destroy");
 
-
    Route::get('product/' ,[ProductsController::class,'index'])->name('admin.product');
    Route::get('product/create/' ,[ProductsController::class,'create'])->name("admin.product.create");
    Route::post('product/store/', [ProductsController::class, 'productStore'])->name("admin.product.store");
@@ -51,12 +50,11 @@ Route::middleware('admin')->group( function(){
    Route::get('product/destroy/{id}', [ProductsController::class, 'productDestroy'])->name("admin.product.destroy");
 
    Route::get('tranding/category',[TrandingCategoryController::class,'index'])->name('admin.tranding.category');
-   Route::get('tranding/category/create', [TrandingCategoryController::class, 'create'])->name("admin.tranding.category.create");
    Route::post('tranding/category/store', [TrandingCategoryController::class, 'store'])->name("admin.tranding.category.store");
    Route::get('tranding/category/edit/{id}', [TrandingCategoryController::class, 'edit'])->name("admin.tranding.category.edit");
    Route::put('tranding/category/update', [TrandingCategoryController::class, 'update'])->name("admin.tranding.category.update");
    Route::get('tranding/category/status/{id}', [TrandingCategoryController::class, 'status'])->name("admin.tranding.category.status");
-   Route::get('tranding/category/destroy/{id}', [TrandingCategoryController::class, 'destroy'])->name("admin.tranding.category.destroy");
+   Route::DELETE('tranding/category/destroy/{id}', [TrandingCategoryController::class, 'destroy'])->name("admin.tranding.category.destroy");
 
    Route::get('project/' ,[ProjectsController::class,'index'])->name('admin.project');
    Route::get('project/create/' ,[ProjectsController::class,'create'])->name("admin.project.create");

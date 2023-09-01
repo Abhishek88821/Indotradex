@@ -43,7 +43,7 @@
                                         <input type="file" name="banner" class="d-none image-input" id="icon-input" accept="image/*" value="{{ old('icon') }}" />                                       
                                         <label for="icon-input" class="image-label">
                                             <div class="image-container">
-                                            <img src="{{ asset( $category->banner->filepath ?? 'images/no_image.png') }}" alt="no_image" class="preview" id="icon-preview" style="height: 50px ; width: auto;">
+                                            <img src="{{ asset( $category->banners->filepath ?? 'images/no_image.png') }}" alt="no_image" class="preview" id="icon-preview" style="height: 50px ; width: auto;">
                                             </div>
                                         </label>
                                     </div>
