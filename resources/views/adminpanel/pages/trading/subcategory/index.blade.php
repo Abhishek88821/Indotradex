@@ -25,7 +25,7 @@
                                     <tr>
                                       <td>{{ ++$key }}</td>
                                        <td>{{ $item->name }}</td>
-                                       <td>{{ $item->parentCategory->name }}</td>
+                                       <td>{{ $item->parentCategory?->name }}</td>
                                       <td> <a href="{{ route('admin.trading.subcategory.status', $item->id )}}" class="text-primary"> <i class="fa-solid {{ $item->status == 1 ? 'fa-toggle-on' : 'fa-toggle-off' }}"></i> </a></td>
                                       <td>
                                          <a href="text-primary p-2"> <i class="fa-solid fa-eye"></i> </a> 

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\Trading\ProductsController;
@@ -71,5 +73,8 @@ Route::middleware('admin')->group( function(){
    Route::put('business/update', [BusinessController::class, 'update'])->name("admin.business.update");
    Route::get('business/status/{id}', [BusinessController::class, 'status'])->name("admin.business.status");
    Route::get('business/destroy/{id}', [BusinessController::class, 'destroy'])->name("admin.business.destroy");
+
+   Route::resource('slider', SliderController::class);
+   Route::resource('about', AboutController::class);
 
 });

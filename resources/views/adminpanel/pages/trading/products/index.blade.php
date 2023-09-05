@@ -33,7 +33,7 @@
                                                 <img src="{{ asset($item->images->filepath)}}" alt="{{ $item->images->file_original_name }}" class="preview">
                                             </div>
                                         </td>
-                                        <td>{{ $item->categorys->name }}</td>
+                                        <td>{{ $item->categorys?->name }}</td>
                                         <td>
                                             <a href="{{ route('admin.product.status',['id' => $item->id ])}}" class="text-primary">
                                                 <i class="fa-solid {{ $item->status == 1 ? 'fa-toggle-on' : 'fa-toggle-off' }}"></i>

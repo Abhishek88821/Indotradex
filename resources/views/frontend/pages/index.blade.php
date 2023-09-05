@@ -32,72 +32,19 @@
                 <div class="col-lg-12 col-xl-12">
                     <div class="pro-link-lst">
                         <div class="owl-carousel owl-theme" id="pro-link-div">
+                            @foreach($tradingCategory as $list)
                             <div class="item">
                                 <div class="pro-link-box">
                                     <a href="product.html" class="text-decoration-none" role="link">
                                         <div class="pro-link-img">
-                                            <img src="{{asset('frontend/assets/img/leaf-icon.png')}}" class="img-fluid w-100" alt="agro"
-                                                title="" />
+                                            <img src="{{asset( $list->images->filepath )}}" class="img-fluid w-100" alt="{{ $list->images->file_original_name}}"
+                                                title="{{ $list->name }}" />
                                         </div>
-                                        <span><span>Agro</span> Product</span>
+                                        <span>{{ $list->name }} </span>
                                     </a>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="pro-link-box">
-                                    <a href="product.html" class="text-decoration-none" role="link">
-                                        <div class="pro-link-img">
-                                            <img src="{{asset('frontend/assets/img/metal-icon.png')}}" class="img-fluid w-100" alt="agro"
-                                                title="" />
-                                        </div>
-                                        <span><span>Metal</span>Product</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="pro-link-box active">
-                                    <a href="product.html" class="text-decoration-none" role="link">
-                                        <div class="pro-link-img">
-                                            <img src="{{asset('frontend/assets/img/mining-icon.png')}}" class="img-fluid w-100" alt="agro"
-                                                title="" />
-                                        </div>
-                                        <span><span>Mining</span>Product</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="pro-link-box ">
-                                    <a href="product.html" class="text-decoration-none" role="link">
-                                        <div class="pro-link-img">
-                                            <img src="{{asset('frontend/assets/img/crab-icon.png')}}" class="img-fluid w-100" alt="agro"
-                                                title="" />
-                                        </div>
-                                        <span><span>Sea</span>Product</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="pro-link-box">
-                                    <a href="product.html" class="text-decoration-none" role="link">
-                                        <div class="pro-link-img">
-                                            <img src="{{asset('frontend/assets/img/gems-icon.png')}}" class="img-fluid w-100" alt="agro"
-                                                title="" />
-                                        </div>
-                                        <span><span>Precious</span>Items</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="pro-link-box">
-                                    <a href="product.html" class="text-decoration-none" role="link">
-                                        <div class="pro-link-img">
-                                            <img src="{{asset('frontend/assets/img/hotel-icon.png')}}" class="img-fluid w-100" alt="agro"
-                                                title="" />
-                                        </div>
-                                        <span><span>Other</span>Product</span>
-                                    </a>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -112,51 +59,33 @@
                 <div class="col-lg-12 col-xl-12">
                     <div class="tabs-lnk mb-lg-5 mb-0">
                         <ul class="list-unstyled d-flex align-items-center justify-content-center mb-0" id="tabs-lnk">
+                            @foreach($category as $key => $categoryItem)
                             <li>
-                                <a href="#trading" class="active text-decoration-none">Trading</a>
+                                <a href="#{{$categoryItem->slug}}" class=" @if($key == 0 )active @endif text-decoration-none">{{ $categoryItem->name }}</a>
                             </li>
-                            <li>
-                                <a href="#trending" class=" text-decoration-none">Trending</a>
-                            </li>
-                            <li>
-                                <a href="#business" class=" text-decoration-none">Business Supports</a>
-                            </li>
+                            @endforeach
+                           
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="row py-md-5 align-items-center" id="trading">
-                <div class="col-lg-6 col-xl-6">
+            @foreach($category as $key=>$categoryItem)
+            <div class="row py-md-5 align-items-center" id="{{$categoryItem->slug}}">
+              
+                <div class="col-lg-6 col-xl-6 {{ $loop->iteration % 2 == 0 ? 'order-lg-2 order-xl-2' : ''}}">
                     <div class="tab-div-img position-relative">
-                        <img src="https://images.unsplash.com/photo-1542990253-a781e04c0082?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1094&q=80"
-                            class="img-fluid w-100" alt="" title="" />
+                        <img src="{{$categoryItem->images->filepath}}"
+                            class="img-fluid w-100" alt="{{$categoryItem->images->file_original_name}}" title="{{$categoryItem->name}}" />
                     </div>
                 </div>
                 <div class="col-lg-6 col-xl-6">
                     <div class="tab-div-cnt">
                         <div class="tab-title position-relative ">
-                            <h3><span class="">1</span>Trading Products</h3>
+                            <h3><span class="">{{ $loop->iteration }}</span>{{$categoryItem->name }}</h3>
                         </div>
                         <div class="tab-div-cnt-desc">
                             <p class="mt-md-4 mt-1">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has
-                                been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                                took a
-                                galley of type and scrambled it to make a type specimen book. It has survived not only
-                                five
-                                centuries, but also the leap into electronic typesetting, remaining essentially
-                                unchanged.
-                            </p>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has
-                                been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                                took a
-                                galley of type and scrambled it to make a type specimen book. It has survived not only
-                                five
-                                centuries, but also the leap into electronic typesetting, remaining essentially
-                                unchanged.
+                                {{$categoryItem->short_desc }}
                             </p>
                         </div>
                         <a href="tranding.html" class="text-decoration-none btn btn-link" role="link">Explore<i
@@ -164,77 +93,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row  py-md-5  align-items-center" id="trending">
-                <div class="col-lg-6 col-xl-6">
-                    <div class="tab-div-cnt">
-                        <div class="tab-title position-relative ">
-                            <h3> <span>2</span>Trending Projects</h3>
-                        </div>
-                        <div class="tab-div-cnt-desc">
-                            <p class="mt-md-4  mt-1">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has
-                                been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                                took a
-                                galley of type and scrambled it to make a type specimen book. It has survived not only
-                                five
-                                centuries, but also the leap into electronic typesetting, remaining essentially
-                                unchanged.
-                            </p>
-                            <p>
-                                when an unknown printer took a galley of type and scrambled it to make a type specimen
-                                book.
-                                It has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged.
-                            </p>
-                        </div>
-                        <a href="trending.html" class="text-decoration-none btn btn-link" role="link">Explore<i
-                                class="ri-arrow-right-up-line  ms-md-2 ms-1"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-6 order-md-2">
-                    <div class="tab-div-img position-relative">
-                        <img src="https://images.pexels.com/photos/4040644/pexels-photo-4040644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                            class="img-fluid w-100" alt="" title="" />
-                    </div>
-                </div>
-            </div>
-            <div class="row  py-md-5  align-items-center" id="business">
-                <div class="col-lg-6 col-xl-6">
-                    <div class="tab-div-img position-relative">
-                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                            class="img-fluid w-100" alt="" title="" />
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-6">
-                    <div class="tab-div-cnt">
-                        <div class="tab-title position-relative">
-                            <h3> <span>3</span> Business Supports</h3>
-                        </div>
-                        <div class="tab-div-cnt-desc">
-                            <p class="mt-md-4  mt-1">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has
-                                been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                                took a
-                                galley of type and scrambled it to make a type specimen book. It has survived not only
-                                five
-                                centuries, but also the leap into electronic typesetting, remaining essentially
-                                unchanged.
-                            </p>
-                            <p>
-                                It was popularised in the 1960s with the release of Letraset sheets containing Lorem
-                                Ipsum
-                                passages, and more recently with desktop publishing software like Aldus PageMaker
-                                including
-                                versions of Lorem Ipsum.
-                            </p>
-                        </div>
-                        <a href="business.html" class="text-decoration-none btn btn-link " role="link">Explore<i
-                                class="ri-arrow-right-up-line ms-md-2 ms-1"></i></a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+           
         </div>
     </section>
     <!-- tab end -->
@@ -276,6 +136,7 @@
     </section>
     <!-- about end -->
     <!-- trading start -->
+    @if(isset($products) && count($products) > 0)
     <section class="tra-div position-relative py-70">
         <div class="container">
             <div class="row">
@@ -288,10 +149,11 @@
                 <div class="col-lg-12 col-xl-12">
                     <div class="tra-div-box mt-md-5">
                         <div class="owl-carousel owl-theme" id="tra-div-box">
+                            @foreach($products as $Items)
                             <div class="item">
                                 <div class="tra-pro-div">
                                     <div class="tra-pro-img position-relative">
-                                        <img src="{{asset('frontend/assets/img/cashew1.jpg')}}" class="img-fluid w-100" alt="" title="" />
+                                        <img src="{{asset( $Items->images->filepath )}}" class="img-fluid w-100" alt="" title="" />
                                         <div class="intereseted position-absolute">
                                             <span class="so" title="Sourcing Enquiry" data-bs-toggle="modal" data-bs-target="#sourcingGET"  >
                                                 SO
@@ -308,135 +170,23 @@
                                         </div>
                                     </div>
                                     <div class="tra-pro-cnt">
-                                        <span>Agro</span>
-                                        <h4>Cashew Nuts</h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                        <span>{{$Items->categorys->name }}</span>
+                                        <h4>{{ $Items->name }}</h4>
+                                        <p>{{ $Items->description }}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="tra-pro-div">
-                                    <div class="tra-pro-img position-relative">
-                                        <img src="{{asset('frontend/assets/img/coal.jpg')}}" class="img-fluid w-100" alt="" title="" />
-                                        <div class="intereseted position-absolute">
-                                            <span class="su" title="Supply Enquiry"  data-bs-toggle="modal" data-bs-target="#investmentGET"  >
-                                                SU
-                                            </span>
-
-                                        </div>
-                                        <div class="explore-more-bnt">
-                                            <a href="product-details.html" class="text-decoration-none">
-                                                <span><i class="ri-arrow-right-up-line"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="tra-pro-cnt">
-                                        <span>Mining</span>
-                                        <h4>Coals</h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="tra-pro-div">
-                                    <div class="tra-pro-img position-relative">
-                                        <img src="{{asset('frontend/assets/img/metal.jpg')}}" class="img-fluid w-100" alt="" title="" />
-                                        <div class="intereseted position-absolute" title="Buy Enquiry" data-bs-target="#availableGET" data-bs-toggle="modal"  >
-                                            <span class="bu">
-                                                BU
-                                            </span>
-
-                                        </div>
-                                        <div class="explore-more-bnt">
-                                            <a href="product-details.html" class="text-decoration-none">
-                                                <span><i class="ri-arrow-right-up-line"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="tra-pro-cnt">
-                                        <span>Metal</span>
-                                        <h4>Metal Scrap</h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="tra-pro-div">
-                                    <div class="tra-pro-img position-relative">
-                                        <img src="{{asset('frontend/assets/img/cashew1.jpg')}}" class="img-fluid w-100" alt="" title="" />
-                                        <div class="intereseted position-absolute" title="Supply Enquiry"  data-bs-toggle="modal" data-bs-target="#investmentGET"  >
-                                            <span class="su">
-                                                SU
-                                            </span>
-
-                                        </div>
-                                        <div class="explore-more-bnt">
-                                            <a href="product-details.html" class="text-decoration-none">
-                                                <span><i class="ri-arrow-right-up-line"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="tra-pro-cnt">
-                                        <span>Agro</span>
-                                        <h4>Plantation</h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="tra-pro-div">
-                                    <div class="tra-pro-img position-relative">
-                                        <img src="{{asset('frontend/assets/img/gems.jpg')}}" class="img-fluid w-100" alt="" title="" />
-                                        <div class="intereseted position-absolute" title="Sourcing Enquiry"  data-bs-toggle="modal" data-bs-target="#sourcingGET"  >
-                                            <span class="so">
-                                                SO
-                                            </span>
-
-                                        </div>
-                                        <div class="explore-more-bnt">
-                                            <a href="product-details.html" class="text-decoration-none">
-                                                <span><i class="ri-arrow-right-up-line"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="tra-pro-cnt">
-                                        <span>Mining</span>
-                                        <h4>Gems</h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="tra-pro-div">
-                                    <div class="tra-pro-img position-relative">
-                                        <img src="{{asset('frontend/assets/img/clove.jpg')}}" class="img-fluid w-100" alt="" title=""  />
-                                        <div class="intereseted position-absolute" title="Buy Enquiry"  data-bs-target="#availableGET" data-bs-toggle="modal"  >
-                                            <span class="bu">
-                                                BU
-                                            </span>
-
-                                        </div>
-                                        <div class="explore-more-bnt">
-                                            <a href="product-details.html" class="text-decoration-none">
-                                                <span><i class="ri-arrow-right-up-line"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="tra-pro-cnt">
-                                        <span>Agro</span>
-                                        <h4>Clove</h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    @endif
     <!-- trading end -->
     <!-- trending start -->
+    @if(isset($projects) && count($projects) > 0)
     <section class="tre-div position-relative py-70">
         <div class="container">
             <div class="row">
@@ -449,11 +199,12 @@
                 <div class="col-lg-12 col-xl-12">
                     <div class="tre-div-box mt-md-5 mt-4">
                         <div class="owl-carousel owl-theme" id="tre-div-box">
+                            @foreach($projects as $list)
                             <div class="item">
                                 <div class="tra-pro-div">
                                     <div class="tra-pro-img position-relative">
-                                        <img src="https://images.unsplash.com/photo-1612526445757-4afe2c143940?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                                            class="img-fluid w-100" alt="" title="" />
+                                        <img src="{{ $list->images->filepath}}"
+                                            class="img-fluid w-100" alt="{{ $list->images->file_original_name}}" title="{{ $list->name }}" />
 
                                         <div class="explore-more-bnt">
                                             <a href="trending-details.html" class="text-decoration-none">
@@ -462,73 +213,22 @@
                                         </div>
                                     </div>
                                     <div class="tra-pro-cnt">
-                                        <h4>Magnesium Ore</h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                        <h4>{{ $list->name }}</h4>
+                                        <p>{{ $list->description }}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="tra-pro-div">
-                                    <div class="tra-pro-img position-relative">
-                                        <img src="https://images.unsplash.com/photo-1642784313252-3e5f05bf5473?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80"
-                                            class="img-fluid w-100" alt="" title="" />
-
-                                        <div class="explore-more-bnt">
-                                            <a href="trending-details.html" class="text-decoration-none">
-                                                <span><i class="ri-arrow-right-up-line"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="tra-pro-cnt">
-                                        <h4>Ore Dock</h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="tra-pro-div">
-                                    <div class="tra-pro-img position-relative">
-                                        <img src="https://images.unsplash.com/photo-1665971612753-fb2915138aa3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80"
-                                            class="img-fluid w-100" alt="" title="" />
-
-                                        <div class="explore-more-bnt">
-                                            <a href="trending-details.html" class="text-decoration-none">
-                                                <span><i class="ri-arrow-right-up-line"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="tra-pro-cnt">
-                                        <h4>#GA-1.005 | RSDB</h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="tra-pro-div">
-                                    <div class="tra-pro-img position-relative">
-                                        <img src="https://images.unsplash.com/photo-1612526445757-4afe2c143940?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                                            class="img-fluid w-100" alt="" title="" />
-
-                                        <div class="explore-more-bnt">
-                                            <a href="trending-details.html" class="text-decoration-none">
-                                                <span><i class="ri-arrow-right-up-line"></i></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="tra-pro-cnt">
-                                        <h4>Magnesium Ore</h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                    </div>
-                                </div>
-                            </div>
+                           @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    @endif
     <!-- trending end -->
     <!-- business start -->
+    @if(isset($business) && count($business) > 0)
     <section class="bus-div position-relative py-70">
         <div class="container">
             <div class="row">
@@ -544,69 +244,27 @@
                 <div class="col-lg-12 col-xl-12">
                     <div class="bus-div-box mt-md-5 mt-3">
                         <div class="owl-carousel owl-theme" id="bus-div-box">
+                            @foreach ($business as $list)
                             <div class="item">
                                 <div class="bus-pro-div position-relative">
                                     <a href="javascript:void(0)" class="text-decoration-none" role="link">
                                         <div class="bus-pro-cnt">
-                                            <h5>We assist you in growing your <span>Indonesian Business</span></h5>
+                                            <h5>{{ $list->description }}<span>{{ $list->name }}</span></h5>
                                         </div>
                                         <div class="tra-pro-img position-relative">
-                                            <img src="{{asset('frontend/assets/img/business1.jpg')}}" class="img-fluid w-100" alt=""
-                                                title="" />
+                                            <img src="{{asset( $list->images->filepath)}}" class="img-fluid w-100" alt="{{$list->images->file_original_name}}"
+                                                title="{{ $list->name }}" />
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="bus-pro-div active position-relative">
-                                    <a href="javascript:void(0)" class="text-decoration-none" role="link">
-                                        <div class="bus-pro-cnt">
-                                            <h5>We assist you in growing your <span>Indonesian Business</span></h5>
-                                        </div>
-                                        <div class="tra-pro-img position-relative">
-                                            <img src="{{asset('frontend/assets/img/business2.jpg')}}" class="img-fluid w-100" alt=""
-                                                title="" />
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="bus-pro-div position-relative">
-                                    <a href="javascript:void(0)" class="text-decoration-none" role="link">
-                                        <div class="bus-pro-cnt">
-                                            <h5>
-                                                Using our connections, we will help you raise <span>funds</span> from
-                                                <span>investors</span>
-                                            </h5>
-                                        </div>
-                                        <div class="tra-pro-img position-relative">
-                                            <img src="{{asset('frontend/assets/img/business3.jpg')}}" class="img-fluid w-100" alt=""
-                                                title="" />
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="bus-pro-div position-relative">
-                                    <a href="javascript:void(0)" class="text-decoration-none" role="link">
-                                        <div class="bus-pro-cnt">
-                                            <h5>
-                                                We can advise you on which <span>business</span> is <span>right</span>
-                                                for you
-                                            </h5>
-                                        </div>
-                                        <div class="tra-pro-img position-relative">
-                                            <img src="{{asset('frontend/assets/img/business1.jpg')}}" class="img-fluid w-100" alt=""
-                                                title="" />
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    @endif
     <!-- business end -->
 </x-guest-layout>

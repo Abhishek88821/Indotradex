@@ -35,7 +35,6 @@
                         <span class="hide-menu">Sub Category</span>
                     </a>
                 </li>
-
             </ul>
         </li>
 
@@ -63,12 +62,8 @@
                         <span class="hide-menu"> Category</span>
                     </a>
                 </li>
-              
-
             </ul>
         </li>
-
-       
 
         <li class="sidebar-item">
             <a class="sidebar-link" href="{{ route('admin.category') }}" aria-expanded="false">
@@ -85,6 +80,22 @@
                     <i class="ti ti-archive"></i>
                 </span>
                 <span class="hide-menu">Business</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ route('slider.index') }}" aria-expanded="false">
+                <span class="d-flex">
+                    <i class="ti ti-archive"></i>
+                </span>
+                <span class="hide-menu">Slider</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ route('about.index') }}" aria-expanded="false">
+                <span class="d-flex">
+                    <i class="ti ti-archive"></i>
+                </span>
+                <span class="hide-menu">About Us</span>
             </a>
         </li>
 

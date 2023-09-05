@@ -37,4 +37,9 @@ class project extends Model
     {
         return $this->belongsTo(Upload::class, 'download_pdf');
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
 }

@@ -14,4 +14,9 @@ class Business extends Model
     {
         return $this->belongsTo(Upload::class, 'image');
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
 }

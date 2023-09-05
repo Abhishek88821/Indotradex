@@ -32,4 +32,10 @@ class TradingCategory extends Model
     {
         return $this->hasMany(TradingCategory::class, 'category_id');
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
+    
 }
