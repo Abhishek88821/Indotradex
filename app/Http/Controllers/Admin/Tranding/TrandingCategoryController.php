@@ -20,6 +20,7 @@ class TrandingCategoryController extends Controller
       $trnCategory = new TrandingCategory;
       $trnCategory->name = $request->name;
       $trnCategory->status = true;
+      $trnCategory->slug = Str::slug($request->name , '-'); 
       $trnCategory->order =  $request->displayOrder ??  TrandingCategory::max('order') + 1;
       if($trnCategory->save()){
         return response(['data' => $trnCategory , 'status' => true]);
@@ -34,6 +35,26 @@ class TrandingCategoryController extends Controller
         return response(['status' =>true]);
     }
 
+    Public function status( $id){
+      $category = TrandingCategory::findorfail($id);
+      $category->status = $category->status == 1 ? 0: 1;
+      $category->update();
+      return response(['status' =>true , 'data' => $category]);
+    }
+   
+    Public function edit($id){
+      $category = TrandingCategory::findorfail($id);
+      return response(['status' =>true , 'data' => $category]);
+    }
+
+    public function update(Request $request){
+      $category = TrandingCategory::findorfail($request->categoryId);
+      $category->name = $request->name;
+      $category->order = $request->order;
+      $category->slug = $request->slug;
+      $category->update();
+      return response(['status' =>true , 'data' => $category]);
+    }
 
 
 }

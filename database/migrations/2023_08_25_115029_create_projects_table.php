@@ -19,10 +19,17 @@ return new class extends Migration
             $table->string('short_description')->nullable();
             $table->string('description')->nullable();
             $table->string('features')->nullable();
+            $table->string('trandingCategories_id')->nullable();
+            $table->string('created_by')->nullable();
             $table->string('parameters')->nullable();
             $table->string('resouces_about')->nullable();
             $table->string('resouces_images')->nullable();
             $table->string('download_pdf')->nullable();
+            $table->integer('order')->nullable();
+            $table->integer('status')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->string('meta_keywords')->nullable();
+            $table->string('meta_description')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

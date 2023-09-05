@@ -12,4 +12,10 @@ class TrandingCategory extends Model
 
     protected $table = 'trandingcategories';
 
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
+
 }
