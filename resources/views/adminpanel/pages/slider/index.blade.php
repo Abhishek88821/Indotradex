@@ -37,18 +37,22 @@
                                         </td>
                                         <td>{{ $item->order }}</td>
                                         <td>
-                                            <a href="{{ route('slider.show',['id' => $item->id])}}" class="text-primary">
+                                            <a href="{{ route('slider.show',[$item->id])}}" class="text-primary">
                                                 <i class="fa-solid {{ $item->status == 1 ? 'fa-toggle-on' : 'fa-toggle-off' }}"></i>
                                             </a>
                                         </td>
                                         <td class="action-cell">
                                            <a href="#" class="text-primary p-2">  <i class="fa-solid fa-eye"></i> </a>
-                                            <a href="{{ route('slider.edit', ['id' =>$item->id])}}" class="text-success p-2">
+                                            <a href="{{ route('slider.edit', [$item->id])}}" class="text-success p-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a> 
-                                            <a href="{{ route('slider.destroy',['id' =>  $item->id])}}" class="text-danger p-2">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </a>
+                                            <form action="{{ route('slider.destroy', $item->id) }}" method="POST" style="display: inline-block;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="text-danger p-2" onclick="return confirm('Are you sure you want to delete this slider?')">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach

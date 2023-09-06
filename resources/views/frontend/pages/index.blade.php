@@ -2,14 +2,19 @@
     <!-- slider start -->
     <section class="sli-div position-relative">
         <!-- slider img start -->
+        
         <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false"
             data-bs-interval="false">
+           
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://images.pexels.com/photos/4256976/pexels-photo-4256976.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                        class="d-block w-100" alt="...">
+                @foreach($sliders as $key => $slider)
+                <div class="carousel-item @if( $key == 0 ) active @else '' @endif">
+                    <img src="{{asset( $slider->images->filepath )}}"
+                        class="d-block w-100" alt="{{ $slider->images->file_original_name }}">
                 </div>
+                @endforeach
             </div>
+           
             <button class="carousel-control-prev d-none" type="button"
                 data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -88,7 +93,7 @@
                                 {{$categoryItem->short_desc }}
                             </p>
                         </div>
-                        <a href="tranding.html" class="text-decoration-none btn btn-link" role="link">Explore<i
+                        <a href="{{$categoryItem->slug }}" class="text-decoration-none btn btn-link" role="link">Explore<i
                                 class="ri-arrow-right-up-line  ms-md-2 ms-1"></i></a>
                     </div>
                 </div>
@@ -104,30 +109,26 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-12 col-sm-12">
                     <div class="abt-div-img position-relative">
-                        <img src="{{asset('frontend/assets/img/abt1.jpg')}}" class="position-absolute" alt="" title="" />
-                        <img src="{{asset('frontend/assets/img/abt2.jpg')}}" class="" alt="" title="" />
-                        <img src="{{asset('frontend/assets/img/abt3.jpg')}}" class="position-absolute" alt="" title="" />
+                        @foreach(explode(',', $about->images) as $imageId ) 
+                            @php
+                            $upload = App\Models\Upload::find($imageId);
+                            @endphp
+                        <img src="{{asset($upload->filepath )}}" class=" {{ $loop->iteration % 2 == 0 ? 'position-absolute' : ''}}" alt="{{ $upload->file_original_name}}" title="{{ $about->title }}" />
+                        @endforeach
+                        {{-- <img src="{{asset('frontend/assets/img/abt2.jpg')}}" class="" alt="" title="" />
+                        <img src="{{asset('frontend/assets/img/abt3.jpg')}}" class="position-absolute" alt="" title="" /> --}}
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6  col-12 col-sm-12">
                     <div class="abt-title">
                         <p class="mb-2">About</p>
-                        <h2 class="text-white">Brief Overview Of<br />IndoTradex</h2>
+                        <h2 class="text-white"> {{ $about->title}}</h2>
                     </div>
                     <div class="abt-cnt">
                         <p class="pt-md-4">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                          {{$about->description}}
                         </p>
-                        <p>
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing software like Aldus PageMaker including
-                            versions of Lorem Ipsum.
-                        </p>
-                        <a href="about.html" class="text-decoration-none btn btn-link mt-md-5" role="link">Explore<i
+                        <a href="{{route('about')}}" class="text-decoration-none btn btn-link mt-md-5" role="link">Explore<i
                             class="ri-arrow-right-up-line ms-md-2 ms-1" ></i></a>
                     </div>
                 </div>

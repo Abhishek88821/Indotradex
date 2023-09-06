@@ -82,7 +82,7 @@
                             <img src="assets/img/icon/close.svg" class="img-fluid d-none" alt="Menu Icon" title="Menu" />
                         </div>
                         <div class="log-div ms-md-0 ms-3">
-                            <a href="index.html" class="text-decoration-none" role="link">
+                            <a href="{{route('/')}}" class="text-decoration-none" role="link">
                                 <h1><span>Indo</span>Tradex</h1>
                             </a>
                         </div>
@@ -93,24 +93,24 @@
                         <div class="nav-div-lst">
                             <ul class="list-unstyled d-md-flex d-grid align-items-md-center mb-0">
                                 <li>
-                                    <a href="index.html" class="text-decoration-none">Home</a>
+                                    <a href="{{ route('/')}}" class="text-decoration-none">Home</a>
                                 </li>
                                 <li>
-                                    <a href="about.html" class="text-decoration-none">About Us</a>
+                                    <a href="{{ route('about')}}" class="text-decoration-none">About Us</a>
                                 </li>
                                 <li>
-                                    <a href="membership.html" class="text-decoration-none">Membership</a>
-                                </li>
-
-                                <li>
-                                    <a href="tranding.html" class="text-decoration-none">Products</a>
+                                    <a href="{{route('membership')}}" class="text-decoration-none">Membership</a>
                                 </li>
 
                                 <li>
-                                    <a href="business.html" class="text-decoration-none">Services</a>
+                                    <a href="{{route('trading')}}" class="text-decoration-none">Products</a>
+                                </li>
+
+                                <li>
+                                    <a href="{{route('business')}}" class="text-decoration-none">Services</a>
                                 </li>
                                 <li>
-                                    <a href="contact.html" class="text-decoration-none">Contact Us</a>
+                                    <a href="{{route('contact')}}" class="text-decoration-none">Contact Us</a>
                                 </li>
                             </ul>
                         </div>
@@ -133,10 +133,10 @@
                                     <a href="login.html"
                                         class="text-decoration-none text-white d-md-none  d-block align-items-center"
                                         role="link">
-                                        <img src="assets/img/icon/login.svg" class="img-fluid w-100" alt="login"
+                                        <img src="{{asset('frontend/assets/img/icon/login.svg')}}" class="img-fluid w-100" alt="login"
                                             title="login" />
                                     </a>
-                                    <a href="login.html"
+                                    <a href="{{route('login')}}"
                                         class="text-decoration-none text-white d-md-flex  d-none align-items-center"
                                         role="link">
                                         <i class="ri-logout-box-r-line pe-2"></i>Login

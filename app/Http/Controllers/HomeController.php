@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
+use App\Models\Slider;
 use App\Models\Product;
 use App\Models\Project;
 use App\Models\Business;
@@ -17,6 +19,24 @@ class HomeController extends Controller
         $products = Product::active()->latest()->take(5)->get();
         $projects = Project::active()->latest()->take(5)->get();
         $business = Business::active()->latest()->take(5)->get();
-        return view('frontend.pages.index' , compact('category','tradingCategory' ,'products' , 'projects' ,'business'));
+        $sliders = Slider::active()->latest()->get();
+        $about = About::first();
+        return view('frontend.pages.index' , compact('category','tradingCategory' ,'products' , 'projects' ,'business' , 'sliders','about'));
+    }
+
+    Public function about(){
+        $about = About::first();
+        return view('frontend.pages.about' , compact('about'));
+    }
+
+
+    Public function membership(){
+
+        return view('frontend.pages.membership');
+    }
+
+    Public function business(){
+        $business = Business::active()->latest()->get();
+        return view('frontend.pages.business' , compact('business'));
     }
 }

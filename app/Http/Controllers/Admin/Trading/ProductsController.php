@@ -35,7 +35,7 @@ class ProductsController extends Controller
     public function productStore(trandingProductStore $request)
     {
         $productData = $request->only([
-            'name', 'category_id', 'description', 'status',
+            'name', 'category_id', 'description', 'status', 'shot_desc',
              'meta_keywords', 'meta_description'
         ]);
 
@@ -67,6 +67,7 @@ class ProductsController extends Controller
         $product->status = $request->status;
         $product->meta_keywords = $request->meta_keywords;
         $product->meta_description = $request->meta_description;
+        $product->shot_desc = $request->shot_desc;
         $product->meta_title = $request->meta_title ?? $request->name;
         
         if ($request->hasFile('image')) {

@@ -3,7 +3,7 @@
         <div class="row align-items-md-center">
             <div class="col-lg-3 col-xl-3">
                 <div class="log-div">
-                    <a href="index.html" class="text-decoration-none" role="link">
+                    <a href="{{route('/')}}" class="text-decoration-none" role="link">
                         <h1><span>Indo</span>Tradex</h1>
                     </a>
                 </div>

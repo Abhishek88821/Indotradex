@@ -20,6 +20,7 @@ class Product extends Model
         'filepath',
         'icon',
         'category_id',
+        'shot_desc',
         'description',
         'specifications',
         'display_order',

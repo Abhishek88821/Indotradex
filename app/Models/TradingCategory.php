@@ -30,12 +30,15 @@ class TradingCategory extends Model
 
     public function childCategories()
     {
-        return $this->hasMany(TradingCategory::class, 'category_id');
+        return $this->hasMany(TradingCategory::class, 'category_id')->active();
     }
 
     public function scopeActive($query)
     {
         return $query->where('status', 1);
     }
+
+
+   
     
 }
