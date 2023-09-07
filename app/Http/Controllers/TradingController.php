@@ -24,34 +24,41 @@ class TradingController extends Controller
 
     public function product( $slug){
        
-
         $tradingCategory = TradingCategory::where('slug', $slug)->first();
-           $childCategorys =  TradingCategory::where('category_id',$tradingCategory->id )->get();
-           $data = [];
-           foreach($childCategorys as $childCategory){
-            $data[] = $childCategory->id;
-           }
-        if ($tradingCategory) {
-            $products = Product::where(['category_id' => $data]) ->active()
-            ->latest()
-            ->get();
-          
-            return view('frontend.pages.product', compact('products', 'tradingCategory'));
-        } else {
-           
+     
+        if (!$tradingCategory) {
             return redirect()->back()->with('error', 'Trading category not found.');
         }
+
+        if( $tradingCategory->category_id != null && $tradingCategory->category_id){
+            $data[] = $tradingCategory->id;
+           $tradingCategory = TradingCategory::where('id', $tradingCategory->category_id)->first();
+       
+        }else{
+            $data = $tradingCategory->childCategories->pluck('id')->toArray();
+       
+        }
+
+        $products = Product::whereIn('category_id', $data)
+            ->active()
+            ->latest()
+            ->get();
+        
+        return view('frontend.pages.product', compact('products', 'tradingCategory'));
+        
     }
 
 
     Public function productDetails( $slug){
        $product = Product::where('slug', $slug)->first();
        if($product){
-        $products = Product::where('category_id', $product->category_id) 
+        $relatedProducts = Product::where('category_id', $product->category_id) 
         ->whereNotIn('id', [$product->id])
         ->get(); 
-    
-        return view('frontend.pages.product-details', compact('product' , 'products'));
+        $parentCategory = TradingCategory::where('id', $product->category_id)->first();
+        $mainCategory = TradingCategory::where('id', $parentCategory->category_id)->first();
+       
+        return view('frontend.pages.product-details', compact('product' , 'relatedProducts' , 'mainCategory'));
        }
        return redirect()->back()->with('error' , 'Product not found');
     }

@@ -40,7 +40,7 @@
                             @foreach($tradingCategory as $list)
                             <div class="item">
                                 <div class="pro-link-box">
-                                    <a href="product.html" class="text-decoration-none" role="link">
+                                    <a href="{{route('product',[$list->slug])}}" class="text-decoration-none" role="link">
                                         <div class="pro-link-img">
                                             <img src="{{asset( $list->images->filepath )}}" class="img-fluid w-100" alt="{{ $list->images->file_original_name}}"
                                                 title="{{ $list->name }}" />
@@ -165,7 +165,7 @@
 
                                         </div>
                                         <div class="explore-more-bnt">
-                                            <a href="product-details.html" class="text-decoration-none">
+                                            <a href="{{route('productDetails',[$Items->slug])}}" class="text-decoration-none">
                                                 <span><i class="ri-arrow-right-up-line"></i></span>
                                             </a>
                                         </div>

@@ -33,6 +33,12 @@ class TradingCategory extends Model
         return $this->hasMany(TradingCategory::class, 'category_id')->active();
     }
 
+    public function Products()
+    {
+        return $this->hasMany(Product::class, 'category_id' , 'id')->active();
+    }
+
+
     public function scopeActive($query)
     {
         return $query->where('status', 1);

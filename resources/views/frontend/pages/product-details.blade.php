@@ -44,14 +44,27 @@
                             </ul>
                         </div>
                         <div class="agro-div-lst py-3  border-0">
-                            <h5>Agro Products</h5>
+                            <h5>{{ $mainCategory->name}}</h5>
                             <ul class="list-unstyled border-0">
                                 <li>
-                                    <div class="label">
-                                        <input type="checkbox" class="form-control" name="product" /><span
-                                            class="ms-2 label-div">Spices & Herbs</span>
-                                    </div>
                                     <ul class="list-unstyled d-block">
+                                        @foreach($mainCategory->childCategories as $childCategory)
+                                        <li>
+                                            <a href="{{route('product',[$childCategory->slug])}}" class="text-decoration-none"
+                                                role="link">{{ $childCategory->name }}</a>
+                                            <ul class="list-unstyled d-block">
+                                                @foreach($childCategory->Products as $product)
+                                                <li>
+                                                    <a href="{{ route('productDetails',[$product->slug ])}}" class="text-decoration-none"
+                                                        role="link">{{ $product->name}}</a>
+                                                </li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
+                                      @endforeach
+                                    </ul>
+                                    {{-- <ul class="list-unstyled d-block">
+                                       
                                         <li>
                                             <a href="javascript:void(0)" class="text-decoration-none"
                                                 role="link">Clove</a>
@@ -217,8 +230,8 @@
                                             </ul>
                                         </li>
 
-                                    </ul>
-                                </li>
+                                    </ul> --}}
+                                {{-- </li>
                                 <li>
                                     <div class="label">
                                         <input type="checkbox" class="form-control" name="product" /><span
@@ -403,7 +416,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                     </div>
@@ -438,7 +451,7 @@
                                   
                                     <tr>
                                         <td>Picture</td>
-                                        <td><img src="{{ asset($product->icons->filepath)}}" class="table-img" alt="{{$product->icons->file_original_name }}" title="{{$product->name }}" /></td>
+                                        <td><img src="{{ asset($product->icons->filepath)}}" class="table-img" alt="{{$product->icons->file_original_name }}" title="{{$product->name }}" style="height:100px" /></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -459,7 +472,9 @@
                 </div>
                 <div class="col-lg-12 col-xl-12">
 
-
+                    @if ($relatedProducts->isEmpty())
+                    {{-- <h2>No Products Found !!!</h2> --}}
+                     @else
                     <!-- related product start -->
                     <div class="related-product mt-md-5 mt-5">
                         <div class="title  mt-md-5 mt-5">
@@ -467,7 +482,7 @@
                         </div>
                         <div class="tre-div-box mt-md-5">
                             <div class="owl-carousel owl-theme" id="rel-div-box">
-                                @foreach($products as $list)
+                                @foreach($relatedProducts as $list)
                                 <div class="item">
                                     <div class="tra-pro-div">
                                         <div class="tra-pro-img position-relative">
@@ -499,6 +514,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     <!-- related product end -->
                 </div>
             </div>
