@@ -34,37 +34,37 @@
                         <div class="title mb-md-5">
                             <h2 class="mb-20" >Login</h2>
                         </div>
-                        <div class="col-lg-12 col-xl-12">
-                            <div class="form-group  mb-md-4">
-                                <label for="e_mail">
-                                    E-mail<span>*</span>
-                                </label>
-                                <input type="text" class="form-control" name="e_mail" id="e_mail" />
+                        <form action="{{ route('sign_in') }}" method="POST">
+                            @csrf
+                        
+                            <div class="form-group">
+                                <label for="email">E-mail<span>*</span></label>
+                                <input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}" required />
+                                @error('email')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
-                        </div>
-                        <div class="col-lg-12 col-xl-12">
-                            <div class="form-group mb-md-4 position-relative">
-
-                                <label for="category">
-                                    Password<span>*</span>
-                                </label>
-                                <input type="password" class="form-control" name="product" id="password" />
-                                <a href="forget-password.html" role="link"
-                                    class="forget-password position-absolute">Forget Password?</a>
-                                    <i toggle="#password" class="ri-eye-off-line password-icn position-absolute "></i>
+                        
+                            <div class="form-group position-relative">
+                                <label for="password">Password<span>*</span></label>
+                                <input type="password" class="form-control" name="password" id="password" required />
+                                <a href="forget-password.html" role="link" class="forget-password position-absolute">Forget Password?</a>
+                                <i toggle="#password" class="ri-eye-off-line password-icn position-absolute"></i>
+                                @error('password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
-                        </div>
-                        <div class="col-xl-12 col-lg-12" >
-                            <label class="remember-me d-flex align-item-center mb-0"  >
-                                <input type="checkbox" checked="checked" class=" me-md-2 me-2" />
-                                Remember Me
-                              </label>
-                        </div>
-                        <div class="col-xl-12 col-lg-12">
+                        
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <label class="form-check-label" for="remember">Remember Me</label>
+                            </div>
+                        
                             <div class="register-lnk position-relative d-flex align-items-center">
-                                <input type="button" class="btn-link mt-md-3 text-decoration-none mb-0" value="Submit" />
+                                <button type="submit" class="btn-link mt-3 text-decoration-none mb-0">Submit</button>
                             </div>
-                        </div>
+                        </form>
+                        
                         <div class="col-xl-12 col-lg-12 col-12  text-end" >
                             <label class="signup pt-2" >
                                 Don’t have an account? <a href="{{route('register')}}" class="text-decoration-none" role="button" >Sign up</a>

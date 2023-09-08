@@ -136,11 +136,19 @@
                                         <img src="{{asset('frontend/assets/img/icon/login.svg')}}" class="img-fluid w-100" alt="login"
                                             title="login" />
                                     </a>
+                                    @if(Auth::check())
+                                    <a href="{{route('dashboard')}}"
+                                    class="text-decoration-none text-white d-md-flex  d-none align-items-center"
+                                    role="link">
+                                    <i class="ri-logout-box-r-line pe-2"></i>Dashboard
+                                </a>
+                                    @else
                                     <a href="{{route('login')}}"
                                         class="text-decoration-none text-white d-md-flex  d-none align-items-center"
                                         role="link">
                                         <i class="ri-logout-box-r-line pe-2"></i>Login
                                     </a>
+                                    @endif 
                                 </li>
                             </ul>
                         </div>

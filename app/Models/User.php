@@ -34,7 +34,7 @@ class User extends Authenticatable
         'address',
         'city',
         'pinCode',
-        'roleId',
+        'role_id',
         'photoId',
         'photo',
         'remark',

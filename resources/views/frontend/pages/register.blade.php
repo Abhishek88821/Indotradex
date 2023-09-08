@@ -34,67 +34,117 @@
                         <div class="title mb-md-5">
                             <h2>Register Page</h2>
                         </div>
+                        <form action="{{route('sign_up')}}" method="post" enctype="multipart/form-data">
+                            @csrf
                         <div class="row p-0 mt-md-4">
                             <div class="col-lg-6 col-xl-6">
                                 <div class="form-group mb-md-4">
-                                    <label for="registerby">
-                                        Register As <span>*</span>
-                                    </label>
-                                    <select class="form-control" id="register_as">
-                                        <option value="as_supplier">Supplier</option>
-                                        <option value="buyer">Buyer</option>
-                                        <option value="project_owner">Project Owner</option>
-                                        <option value="investor">Investor</option>
-                                        <option value="agent">Agent</option>
-                                        <option value="consultant">Consultant</option>
-                                        <option value="member">Member</option>
+                                    <label for="register_as">Register As <span>*</span></label>
+                                    <select class="form-control @error('role') is-invalid @enderror" id="register_as" name="role">
+                                        <option selected disabled >Select Role</option>
+                                       @foreach($role as $list)
+                                        <option value="{{ $list->id }}">{{ $list->name }}</option>
+                                        @endforeach
                                     </select>
+                                    @error('role')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-6 col-xl-6">
                                 <div class="form-group  mb-md-4">
-                                    <label for="first_name">
-                                        First Name <span>*</span>
-                                    </label>
-                                    <input type="text" class="form-control" name="first_name" id="first_name" />
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 col-xl-6">
-                                <div class="form-group  mb-md-4">
-                                    <label for="last_name">
-                                        Last Name <span>*</span>
-                                    </label>
-                                    <input type="text" class="form-control" name="last_name" id="last_name" />
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 col-xl-6">
-                                <div class="form-group  mb-md-4">
-                                    <label for="first_name">
-                                        E-mail <span>*</span>
-                                    </label>
-                                    <input type="text" class="form-control" name="first_name" id="first_name" />
+                                    <label for="first_name">First Name <span>*</span></label>
+                                    <input type="text" class="form-control @error('first_name') is-invalid @enderror"
+                                        name="first_name" id="first_name" value="{{ old('first_name') }}" required />
+                                    @error('first_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-xl-6">
                                 <div class="form-group  mb-md-4">
-                                    <label for="first_name">
-                                        Mobile <span>*</span>
-                                    </label>
+                                    <label for="last_name">Last Name <span>*</span></label>
+                                    <input type="text" class="form-control @error('last_name') is-invalid @enderror"
+                                        name="last_name" id="last_name" value="{{ old('last_name') }}" required />
+                                    @error('last_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-xl-6">
+                                <div class="form-group  mb-md-4">
+                                    <label for="email">Email <span>*</span></label>
+                                    <input type="text" class="form-control @error('email') is-invalid @enderror"
+                                        name="email" id="email" value="{{ old('email') }}" required />
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-xl-6">
+                                <div class="form-group  mb-md-4">
+                                    <label for="password">Password <span>*</span></label>
+                                    <input type="text" class="form-control @error('password') is-invalid @enderror"
+                                        name="password" id="password" value="{{ old('password') }}" required />
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-xl-6">
+                                <div class="form-group  mb-md-4">
+                                    <label for="confirmed">Confirm Password <span>*</span></label>
+                                    <input type="text" class="form-control @error('confirmed') is-invalid @enderror"
+                                        name="confirmed" id="confirmed" value="{{ old('confirmed') }}" required />
+                                    @error('confirmed')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-6 col-xl-6">
+                                <div class="form-group  mb-md-4">
+                                    <label for="mobile">Mobile <span>*</span></label>
                                     <div class="mobile-div d-flex align-items-center">
-                                        <input type="text" class="form-control" name="mobile" id="mobile" />
+                                        <input type="tel" class="form-control @error('mobile') is-invalid @enderror"
+                                            name="mobile" id="mobile" value="{{ old('mobile') }}" required />
                                     </div>
+                                    @error('mobile')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
 
+
+
                             <div class="col-lg-6 col-xl-6">
                                 <div class="form-group  mb-md-4">
-                                    <label for="website">
-                                        Website <span>*</span>
-                                    </label>
-                                    <input type="text" class="form-control" name="website" id="website" />
+                                    <label for="website">WebSite <span>*</span></label>
+                                    <input type="text" class="form-control @error('website') is-invalid @enderror"
+                                        name="website" id="website" value="{{ old('website') }}" required />
+                                    @error('website')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -103,8 +153,13 @@
                                     <label for="first_name">
                                         Address Name <span>*</span>
                                     </label>
-                                    <textarea type="text" class="form-control" name="address" id="message" rows="3"
-                                        cols="3"></textarea>
+                                    <textarea type="text" class="form-control  @error('address') is-invalid @enderror" name="address" id="message" rows="3"
+                                        cols="3">{{ old('address')}}</textarea>
+                                        @error('address')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                 </div>
                             </div>
 
@@ -113,7 +168,12 @@
                                     <label for="first_name">
                                         City/Town <span>*</span>
                                     </label>
-                                    <input type="text" class="form-control" name="city" id="city" />
+                                    <input type="text" class="form-control  @error('city') is-invalid @enderror " name="city" value="{{ old('city')}}" id="city" />
+                                    @error('city')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                 </div>
                             </div>
 
@@ -122,7 +182,12 @@
                                     <label for="pin_code">
                                         Pin Code <span>*</span>
                                     </label>
-                                    <input type="text" class="form-control" name="pin_code" id="pin_code" />
+                                    <input type="text" value="{{ old('pincode')}}" class="form-control  @error('pincode') is-invalid @enderror " name="pincode" id="pincode" />
+                                    @error('pincode')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -131,7 +196,12 @@
                                     <label for="photo_id">
                                         Upload Photo ID <span>*</span>
                                     </label>
-                                    <input type="file" class="form-control" name="photo_id" id="photo_id" />
+                                    <input type="file" class="form-control  @error('photo_id') is-invalid @enderror" value="{{ old('photo_id')}}" name="photo_id" id="photo_id" />
+                                    @error('photo_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-6 col-xl-6">
@@ -139,7 +209,13 @@
                                     <label for="photo">
                                         Upload Photo <span>*</span>
                                     </label>
-                                    <input type="file" class="form-control" name="photo" id="photo" />
+                                    <input type="file" class="form-control  @error('photo') is-invalid @enderror " value="{{ old('photo')}}" name="photo" id="photo" required />
+                                    @error('photo')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+
                                 </div>
                             </div>
                             <div class="col-lg-12 col-xl-12">
@@ -147,20 +223,27 @@
                                     <label for="remark">
                                         Remark <span>*</span>
                                     </label>
-                                    <textarea type="text" class="form-control" name="remark" id="remark" rows="3"
-                                        cols="3"></textarea>
+                                    <textarea type="text" class="form-control  @error('remark') is-invalid @enderror " name="remark" id="remark" rows="3"
+                                        cols="3" required >{{ old('remark')}}</textarea>
+                                        @error('remark')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                 </div>
                             </div>
                             <div class="col-xl-12 col-lg-12">
                                 <div class="register-lnk position-relative d-flex align-items-center">
-                                    <input type="button" class="btn-link mt-md-4 me-md-3 text-decoration-none"
+                                    <input type="submit" class="btn-link mt-md-4 me-md-3 text-decoration-none"
                                         value="Submit" />
                                     <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
                                         aria-controls="offcanvasExample"
                                         class="btn-link red text-decoration-none mt-md-4">Add Membership</a>
                                 </div>
                             </div>
+                       
                         </div>
+                    </form>
                     </div>
                 </div>
             </div>
@@ -354,6 +437,7 @@
                 <div class="col-lg-12 col-xl-12">
                     <div class="register-form">
                         <div class="row p-0 mt-md-4">
+                            <form action="{{route('membership')}}" method="post">
                             <div class="col-lg-12 col-xl-12">
                                 <div class="form-group mb-md-3">
                                     <label for="membership_as">
@@ -393,6 +477,7 @@
                                         value="Submit">
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
