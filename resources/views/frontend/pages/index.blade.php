@@ -208,7 +208,7 @@
                                             class="img-fluid w-100" alt="{{ $list->images->file_original_name}}" title="{{ $list->name }}" />
 
                                         <div class="explore-more-bnt">
-                                            <a href="trending-details.html" class="text-decoration-none">
+                                            <a href="{{ route('project',[$list->slug ])}}" class="text-decoration-none">
                                                 <span><i class="ri-arrow-right-up-line"></i></span>
                                             </a>
                                         </div>
@@ -250,7 +250,7 @@
                                 <div class="bus-pro-div position-relative">
                                     <a href="javascript:void(0)" class="text-decoration-none" role="link">
                                         <div class="bus-pro-cnt">
-                                            <h5>{{ $list->description }}<span>{{ $list->name }}</span></h5>
+                                            <h5>{{ $list->short_desc }}<span>{{ $list->name }}</span></h5>
                                         </div>
                                         <div class="tra-pro-img position-relative">
                                             <img src="{{asset( $list->images->filepath)}}" class="img-fluid w-100" alt="{{$list->images->file_original_name}}"

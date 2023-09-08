@@ -30,6 +30,7 @@ class BusinessController extends Controller
 
             $business = new Business;
             $business->name = $request->get('name');
+            $business->short_desc = $request->get('short_desc');
             $business->description = $request->get('description');
             $business->image = $this->createUpload($request->file('image'));
             $business->slug = $request->get('slug') ? Str::slug($request->slug , '-') : Str::slug($request->name , '-');
@@ -54,6 +55,7 @@ class BusinessController extends Controller
 
             $business = Business::findorfail($request->id);
             $business->name = $request->get('name');
+            $business->short_desc = $request->get('short_desc');
             $business->description = $request->get('description');
             if($request->file('image')){
                 $business->image = $this->createUpload($request->file('image'));

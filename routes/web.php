@@ -29,8 +29,7 @@ Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::get('/register',[AuthController::class,'register'])->name('register');
 Route::get('/trading',[TradingController::class, 'index'])->name('trading');
 Route::get('/product/{slug}',[TradingController::class, 'product'])->name('product');
-Route::get('product_details/{slug}',[TradingController::class, 'productDetails'])->name('productDetails');
-
+Route::get('/product_details/{slug}',[TradingController::class, 'productDetails'])->name('productDetails');
 Route::get('/trending',[TrendingController::class,'index'])->name('trending');
 Route::get('/project/{slug}',[TrendingController::class,'project'])->name('project');
 

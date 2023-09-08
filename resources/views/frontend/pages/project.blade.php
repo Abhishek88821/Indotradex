@@ -94,38 +94,38 @@
                 <div class="col-lg-9 col-xl-9">
                     <div class="trending-div-gallery d-flex align-items-center justify-content-between">
                         <div class="tre-div-gal-carousel owl-carousel owl-theme" id="tre-div-gal-carousel">
-                            {{-- @foreach(isset($project->resouces_images as $imageId) 
-                            @php 
-                              $image = App\Models\Upload::find($imageId);
-
+                          
+                            @if(isset($project->resouces_images))
+                            @php
+                                $imageIds = json_decode($project->resouces_images) ?? explode(',', $project->resouces_images);
                             @endphp
-                            <div class="item">
-                                <div class="trending-div-gal-1">
-                                    <img src="{{ asset($image->filepath ?? '' ) }}" class="img-fluid w-100" alt="" title="" />
-                                </div>
-                            </div>
-                        @endforeach --}}
-                            <div class="item">
-                                <div class="trending-div-gal-1">
-                                    <img src="https://images.pexels.com/photos/12275623/pexels-photo-12275623.jpeg?auto=compress&cs=tinysrgb&w=600" class="img-fluid w-100" alt="" title="" />
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="trending-div-gal-1">
-                                    <img src="https://images.pexels.com/photos/56030/pyrite-pyrites-mineral-sulfide-56030.jpeg?auto=compress&cs=tinysrgb&w=600" class="img-fluid w-100" alt="" title="" />
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="trending-div-gal-1">
-                                    <img src="https://images.pexels.com/photos/4040585/pexels-photo-4040585.jpeg?auto=compress&cs=tinysrgb&w=600" class="img-fluid w-100" alt="" title="" />
-                                </div>
-                            </div>
+                        
+                            @if(is_array($imageIds))
+                                @foreach($imageIds as $imageId)
+                                    @php 
+                                        $image = App\Models\Upload::find($imageId);
+                                    @endphp
+                                    <div class="item">
+                                        <div class="trending-div-gal-1">
+                                            <img src="{{ asset($image->filepath ?? '' ) }}" class="img-fluid w-100" alt="" title="" />
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @else
+                                <!-- Handle the case when $project->resouces_images is not a valid JSON array or comma-separated list -->
+                            @endif
+                        @else
+                            <!-- Handle the case when $project->resouces_images is null or not set -->
+                        @endif
+                        
+                        
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-xl-3">
-                    <a href="javascript:void(0)" class="text-decoration-none position-relative trending-download my-3 my-md-0" role="link">
-                        <i class="ri-download-2-line me-2 text-white  position-absolute"></i><p class="mb-0 text-white position-relative">Download</p>
+                    <a href="/{{$project->pdf->filepath }}" class="text-decoration-none position-relative trending-download my-3 my-md-0" role="link" download>
+                        <i class="ri-download-2-line me-2 text-white position-absolute"></i>
+                        <p class="mb-0 text-white position-relative">Download PDF</p>
                     </a>
                 </div>
                 <div class="col-lg-12 col-xl-12">

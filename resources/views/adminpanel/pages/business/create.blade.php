@@ -35,6 +35,13 @@
 
                                     </div>
                                 </div>
+                                <div class="form-group mb-3 row pb-3">
+                                    <label for="description"
+                                        class="col-sm-3 text-end control-label col-form-label">Short Description</label>
+                                    <div class="col-sm-9">
+                                        <textarea type="text" name="short_desc"  class="form-control" placeholder=" Enter Short Description Here" style="min-height:100%">{{ old('short_desc')}}</textarea>
+                                    </div>
+                                </div>
                               
                                 <div class="form-group mb-3 row pb-3">
                                     <label for="description"
