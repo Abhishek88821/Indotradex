@@ -219,26 +219,26 @@
                             <h5 class="foo-tit-div mb-md-3">Quick Links</h5>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="index.html" class="text-decoration-none" role="link">
+                                    <a href="{{route('/')}}" class="text-decoration-none" role="link">
                                         Home
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="about.html" class="text-decoration-none" role="link">
+                                    <a href="{{route('about')}}" class="text-decoration-none" role="link">
                                         About Us
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="our-team.html" class="text-decoration-none" role="link">
+                                    <a href="{{route('our-team')}}" class="text-decoration-none" role="link">
                                         Team
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="register.html" class="text-decoration-none" role="link">
+                                    <a href="{{route('register')}}" class="text-decoration-none" role="link">
                                         Register
                                     </a>
                                 <li>
-                                    <a href="contact.html" class="text-decoration-none" role="link">
+                                    <a href="{{route('contact')}}" class="text-decoration-none" role="link">
                                         Contact Us
                                     </a>
                                 </li>
@@ -247,30 +247,14 @@
                         <div class="foo-lst-div">
                             <h5 class="foo-tit-div mb-md-3">Products</h5>
                             <ul class="list-unstyled">
+                                @foreach (App\Models\TradingCategory::active()->where('category_id', NULL)->get() as $list)
                                 <li>
-                                    <a href="product.html" class="text-decoration-none" role="link">
-                                        Agro
+                                    <a href="{{route('product',[$list->slug]) }}" class="text-decoration-none" role="link">
+                                      {{  $list->name }}
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="product.html" class="text-decoration-none" role="link">
-                                        Metal
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="product.html" class="text-decoration-none" role="link">
-                                        Mining
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="product.html" class="text-decoration-none" role="link">
-                                        Sea
-                                    </a>
-                                <li>
-                                    <a href="product.html" class="text-decoration-none" role="link">
-                                        Precious
-                                    </a>
-                                </li>
+                                @endforeach
+                                
                             </ul>
                         </div>
                         <div class="foo-lst-div">

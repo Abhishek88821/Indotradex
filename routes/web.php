@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TradingController;
 use App\Http\Controllers\TrendingController;
 use App\Http\Controllers\UserDashboardController;
@@ -13,9 +14,7 @@ Route::get('/',[HomeController::class,'index'])->name('/');
 Route::get('/about', [HomeController::class,'about'])->name('about');
 Route::get('/business' , [HomeController::class,'business'])->name('business');
 Route::get('membership',[HomeController::class,'membership'])->name('membership');
-Route::get('/contact', function () {
-    return view('frontend.pages.contact');
-})->name('contact');
+Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::get('/trading',[TradingController::class, 'index'])->name('trading');
 Route::get('/product/{slug}',[TradingController::class, 'product'])->name('product');
 Route::get('/product_details/{slug}',[TradingController::class, 'productDetails'])->name('productDetails');
@@ -34,3 +33,7 @@ Route::get('buy',[UserDashboardController::class,'buy'])->name('buy');
 Route::get('resources',[UserDashboardController::class,'resources'])->name('resources');
 Route::get('call',[UserDashboardController::class,'call'])->name('call'); 
 Route::get('meeting',[UserDashboardController::class,'meeting'])->name('meeting'); 
+Route::get('visit',[UserDashboardController::class,'visit'])->name('visit');
+Route::get('profile',[UserDashboardController::class,'profile'])->name('profile');
+Route::get('investment',[UserDashboardController::class,'investment'])->name('investment');
+Route::get('our-team',[UserDashboardController::class,'team'])->name('our-team');

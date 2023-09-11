@@ -30,7 +30,7 @@
                 <i class="ri-google-fill"></i> <span
                     class="ms-md-2">Meeting</span> </a> </li>
             <li class="d-flex align-items-center">
-                <a href="visit.html" class="text-decoration-none d-flex align-items-center" role="button" >
+                <a href="{{route('visit')}}" class="text-decoration-none d-flex align-items-center" role="button" >
                 <i class="ri-ancient-gate-line"></i> <span
                     class="ms-md-2">Visit</span> </a> </li>
         </ul>
@@ -39,16 +39,16 @@
         <h5>SETTING</h5>
         <ul class="list-unstyled ps-0 mb-md-4">
             <li class="d-flex align-items-center">
-                <a href="profile.html" class="text-decoration-none d-flex align-items-center" role="button" >
+                <a href="{{route('profile')}}" class="text-decoration-none d-flex align-items-center" role="button" >
                     <i class="ri-user-line"></i> <span
                     class="ms-md-2">Profile</span> </a> </li>
             <li class="d-flex align-items-center">
-                <a href="investment.html" class="text-decoration-none d-flex align-items-center" role="button" >
+                <a href="{{route('investment')}}" class="text-decoration-none d-flex align-items-center" role="button" >
                 <i class="ri-exchange-dollar-line"></i> <span
                     class="ms-md-2">Investment</span> </a> </li>
         </ul>
     </div>
-    <div class="create-user">
+    <div class="create-user d-none">
         <a href="create-user.html" class="text-decoration-none d-flex align-items-center justify-content-center"
             role="button"> <i class="ri-user-3-line"></i><span class="ms-2">Create User</span></a>
     </div>

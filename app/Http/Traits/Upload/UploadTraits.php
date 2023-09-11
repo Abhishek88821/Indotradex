@@ -24,7 +24,7 @@ trait UploadTraits
             $fileSize = $image->getSize();
             $extension = $image->getClientOriginalExtension();
             $type = $image->getClientMimeType();
-            $userId = Auth::guard('admin')->user()->id;
+            $userId = Auth::guard('admin')->user()?->id ?? Auth::user()?->id;
             $imagePath = $image->move('uploads', $fileName);
             $upload = new Upload();
             $upload->file_original_name = $originalName;

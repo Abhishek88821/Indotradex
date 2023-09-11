@@ -51,12 +51,12 @@
                         <h5 class="foo-tit-div mb-md-3">Quick Links</h5>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="index.html" class="text-decoration-none" role="link">
+                                <a href="{{route('/')}}" class="text-decoration-none" role="link">
                                     Home
                                 </a>
                             </li>
                             <li>
-                                <a href="about.html" class="text-decoration-none" role="link">
+                                <a href="{{route('about')}}" class="text-decoration-none" role="link">
                                     About Us
                                 </a>
                             </li>
@@ -66,11 +66,11 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="register.html" class="text-decoration-none" role="link">
+                                <a href="{{ route('register')}}" class="text-decoration-none" role="link">
                                     Register
                                 </a>
                             <li>
-                                <a href="contact.html" class="text-decoration-none" role="link">
+                                <a href="route('contact')" class="text-decoration-none" role="link">
                                     Contact Us
                                 </a>
                             </li>

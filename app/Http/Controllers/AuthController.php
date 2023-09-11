@@ -31,7 +31,7 @@ class AuthController extends Controller
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
           
-            return redirect()->intended('/');
+            return redirect()->intended('dashboard');
         } else {
             return back()->withInput()->withErrors(['email' => 'These credentials do not match our records.']);
         }
@@ -51,7 +51,6 @@ class AuthController extends Controller
             'remark' => 'required',
         ]);
     
-       
         $user = new User([
             'role_id' => $request->role,
             'firstName' => $request->input('first_name'),
@@ -63,14 +62,24 @@ class AuthController extends Controller
             'address' => $request->input('address'),
             'city'    => $request->input('city'),
             'pinCode'  => $request->input('pincode'),
-            'photoId' => $this->createUpload($request->file('photo_id')),
-            'photo' => $this->createUpload($request->file('photo')),
             'remark' => $request->input('remark'),
-            'status' => 1, 
+            'status' => 1,
         ]);
     
-        $user->save();
+        $user->save(); 
     
-        return redirect()->route('login')->with('success', 'Registration successful. Please login.');
+        // Perform the login after registration
+        if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            // Successfully logged in
+            $user->update([
+                'photoId' => $this->createUpload($request->file('photo_id')),
+                'photo' => $this->createUpload($request->file('photo')),
+            ]);
+            return redirect()->intended('dashboard');
+        } else {
+            // Login failed
+            return redirect()->route('login')->with('success', 'Registration successful.');
+        }
     }
+    
 }

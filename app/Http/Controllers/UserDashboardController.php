@@ -30,4 +30,21 @@ class UserDashboardController extends Controller
   Public function meeting(){
     return view('frontend.pages.meeting');
   }
+
+  Public function visit(){
+    return view('frontend.pages.visit');
+  }
+
+  public function profile(){
+    return view('frontend.pages.profile');
+  }
+
+  public function investment(){
+    return view('frontend.pages.investment');
+  }
+
+  public function team(){
+    return view('frontend.pages.our-team');
+  }
+
 }
