@@ -34,12 +34,14 @@ class ProductsController extends Controller
 
     public function productStore(trandingProductStore $request)
     {
+      
         $productData = $request->only([
-            'name', 'category_id', 'description', 'status', 'shot_desc',
+            'name', 'description', 'status', 'shot_desc',
              'meta_keywords', 'meta_description'
         ]);
 
         $product = new Product($productData);
+        $product->category_id = json_encode($request->category_ids);
         $product->slug = $request->slug ? Str::of($request->slug)->slug('-') :  Str::of($request->name)->slug('-');
         $product->image = $this->createUpload($request->file('image'));
         $product->icon = $this->createUpload($request->file('icon'));
@@ -60,9 +62,11 @@ class ProductsController extends Controller
     
     public function productUpdate(trandingProductStore $request)
     {
+       
         $product = $this->ProductGetById($request->id);
+        $product->category_id = json_encode($request->category_ids);
         $product->name = $request->name;
-        $product->category_id = $request->category_id;
+        // $product->category_id = $request->category_id;
         $product->description = $request->description;
         $product->status = $request->status;
         $product->meta_keywords = $request->meta_keywords;

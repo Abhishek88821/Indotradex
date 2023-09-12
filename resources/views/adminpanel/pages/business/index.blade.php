@@ -46,7 +46,9 @@
                                             <a href="{{ route('admin.business.edit', ['id' =>$item->id])}}" class="text-success p-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a> 
-                                            <a href="{{ route('admin.business.destroy',['id' =>  $item->id])}}" class="text-danger p-2">
+                                            <a href="#" class="text-danger p-2"
+                                                onclick="showDeleteModal('{{ route('admin.business.destroy',['id' =>  $item->id])}}')"
+                                                >
                                                 <i class="fa-solid fa-trash"></i>
                                             </a>
                                         </td>

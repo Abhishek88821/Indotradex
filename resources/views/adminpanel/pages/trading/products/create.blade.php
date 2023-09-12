@@ -1,4 +1,5 @@
 <x-app-layout>
+ 
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -46,25 +47,18 @@
                                         </label>
                                     </div>
                                 </div>
-
-                                <div class="form-group mb-3 row pb-3">
-                                    <label for="name"
-                                        class="col-sm-3 text-end control-label col-form-label">Category</label>
+                                    <div class="form-group mb-3 row pb-3">
+                                    <label for="name" class="col-sm-3 text-end control-label col-form-label">Category</label>
                                     <div class="col-sm-9">
-                                        <select name="category_id" class="form-control">
-                                            <option value="" disabled>Select Category</option>
-                                            @foreach ($trandingCategory as $category)
-                                            <optgroup label="{{$category->name }}">
-                                              @foreach ($category->childCategories as $childCategory)
-                                              <option value="{{ $childCategory->id }}" {{ old('category_id') == $childCategory->id ? 'selected' : '' }}>
-                                                {{ $childCategory->name }}
-                                            </option>
-                                              @endforeach
-                                            </optgroup>
-                                            @endforeach
-                                        </select>
+                                        <div class="scrollable-box">
+                                        <div class="mb-2">
+                                            @include('adminpanel/pages/trading/products/category-checkbox', ['categories' => $trandingCategory])
+                                        </div>
+                                    </div>
                                     </div>
                                 </div>
+                             
+                                
                                 <div class="form-group mb-3 row pb-3">
                                     <label for="description"
                                         class="col-sm-3 text-end control-label col-form-label">Description</label>
@@ -172,6 +166,7 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
         const imageInputs = document.querySelectorAll('.image-input');
@@ -224,6 +219,20 @@
 
         specificationsContainer.insertBefore(newRow, addSpecificationButton);
     });
+
+   
 </script>
+
+
+
+
+    
+
+   
+    
+    
+    
+
+
     
 </x-app-layout>

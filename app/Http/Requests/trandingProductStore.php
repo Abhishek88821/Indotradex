@@ -23,7 +23,7 @@ class trandingProductStore extends FormRequest
     {
          $rules = [
             'name' => 'required|string|max:255',
-            'category_id' => 'required|integer',
+            'category_ids' => 'required',
             'description' => 'required|string',
             'specifications_key.*' => 'required',
             'specifications_value.*' => 'required',

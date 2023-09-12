@@ -18,7 +18,7 @@
                                         <th>S.No.</th>
                                         <th>Name </th>
                                         <th>Image</th>
-                                        <th>Category</th>
+                                        {{-- <th>Category</th> --}}
                                         <th>Status </th>
                                         <th>Options</th>
                                     </tr>
@@ -33,7 +33,7 @@
                                                 <img src="{{ asset($item->images->filepath)}}" alt="{{ $item->images->file_original_name }}" class="preview">
                                             </div>
                                         </td>
-                                        <td>{{ $item->categorys?->name }}</td>
+                                        {{-- <td>{{ $item->categorys?->name }}</td> --}}
                                         <td>
                                             <a href="{{ route('admin.product.status',['id' => $item->id ])}}" class="text-primary">
                                                 <i class="fa-solid {{ $item->status == 1 ? 'fa-toggle-on' : 'fa-toggle-off' }}"></i>
@@ -44,7 +44,7 @@
                                             <a href="{{ route('admin.product.edit', ['id' =>$item->id ])}}" class="text-success p-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a> 
-                                            <a href="{{ route('admin.product.destroy',['id' =>  $item->id])}}" class="text-danger p-2">
+                                            <a href="#" class="text-danger p-2" onclick="showDeleteModal('{{ route('admin.product.destroy', ['id' => $item->id]) }}')">
                                                 <i class="fa-solid fa-trash"></i>
                                             </a>
                                         </td>

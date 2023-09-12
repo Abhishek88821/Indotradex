@@ -27,14 +27,14 @@
                     </a>
                 </li>
 
-                <li class="sidebar-item">
+                {{-- <li class="sidebar-item">
                     <a href="{{ route('admin.trading.subcategory') }}" class="sidebar-link">
                         <div class="round-16 d-flex align-items-center justify-content-center">
                             <i class="ti ti-circle"></i>
                         </div>
                         <span class="hide-menu">Sub Category</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </li>
 

@@ -7,8 +7,8 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img style="object-position: top!important;"
-                        src="{{ asset($tradingCategory->banners->filepath ?? 'uploads/1hxD9JQ6vg7yEOItIe4A.jpeg')}}"
-                        class="d-block w-100" alt="{{$tradingCategory->banners->file_original_name ?? ''}}">
+                        src="{{ asset($tradingCategory->banners?->filepath ?? 'uploads/1hxD9JQ6vg7yEOItIe4A.jpeg')}}"
+                        class="d-block w-100" alt="{{$tradingCategory->banners?->file_original_name ?? ''}}">
                 </div>
             </div>
             <button class="carousel-control-prev d-none" type="button"
@@ -22,11 +22,12 @@
                 <span class="visually-hidden"></span>
             </button>
         </div>
+         <div class="text-center m-2 h4"> {{ $tradingCategory->name }}</div>
         <!-- slider img end -->
     </section>
     <!-- slider end -->
     <!-- agro start -->
-    <section class="agro-div position-relative py-70">
+    <section class="agro-div position-relative py-60">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-xl-12">
@@ -70,26 +71,10 @@
                             </ul>
                         </div>
                         <div class="agro-div-lst py-3  border-0">
-                            <h5>{{ $tradingCategory->name }}</h5>
+                          <span> Categories</span>
                             <ul class="list-unstyled border-0">
                                 <li>
-                                  
-                                    <ul class="list-unstyled d-block">
-                                        @foreach($tradingCategory->childCategories as $childCategory)
-                                        <li>
-                                            <a href="{{route('product',[$childCategory->slug])}}" class="text-decoration-none"
-                                                role="link">{{ $childCategory->name }}</a>
-                                            {{-- <ul class="list-unstyled d-block">
-                                                @foreach($childCategory->Products as $product)
-                                                <li>
-                                                    <a href="{{ route('productDetails',[$product->slug ])}}" class="text-decoration-none"
-                                                        role="link">{{ $product->name}}</a>
-                                                </li>
-                                                @endforeach
-                                            </ul> --}}
-                                        </li>
-                                      @endforeach
-                                    </ul>
+                                   @include('frontend/inc/productSidebar',['category' => $category , 'tradingCategory'=> $tradingCategory ])
                                 </li>
                             </ul>
                         </div>

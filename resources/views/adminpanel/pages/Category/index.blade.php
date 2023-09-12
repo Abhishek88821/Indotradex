@@ -32,7 +32,9 @@
                                       <td>
                                          <a href="text-primary p-2"> <i class="fa-solid fa-eye"></i> </a> 
                                          <a href="{{ route('admin.category.edit', $item->id )}}" class="text-success p-2"> <i class="fa-solid fa-pen-to-square"></i> </a> 
-                                          <a href="{{ route('admin.category.destroy', $item->id )}}" class="text-danger p-2"> <i class="fa-solid fa-trash"></i> </a>
+                                          <a href="#"
+                                            onclick="showDeleteModal('{{ route('admin.category.destroy', $item->id )}}')"
+                                            class="text-danger p-2"> <i class="fa-solid fa-trash"></i> </a>
                                       </td>
                                   </tr>
                                     @endforeach

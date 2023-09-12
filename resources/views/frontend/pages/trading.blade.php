@@ -68,14 +68,7 @@
                
                 @foreach ($tradingCategories as $item)
                 @php 
-                $data = []; 
-                    foreach ($item->childCategories as $child){
-                        $data[] = $child->id;
-                    }
-                $products = App\Models\Product::whereIn('category_id', $data)
-                    ->active()
-                    ->latest()
-                    ->get();
+                $products = App\Models\Product::whereJsonContains('category_id',strval($item->id))->get();
                  @endphp 
                  @if($products->isNotEmpty())
                 <div class="col-xl-12 col-lg-12">
@@ -112,7 +105,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="tra-pro-cnt">
-                                                    <span>{{ $product->categorys->name}}</span>
+                                                    {{-- <span>{{ $product->categorys?->name}}</span> --}}
                                                     <h4>{{ $product->name }}</h4>
                                                     <p> {{ $product->shot_desc ?? ' ' }}</p>
                                                 </div>
@@ -125,7 +118,7 @@
                         </div>
                     </div>
                 </div>
-                @endif
+               @endif
                 @endforeach
             </div>
         </div>

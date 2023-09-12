@@ -17,6 +17,6 @@ class Business extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('status', 1);
+        return $query->where('status', 1)->orderBy('order', 'asc');
     }
 }

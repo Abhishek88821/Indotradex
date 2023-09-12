@@ -171,7 +171,7 @@
                                         </div>
                                     </div>
                                     <div class="tra-pro-cnt">
-                                        <span>{{$Items->categorys->name }}</span>
+                                        {{-- <span>{{$Items->categorys?->name }}</span> --}}
                                         <h4>{{ $Items->name }}</h4>
                                         <p>{{ $Items->description }}</p>
                                     </div>

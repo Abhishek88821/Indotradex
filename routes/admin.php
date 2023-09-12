@@ -27,8 +27,12 @@ Route::middleware('admin')->group( function(){
    Route::get('category/status/{id}', [CategoryController::class, 'status'])->name("admin.category.status");
    Route::get('category/destroy/{id}', [CategoryController::class, 'destroy'])->name("admin.category.destroy");
 
-   Route::get('trading/category',[TradingCategoryController::class,'index'])->name('admin.trading.category');
-   Route::get('trading/category/create', [TradingCategoryController::class, 'create'])->name("admin.trading.category.create");
+   Route::get('trading/category/create/{id?}',[TradingCategoryController::class, 'create'])->name("admin.trading.category.create");
+
+   Route::get('trading/category/{id?}', [TradingCategoryController::class, 'index'])->name('admin.trading.category');
+
+
+
    Route::post('trading/category/store', [TradingCategoryController::class, 'store'])->name("admin.trading.category.store");
    Route::get('trading/category/edit/{id}', [TradingCategoryController::class, 'edit'])->name("admin.trading.category.edit");
    Route::put('trading/category/update', [TradingCategoryController::class, 'update'])->name("admin.trading.category.update");

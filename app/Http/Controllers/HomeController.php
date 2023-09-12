@@ -16,10 +16,10 @@ class HomeController extends Controller
     Public function index(){
         $category = Category::active()->get();
         $tradingCategory = TradingCategory::active()->where('category_id', NULL)->get();
-        $products = Product::active()->latest()->take(5)->get();
-        $projects = Project::active()->latest()->take(5)->get();
-        $business = Business::active()->latest()->take(5)->get();
-        $sliders = Slider::active()->latest()->get();
+        $products = Product::active()->take(5)->get();
+        $projects = Project::active()->take(5)->get();
+        $business = Business::active()->take(5)->get();
+        $sliders = Slider::active()->get();
         $about = About::first();
         return view('frontend.pages.index' , compact('category','tradingCategory' ,'products' , 'projects' ,'business' , 'sliders','about'));
     }

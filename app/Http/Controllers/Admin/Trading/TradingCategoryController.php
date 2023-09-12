@@ -13,18 +13,24 @@ class TradingCategoryController extends Controller
 {
     use UploadTraits;
 
-    Public function index(Request $request , $id=null){
-
+    public function index(Request $request, $id = null)
+    {
         $TrandingCategory = $id
-        ? TradingCategory::where('category_id', $id)->get()
-        : TradingCategory::where('category_id', NULL)->get();
-        
-    return view('adminpanel.pages.trading.category.index', compact('TrandingCategory', 'id'));
+            ? TradingCategory::where('category_id', $id)->get()
+            : TradingCategory::where('category_id', NULL)->get();
+    
+        return view('adminpanel.pages.trading.category.index', compact('TrandingCategory' ,'id'));
     }
+    
 
     Public function create($id = null){
-        $category = $id ? TradingCategory::get() : null;
-        return view('adminpanel.pages.trading.category.create' , compact('category' , 'id'));
+       if($id != null){
+        $category = TradingCategory::findorfail($id);
+       }else{
+        $category = null;
+       }
+  
+        return view('adminpanel.pages.trading.category.create' , compact('category'));
     }
 
     Public function store(Request $request){
@@ -44,7 +50,7 @@ class TradingCategoryController extends Controller
         $category->category_id = $request->category_id;
     }
     $category->save();
-    return redirect()->route('admin.trading.category')->with('success','Category Creation Success');
+    return redirect()->back()->with('success','Category Creation Success');
     }
 
     Public function status($id){
@@ -83,6 +89,6 @@ class TradingCategoryController extends Controller
         $category->meta_keyword = $request->meta_keywords ?? $category->meta_keywords;
         $category->meta_description = $request->meta_description ?? $category->meta_description;
         $category->update();
-        return redirect()->route('admin.trading.category')->with('success', 'Category Update Success');
+        return back()->with('success', 'Category Update Success');
     }
 }

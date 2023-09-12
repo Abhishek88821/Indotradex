@@ -56,23 +56,16 @@
                                 </div>
 
                                 <div class="form-group mb-3 row pb-3">
-                                    <label for="name"
-                                        class="col-sm-3 text-end control-label col-form-label">Category</label>
+                                    <label for="name" class="col-sm-3 text-end control-label col-form-label">Category</label>
                                     <div class="col-sm-9">
-                                        <select name="category_id" class="form-control">
-                                            <option value="" disabled>Select Category</option>
-                                            @foreach ($trandingCategory as $category)
-                                            <optgroup label="{{$category->name }}">
-                                              @foreach ($category->childCategories as $childCategory)
-                                              <option value="{{ $childCategory->id }}" {{ $product->category_id == $childCategory->id ? 'selected' : '' }}>
-                                                {{ $childCategory->name }}
-                                            </option>
-                                              @endforeach
-                                            </optgroup>
-                                            @endforeach
-                                        </select>
+                                        <div class="scrollable-box">
+                                        <div class="mb-2">
+                                            @include('adminpanel/pages/trading/products/category-checkbox', ['categories' => $trandingCategory , 'product' => $product])
+                                        </div>
+                                    </div>
                                     </div>
                                 </div>
+                                
                                 <div class="form-group mb-3 row pb-3">
                                     <label for="description"
                                         class="col-sm-3 text-end control-label col-form-label">Description</label>

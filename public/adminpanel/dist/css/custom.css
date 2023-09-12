@@ -4,3 +4,10 @@
 .preview{
     height: 80px !important;
 }
+
+.scrollable-box {
+    max-height: 300px; 
+    overflow-x: scroll; 
+    border: 1px solid #ccc; 
+    padding: 10px; 
+}

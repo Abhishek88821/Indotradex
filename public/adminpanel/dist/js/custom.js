@@ -136,3 +136,31 @@ function toggleTheme(value) {
   $(".preloader").fadeOut();
 }
 $(".preloader").fadeOut();
+
+
+
+$(document).ready(function(){
+  $(document).on('change', '[data-checkbox]', function(){
+      let _elm = $(this).parents('.form-check').parents('.form-check');
+      let _selector = _elm.children('.check-group').find('[data-checkbox]');
+      let isChecked = $(this).is(':checked'); 
+
+      _selector.prop('checked', isChecked).trigger('change');
+
+      let _isChecked = false;
+      _elm.children('.form-check').each(function(){
+          _isChecked = _isChecked || $(this).children('.check-group').find('[data-checkbox]').is(':checked');
+      });
+      _selector.prop('checked', _isChecked).trigger('change');
+  });
+});
+
+
+function showDeleteModal(url) {
+  $('#deleteModal').modal('show');
+  $('#confirmDeleteButton').attr('data-delete-url', url);
+}
+$('#confirmDeleteButton').on('click', function() {
+  var deleteUrl = $(this).attr('data-delete-url');
+  window.location.href = deleteUrl;
+});

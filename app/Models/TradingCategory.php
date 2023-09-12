@@ -30,7 +30,7 @@ class TradingCategory extends Model
 
     public function childCategories()
     {
-        return $this->hasMany(TradingCategory::class, 'category_id')->active();
+        return $this->hasMany(TradingCategory::class, 'category_id');
     }
 
     public function Products()
@@ -41,7 +41,7 @@ class TradingCategory extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('status', 1);
+        return $query->where('status', 1)->orderBy('order', 'asc');
     }
 
 

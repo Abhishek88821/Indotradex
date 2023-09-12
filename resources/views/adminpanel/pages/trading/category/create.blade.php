@@ -13,6 +13,19 @@
                             class="form-horizontal r-separator" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
+                                
+                                @if($category != null)
+                                <div class="form-group mb-3 row pb-3">
+                                    <label for="name"
+                                        class="col-sm-3 text-end control-label col-form-label">Category</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" readonly
+                                            placeholder="Enter Product Name Here" value="{{ $category->name}}" />
+                                            <input type="hidden" class="form-control"  name="category_id"
+                                            placeholder="Enter Product Name Here" value="{{ $category->id}}" />
+                                    </div>
+                                </div>
+                                @endif
                                 <div class="form-group mb-3 row pb-3">
                                     <label for="name"
                                         class="col-sm-3 text-end control-label col-form-label">Name</label>
