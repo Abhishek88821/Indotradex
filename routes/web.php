@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TradingController;
 use App\Http\Controllers\TrendingController;
 use App\Http\Controllers\UserDashboardController;
+use App\Http\Controllers\ProductEnqueryController;
 
 
 Route::get('/',[HomeController::class,'index'])->name('/');
@@ -27,6 +28,7 @@ Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::get('/register',[AuthController::class,'register'])->name('register');
 Route::post('sign_in',[AuthController::class,'sign_in'])->name('sign_in');
 Route::post('sign_up',[AuthController::class,'signUp'])->name('sign_up');
+Route::get('logout',[AuthController::class,'logout'])->name('logout');
 Route::get('dashboard',[UserDashboardController::class,'index'])->name('dashboard');
 Route::get('supply',[UserDashboardController::class,'supply'])->name('supply');
 Route::get('buy',[UserDashboardController::class,'buy'])->name('buy');
@@ -37,3 +39,5 @@ Route::get('visit',[UserDashboardController::class,'visit'])->name('visit');
 Route::get('profile',[UserDashboardController::class,'profile'])->name('profile');
 Route::get('investment',[UserDashboardController::class,'investment'])->name('investment');
 Route::get('our-team',[UserDashboardController::class,'team'])->name('our-team');
+Route::post('/submit-supplier-enquiry',[ProductEnqueryController::class,'submit'])->name('submitSupplierEnquiry');
+

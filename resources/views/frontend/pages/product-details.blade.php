@@ -91,12 +91,20 @@
                     </div>
                     <div class="col-lg-12 col-xl-12">
                         <div class="trending-div-link d-flex mt-md-5 me-2 align-items-center justify-content-around">
-                            <div data-bs-toggle="modal" data-bs-target="#availableGET" class="trending-div-link-2 green">
+
+                            <div data-bs-toggle="modal"  data-bs-target="{{ getModalTarget('#ProductSupplierEnquiry') }}" data-product="{{$product}}" class="trending-div-link-1  ms-2 orange so">
+                                <a href="javascript:void(0)" class="text-decoration-none" role="link">Intested To Supply</a>
+                                <p>(For Suppliers)</p>
+                            </div>
+
+                            <div data-bs-toggle="modal" data-product="{{$product}}" data-bs-target="{{ getModalTarget('#ProductBuyingEnquiry') }}" class="trending-div-link-2 green bu ">
                                 <a href="javascript:void(0)" class="text-decoration-none" role="link">Interested To Buy</a>
                                 <p>(For Buyer)</p>
                             </div>
-                            <div data-bs-toggle="modal" data-bs-target="#investmentGET" class="trending-div-link-1  ms-2 orange">
-                                <a href="javascript:void(0)" class="text-decoration-none" role="link">Intested To Supply</a>
+                            
+
+                            <div data-bs-toggle="modal"  data-bs-target="{{ getModalTarget('#ProductSourcingEnquiry') }}" data-product="{{$product}}" class="trending-div-link-1  ms-2 blue se ">
+                                <a href="javascript:void(0)" class="text-decoration-none" role="link">Intested To Supplier</a>
                                 <p>(For Suppliers)</p>
                             </div>
                         </div>
@@ -119,12 +127,18 @@
                                             <img src="{{ asset($list->images?->filepath ?? '') }}"
                                                  class="img-fluid w-100" alt="{{$list->images?->file_original_name ?? '' }}" title="{{ $list->name }}" />
                                                  <div class="intereseted position-absolute">
-                                                    <span class="so" title="Sourcing Enquiry" data-bs-toggle="modal" data-bs-target="#sourcingGET" >
-                                                        SO
-                                                    </span>
-                                                    <span class="bu" title="Buy Enquiry" data-bs-target="#availableGET" data-bs-toggle="modal" >
-                                                        BU
-                                                    </span>
+                                                    <span class="so" title="Supplier Enquiry" data-bs-toggle="modal" 
+                                                            data-bs-target="{{ getModalTarget('#ProductSupplierEnquiry') }}" data-product="{{$list}}">
+                                                            SO
+                                                        </span>
+
+                                                        <span class="bu" title="Sourcing Enquiry" data-product="{{$list}}" data-bs-target="{{ getModalTarget('#ProductBuyingEnquiry') }}" data-bs-toggle="modal"  >
+                                                            BE
+                                                        </span>
+                                                        <span class="se" title="Supplier Enquiry" data-bs-toggle="modal" 
+                                                        data-bs-target="{{ getModalTarget('#ProductSourcingEnquiry') }}" data-product="{{$list}}">
+                                                        SE
+                                                        </span> 
 
                                                 </div>
                                                 <div class="explore-more-bnt">

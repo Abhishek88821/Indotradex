@@ -16,7 +16,8 @@
         <meta name="robots" content="noindex, nofollow" />
         <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" />
         <meta name="turbo-visit-control" content="reload">
-    
+        
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- css start -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -33,6 +34,7 @@
             crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://www.aspireindia.com/itforte/assets/js/owl.carousel.min.js"></script>
         <script type="text/javascript" src="{{asset('frontend/assets/js/indotradex.js')}}"></script>
+        <script type="text/javascript" src="{{asset('frontend/assets/js/custom.js')}}"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
@@ -316,196 +318,7 @@
     </div>
     <!-- footer end -->
 
-    
-    <!-- modal investment start -->
-    <div class="modal fade" id="investmentGET" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header orange">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Supplier Enquiry</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row register-form p-0 mt-md-4">
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="form-group mb-md-4">
-                                <label for="registerby">
-                                    Product Name<span>*</span>
-                                </label>
-                                <input type="text" class="form-control" id="pro_name" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="form-group mb-md-4">
-                                <label for="registerby">
-                                    Size<span>*</span>
-                                </label>
-                                <input type="text" class="form-control" id="pro_name" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="form-group mb-md-4">
-                                <label for="registerby">
-                                    Quantity <span>*</span>
-                                </label>
-                                <input type="text" class="form-control" id="pro_name" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="form-group mb-md-4">
-                                <label for="registerby">
-                                    Quality <span>*</span>
-                                </label>
-                                <input type="text" class="form-control" id="pro_name" />
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-xl-12">
-                            <div class="form-group  mb-md-4">
-                                <label for="first_name">
-                                    Remark/Comment<span>*</span>
-                                </label>
-                                <textarea type="text" class="form-control" name="address" id="message" rows="3" cols="3"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-12 col-lg-12">
-                            <div class="register-lnk position-relative d-flex align-items-center">
-                                <input type="button" class="btn-link mt-md-0 me-md-0 text-decoration-none orange" value="Submit">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- modal investment end -->
-    <!-- modal available start -->
-    <div class="modal fade" id="availableGET" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header green">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Buyier Enquiry</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row register-form p-0 mt-md-4">
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="form-group mb-md-4">
-                                <label for="registerby">
-                                    Product Name<span>*</span>
-                                </label>
-                                <input type="text" class="form-control" id="pro_name" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="form-group mb-md-4">
-                                <label for="registerby">
-                                    Size<span>*</span>
-                                </label>
-                                <input type="text" class="form-control" id="pro_name" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="form-group mb-md-4">
-                                <label for="registerby">
-                                    Quantity <span>*</span>
-                                </label>
-                                <input type="text" class="form-control" id="pro_name" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="form-group mb-md-4">
-                                <label for="registerby">
-                                    Quality <span>*</span>
-                                </label>
-                                <input type="text" class="form-control" id="pro_name" />
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-xl-12">
-                            <div class="form-group  mb-md-4">
-                                <label for="first_name">
-                                    Remark/Comment<span>*</span>
-                                </label>
-                                <textarea type="text" class="form-control" name="address" id="message" rows="3" cols="3"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-12 col-lg-12">
-                            <div class="register-lnk position-relative d-flex align-items-center">
-                                <input type="button" class="btn-link mt-md-0 me-md-0 text-decoration-none green" value="Submit">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- modal available end -->
-
-       <!-- modal available start -->
-       <div class="modal fade" id="sourcingGET" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header"  style="background: #7139d3!important;" >
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Sourcing Enquiry</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row register-form p-0 mt-md-4">
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="form-group mb-md-4">
-                                <label for="registerby">
-                                    Product Name<span>*</span>
-                                </label>
-                                <input type="text" class="form-control" id="pro_name" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="form-group mb-md-4">
-                                <label for="registerby">
-                                    Size<span>*</span>
-                                </label>
-                                <input type="text" class="form-control" id="pro_name" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="form-group mb-md-4">
-                                <label for="registerby">
-                                    Quantity <span>*</span>
-                                </label>
-                                <input type="text" class="form-control" id="pro_name" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="form-group mb-md-4">
-                                <label for="registerby">
-                                    Quality <span>*</span>
-                                </label>
-                                <input type="text" class="form-control" id="pro_name" />
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-xl-12">
-                            <div class="form-group  mb-md-4">
-                                <label for="first_name">
-                                    Remark/Comment<span>*</span>
-                                </label>
-                                <textarea type="text" class="form-control" name="address" id="message" rows="3" cols="3"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-12 col-lg-12">
-                            <div class="register-lnk position-relative d-flex align-items-center">
-                                <input type="button" class="btn-link mt-md-0 me-md-0 text-decoration-none" style="background: #7139d3!important;" value="Submit">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- modal available end -->
+ @include('frontend/inc/models')
 
     </body>
 </html>

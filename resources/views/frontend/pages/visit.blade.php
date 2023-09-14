@@ -104,3 +104,24 @@
     </section>
     <!-- login end -->
 </x-guest-layout>
+
+
+
+// $featured_categories = Cache::rememberForever('featured_categories', function () {
+    //     return Category::where('featured', 1)->orderBy('order_level', 'desc')->get();
+    // });
+
+    // $todays_deal_products = Cache::rememberForever('todays_deal_products', function () {
+    //     return Product::where('published', 1)->where('todays_deal', '1')->get();            
+    // });
+
+    // $newest_products = Cache::remember('newest_products', 3600, function () {
+    //     return filter_products(Product::latest())->limit(12)->get();
+    // });
+
+    // $testimonials = Cache::rememberForever('testimonials', function () {
+    //     return Testimonial::where('status', 1)->orderBy('created_at', 'desc')->get()->take(2);            
+    // });
+
+    // return view('frontend.index', compact('featured_categories', 'todays_deal_products', 'testimonials', 'newest_products'));
+    

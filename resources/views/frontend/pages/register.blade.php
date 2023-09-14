@@ -236,9 +236,9 @@
                                 <div class="register-lnk position-relative d-flex align-items-center">
                                     <input type="submit" class="btn-link mt-md-4 me-md-3 text-decoration-none"
                                         value="Submit" />
-                                    <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                                    {{-- <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
                                         aria-controls="offcanvasExample"
-                                        class="btn-link red text-decoration-none mt-md-4">Add Membership</a>
+                                        class="btn-link red text-decoration-none mt-md-4">Add Membership</a> --}}
                                 </div>
                             </div>
                        

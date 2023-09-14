@@ -8,6 +8,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -69,6 +70,12 @@ class User extends Authenticatable
         static::creating(function ($model) {
             $model->id = Uuid::uuid4()->toString();
         });
+    }
+
+
+    public function plan()
+    {
+        return $this->hasOne(Plan::class, 'user_id');
     }
     
 }

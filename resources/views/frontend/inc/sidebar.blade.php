@@ -48,8 +48,8 @@
                     class="ms-md-2">Investment</span> </a> </li>
         </ul>
     </div>
-    <div class="create-user d-none">
-        <a href="create-user.html" class="text-decoration-none d-flex align-items-center justify-content-center"
-            role="button"> <i class="ri-user-3-line"></i><span class="ms-2">Create User</span></a>
+    <div class="create-user">
+        <a href="{{route('logout')}}" class="text-decoration-none d-flex align-items-center justify-content-center"
+            role="button"> <i class="ri-user-3-line"></i><span class="ms-2">Logout</span></a>
     </div>
 </div>

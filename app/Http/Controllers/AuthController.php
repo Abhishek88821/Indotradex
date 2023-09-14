@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\plan;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Traits\Upload\UploadTraits;
+use Cron\MonthField;
 
 class AuthController extends Controller
 {  use UploadTraits;
@@ -65,21 +68,37 @@ class AuthController extends Controller
             'remark' => $request->input('remark'),
             'status' => 1,
         ]);
-    
+
         $user->save(); 
-    
-        // Perform the login after registration
+
         if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
-            // Successfully logged in
+           
             $user->update([
                 'photoId' => $this->createUpload($request->file('photo_id')),
                 'photo' => $this->createUpload($request->file('photo')),
             ]);
+            $this->Plan();
             return redirect()->intended('dashboard');
         } else {
-            // Login failed
             return redirect()->route('login')->with('success', 'Registration successful.');
         }
+    }
+
+    Public function plan(){
+
+        Plan::create([
+            'user_id' => Auth::user()->id,
+            'start_date' => Carbon::now()->format('Y-m-d'),
+            'end_date' => Carbon::now()->addMonths(3)->format('Y-m-d'), 
+            'type' => 1,
+        ]);
+        
+    }
+
+
+    Public function logout(){
+        Auth::logout();
+        return redirect('/');
     }
     
 }

@@ -90,10 +90,18 @@
                                     <img src="{{ asset($list->images->filepath) }}" class="img-fluid w-100" alt="{{ $list->images->file_original_name }}" title="{{ $list->name }}" />
                                     <div class="intereseted position-absolute">
 
-                                        <span class="bu" title="Buy Enquiry" data-bs-toggle="modal"
-                                            data-bs-target="#sourcingGET">
-                                            BU
-                                        </span>
+                                        <span class="so" title="Supplier Enquiry" data-bs-toggle="modal" 
+                                        data-bs-target="{{ getModalTarget('#ProductSupplierEnquiry') }}" data-product="{{$list}}">
+                                        SO
+                                    </span>
+
+                                    <span class="bu" title="Sourcing Enquiry" data-product="{{$list}}" data-bs-target="{{ getModalTarget('#ProductBuyingEnquiry') }}" data-bs-toggle="modal"  >
+                                        BE
+                                    </span>
+                                    <span class="se" title="Supplier Enquiry" data-bs-toggle="modal" 
+                                    data-bs-target="{{ getModalTarget('#ProductSourcingEnquiry') }}" data-product="{{$list}}">
+                                    SE
+                                    </span> 
 
                                     </div>
                                     <div class="explore-more-bnt">

@@ -1,4 +1,6 @@
 <x-guest-layout>
+ 
+
     <!-- slider start -->
     <section class="sli-div position-relative">
         <!-- slider img start -->
@@ -57,6 +59,7 @@
         </div>
     </section>
     <!-- product link end -->
+   
     <!-- tab start -->
     <section class="tab-div position-relative py-70">
         <div class="container">
@@ -156,13 +159,20 @@
                                     <div class="tra-pro-img position-relative">
                                         <img src="{{asset( $Items->images->filepath )}}" class="img-fluid w-100" alt="" title="" />
                                         <div class="intereseted position-absolute">
-                                            <span class="so" title="Sourcing Enquiry" data-bs-toggle="modal" data-bs-target="#sourcingGET"  >
-                                                SO
-                                            </span>
-                                            <span class="bu" title="Buy Enquiry" data-bs-target="#availableGET" data-bs-toggle="modal"  >
-                                                BU
-                                            </span>
+                                           
+                                                <span class="so" title="Supplier Enquiry" data-bs-toggle="modal" 
+                                                    data-bs-target="{{ getModalTarget('#ProductSupplierEnquiry') }}" data-product="{{$Items}}">
+                                                    SO
+                                                </span>
 
+                                                <span class="bu" title="Sourcing Enquiry" data-product="{{$Items}}" data-bs-target="{{ getModalTarget('#ProductBuyingEnquiry') }}" data-bs-toggle="modal"  >
+                                                    BE
+                                                </span>
+                                                <span class="se" title="Supplier Enquiry" data-bs-toggle="modal" 
+                                                data-bs-target="{{ getModalTarget('#ProductSourcingEnquiry') }}" data-product="{{$Items}}">
+                                                SE
+                                                </span> 
+                                                
                                         </div>
                                         <div class="explore-more-bnt">
                                             <a href="{{route('productDetails',[$Items->slug])}}" class="text-decoration-none">

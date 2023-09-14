@@ -5,7 +5,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="mb-2 d-flex justify-content-between">
-                            <h4 class="mb-0">Tranding Category </h4>
+                            <h4 class="mb-0">Trading Category </h4>
                             <a href="{{ route('admin.trading.category.create',['id' => $id ?? '']) }}" class="btn btn-success">Create New</a>
                         </div>
                         <div class="">

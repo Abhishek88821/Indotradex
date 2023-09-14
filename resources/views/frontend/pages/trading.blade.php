@@ -91,12 +91,19 @@
                                                     <img src="{{ $product->images->filepath }}" class="img-fluid w-100" alt="{{ $product->images->file_original_name }}"
                                                         title="{{ $product->name }}" />
                                                     <div class="intereseted position-absolute">
-                                                        <span class="so" data-bs-toggle="modal" data-bs-target="#sourcingGET" title="Sourcing Enquiry" >
-                                                            SO
-                                                        </span>
-                                                        <span class="bu"  data-bs-toggle="modal" data-bs-target="#buyGET" title="Buy Enquiry" >
-                                                            BU
-                                                        </span>
+                                                        <span class="so" title="Supplier Enquiry" data-bs-toggle="modal" 
+                                                        data-bs-target="{{ getModalTarget('#ProductSupplierEnquiry') }}" data-product="{{$product}}">
+                                                        SO
+                                                    </span>
+    
+                                                    <span class="bu" title="Sourcing Enquiry" data-product="{{$product}}" data-bs-target="{{ getModalTarget('#ProductBuyingEnquiry') }}" data-bs-toggle="modal"  >
+                                                        BE
+                                                    </span>
+                                                    <span class="se" title="Supplier Enquiry" data-bs-toggle="modal" 
+                                                    data-bs-target="{{ getModalTarget('#ProductSourcingEnquiry') }}" data-product="{{$product}}">
+                                                    SE
+                                                    </span> 
+
                                                     </div>
                                                     <div class="explore-more-bnt">
                                                         <a href="{{route('productDetails',[$product->slug])}}" class="text-decoration-none">
