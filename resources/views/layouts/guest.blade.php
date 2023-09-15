@@ -16,7 +16,7 @@
         <meta name="robots" content="noindex, nofollow" />
         <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" />
         <meta name="turbo-visit-control" content="reload">
-        
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- css start -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"

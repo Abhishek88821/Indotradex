@@ -9,6 +9,8 @@ use App\Http\Controllers\TradingController;
 use App\Http\Controllers\TrendingController;
 use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\ProductEnqueryController;
+use App\Http\Controllers\ProjectEnquiryController;
+use App\Http\Controllers\BussinessEnquiryController;
 
 
 Route::get('/',[HomeController::class,'index'])->name('/');
@@ -21,8 +23,6 @@ Route::get('/product/{slug}',[TradingController::class, 'product'])->name('produ
 Route::get('/product_details/{slug}',[TradingController::class, 'productDetails'])->name('productDetails');
 Route::get('/trending',[TrendingController::class,'index'])->name('trending');
 Route::get('/project/{slug}',[TrendingController::class,'project'])->name('project');
-
-
 
 Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::get('/register',[AuthController::class,'register'])->name('register');
@@ -40,4 +40,7 @@ Route::get('profile',[UserDashboardController::class,'profile'])->name('profile'
 Route::get('investment',[UserDashboardController::class,'investment'])->name('investment');
 Route::get('our-team',[UserDashboardController::class,'team'])->name('our-team');
 Route::post('/submit-supplier-enquiry',[ProductEnqueryController::class,'submit'])->name('submitSupplierEnquiry');
+Route::POST('/save-investment',[ProjectEnquiryController::class,'saveInvestment'])->name('save.investment');
+Route::post('/business-enquiry',[BussinessEnquiryController::class,'store'])->name('business.enquiry.submit');
+
 

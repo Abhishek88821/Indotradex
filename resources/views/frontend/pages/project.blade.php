@@ -130,11 +130,11 @@
                 </div>
                 <div class="col-lg-12 col-xl-12">
                     <div  class="trending-div-link d-flex flex-sm-nowrap flex-wrap mt-md-5 align-items-center justify-content-around">
-                        <div data-bs-toggle="modal" data-bs-target="#investmentGET" class="trending-div-link-1">
+                        <div data-bs-toggle="modal" data-bs-target="{{ getModalTarget('#investmentGET')}}"  data-product="{{$project}}" class="trending-div-link-1 ie">
                             <a href="javascript:void(0)" class="text-decoration-none" role="link">Investment Enquiry</a>
                             <p>(For Investor/Agent/Consultant)</p>
                         </div>
-                        <div data-bs-toggle="modal" data-bs-target="#availableGET" class="trending-div-link-2">
+                        <div data-bs-toggle="modal" data-bs-target="{{getModalTarget('#availableGET')}}" data-product="{{$project}}" class="trending-div-link-2 as">
                             <a href="javascript:void(0)" class="text-decoration-none" role="link">Availablity Submission</a>
                             <p>(For Project Owners Having Resource/Available)</p>
                         </div>
@@ -146,113 +146,5 @@
     <!-- trending end -->
     
 
-    <!-- modal investment start -->
-    <div class="modal fade" id="investmentGET" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Investor Enquiry</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row register-form p-0 mt-md-4">
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="form-group mb-md-4">
-                                <label for="registerby">
-                                    Project Interest Selection <span>*</span>
-                                </label>
-                                <select class="form-control" id="register_as">
-                                    <option value="lead_ore">Lead Ore</option>
-                                    <option value="magnesium_ore">Magnesium Ore</option>
-                                    <option value="carbon">Carbon</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="form-group  mb-md-4">
-                                <label for="registerby">
-                                    Requirement <span>*</span>
-                                </label>
-                                <select class="form-control" id="register_as">
-                                    <option value="info">Infomation</option>
-                                    <option value="Clarification">Clarification</option>
-                                    <option value="term_proceed">Terms To Proceed</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-xl-12">
-                            <div class="form-group  mb-md-4">
-                                <label for="registerby">
-                                    Present Business <span>*</span>
-                                </label>
-                               <input type="text" class="form-control" id="pre_business" />
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-xl-12">
-                            <div class="form-group  mb-md-4">
-                                <label for="first_name">
-                                    Remark/Comment<span>*</span>
-                                </label>
-                                <textarea type="text" class="form-control" name="address" id="message" rows="3" cols="3"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-12 col-lg-12">
-                            <div class="register-lnk position-relative d-flex align-items-center">
-                                <input type="button" class="btn-link mt-md-0 me-md-0 text-decoration-none" value="Submit">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- modal investment end -->
-    <!-- modal available start -->
-    <div class="modal fade" id="availableGET" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header red" style="background: var(--red);">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Project Owner Enquiry</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row register-form p-0 mt-md-4">
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="form-group mb-md-4">
-                                <label for="registerby">
-                                    Project Name <span>*</span>
-                                </label>
-                                <input type="text" class="form-control" id="pro_name" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-xl-6">
-                            <div class="form-group mb-md-4">
-                                <label for="registerby">
-                                    Upload Photo <span>*</span>
-                                </label>
-                                <input type="file" id="uplaod_photo" class="form-control" />
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-xl-12">
-                            <div class="form-group  mb-md-4">
-                                <label for="first_name">
-                                    Remark/Comment<span>*</span>
-                                </label>
-                                <textarea type="text" class="form-control" name="address" id="message" rows="3" cols="3"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-12 col-lg-12">
-                            <div class="register-lnk position-relative d-flex align-items-center">
-                                <input type="button" style="background: var(--red);" class="btn-link mt-md-0 me-md-0 text-decoration-none" value="Submit">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 </x-guest-layout>

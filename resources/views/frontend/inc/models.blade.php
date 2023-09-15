@@ -11,7 +11,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="goToLoginPageButton">Go To Login Page</button>
+                <a type="button" href="{{route('login')}}" class="btn btn-primary" id="goToLoginPageButton">Go To Login Page</a>
             </div>
         </div>
     </div>
@@ -343,4 +343,191 @@
     </div>
    <!-- end ProductBuyingEnquiry -->
 
-   
+ {{-- project modal start  --}}
+
+  <!-- modal investment start -->
+  <div class="modal fade" id="investmentGET" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Investor Enquiry</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="investmentGET-form"  action="{{route('save.investment')}}"  method="POST">
+                <div class="row register-form p-0 mt-md-4">
+                    <input type="hidden" name="project_id" class="product_id">
+                    <input type="hidden" name="type" value="1" >
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="form-group  mb-md-4">
+                            <label for="registerby">
+                                Project name  <span>*</span>
+                            </label>
+                           <input type="text" name="project_name" readonly id="product_name" class="product_name form-control ">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="form-group mb-md-4">
+                            <label for="registerby">
+                                Project Interest Selection <span>*</span>
+                            </label>
+                            <select class="form-control" id="register_as" name="interest">
+                                <option selected disabled> Project Interest </option>
+                                <option value="lead_ore">Lead Ore</option>
+                                <option value="magnesium_ore">Magnesium Ore</option>
+                                <option value="carbon">Carbon</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="form-group  mb-md-4">
+                            <label for="registerby">
+                                Requirement <span>*</span>
+                            </label>
+                            <select class="form-control" id="register_as" name="requirement">
+                                <option value="info">Infomation</option>
+                                <option value="Clarification">Clarification</option>
+                                <option value="term_proceed">Terms To Proceed</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="form-group  mb-md-4">
+                            <label for="registerby">
+                                Present Business <span>*</span>
+                            </label>
+                           <input type="text" class="form-control" id="pre_business" name="p_business" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xl-12">
+                        <div class="form-group  mb-md-4">
+                            <label for="first_name">
+                                Remark/Comment<span>*</span>
+                            </label>
+                            <textarea type="text" class="form-control" name="remark" id="message" rows="3" cols="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="register-lnk position-relative d-flex align-items-center">
+                            <input type="submit" class="btn-link mt-md-0 me-md-0 text-decoration-none" value="Submit">
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal investment end -->
+<!-- modal available start -->
+<div class="modal fade" id="availableGET" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header red" style="background: var(--red);">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Project Owner Enquiry</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{route('save.investment')}}"  method="POST"  enctype="multipart/form-data" id="availableGET_form">
+                <div class="row register-form p-0 mt-md-4">
+                    <input type="hidden" name="project_id" class="product_id">
+                    <input type="hidden" name="type"  value="2">
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="form-group  mb-md-4">
+                            <label for="registerby">
+                                Project name  <span>*</span>
+                            </label>
+                           <input type="text" name="project_name" readonly id="product_name" class="product_name form-control ">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="form-group mb-md-4">
+                            <label for="registerby">
+                                Upload Photo <span>*</span>
+                            </label>
+                            <input type="file" id="uplaod_photo" class="form-control" name="photo" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xl-12">
+                        <div class="form-group  mb-md-4">
+                            <label for="first_name">
+                                Remark/Comment<span>*</span>
+                            </label>
+                            <textarea type="text" class="form-control" name="remark" id="message" rows="3" cols="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="register-lnk position-relative d-flex align-items-center">
+                            <input type="submit" style="background: var(--red);" class="btn-link mt-md-0 me-md-0 text-decoration-none" value="Submit">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{{-- business Enquiry start --}}
+
+ <!-- Modal -->
+ <div class="modal fade" id="businessGET" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Business Enquiry</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('business.enquiry.submit') }}" method="post" id="businessGET_form">
+                    @csrf
+                <div class="row register-form p-0 mt-md-4">
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="form-group mb-md-4">
+                            <label for="registerby">
+                                Type Of Support <span>*</span>
+                            </label>
+                            <select class="form-control" id="register_as" name="type_of_support">
+                                @foreach (App\Models\Business::active()->get() as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="form-group  mb-md-4">
+                            <label for="cur_bus">
+                                Your Current Business<span>*</span>
+                            </label>
+                            <input type="text" class="form-control" name="bussiness" id="cur_bus">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xl-12">
+                        <div class="form-group  mb-md-4">
+                            <label for="first_name">
+                                Remark/Comment<span>*</span>
+                            </label>
+                            <textarea type="text" class="form-control" name="remarks" id="message" rows="3" cols="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="register-lnk position-relative d-flex align-items-center">
+                            <input type="submit" class="btn-link mt-md-0 me-md-0 mb-0 text-decoration-none" value="Submit">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal end -->
