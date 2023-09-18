@@ -1,11 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\CallController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ProductEnquiries;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Auth\AuthController;
+use App\Http\Controllers\Admin\ProjectEnquiryController;
+use App\Http\Controllers\Admin\BusinessEnquiryController;
 use App\Http\Controllers\Admin\Trading\ProductsController;
 use App\Http\Controllers\Admin\Business\BusinessController;
 use App\Http\Controllers\Admin\Tranding\ProjectsController;
@@ -24,6 +27,18 @@ Route::middleware('admin')->group( function(){
     Route::post('product/enquiries/data',[ProductEnquiries::class, 'modeldata'])->name('admin.product.enquiries.data');
     Route::post('product/enquiries/status',[ProductEnquiries::class, 'updateStatus'])->name('admin.product.enquiries.status');
 
+    Route::get('project/enquiries',[ProjectEnquiryController::class,'index'])->name('admin.project.enquiries');
+    Route::post('project/enquiries/data',[ProjectEnquiryController::class, 'modeldata'])->name('admin.project.enquiries.data');
+    Route::post('project/enquiries/status',[ProjectEnquiryController::class, 'updateStatus'])->name('admin.project.enquiries.status');
+    
+    Route::get('project/business',[BusinessEnquiryController::class,'index'])->name('admin.business.enquiries');
+    Route::post('project/business/data',[BusinessEnquiryController::class, 'modeldata'])->name('admin.business.enquiries.data');
+    Route::post('project/business/status',[BusinessEnquiryController::class, 'updateStatus'])->name('admin.business.enquiries.status');
+    
+    Route::get('project/call',[CallController::class,'index'])->name('admin.call.enquiries');
+    Route::post('project/call/data',[CallController::class, 'modeldata'])->name('admin.call.enquiries.data');
+    Route::post('project/call/status',[CallController::class, 'updateStatus'])->name('admin.call.enquiries.status');
+    
    Route::get('category',[CategoryController::class,'index'])->name('admin.category');
    Route::get('category/create', [CategoryController::class, 'create'])->name("admin.category.create");
    Route::post('category/store', [CategoryController::class, 'store'])->name("admin.category.store");

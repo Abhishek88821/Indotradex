@@ -24,6 +24,19 @@ class ProjectEnquiry extends Model
 
     public function project()
     {
-        return $this->belongsTo(project::class,'id');
+        return $this->belongsTo(project::class,'project_id');
     }
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id','id');
+    }
+
+
+    public function photos()
+    {
+        return $this->belongsTo(Upload::class, 'photo');
+    }
+
 }
