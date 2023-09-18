@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CallController;
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\VisitController;
 use App\Http\Controllers\Admin\ProductEnquiries;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\MettingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\ProjectEnquiryController;
@@ -39,6 +41,15 @@ Route::middleware('admin')->group( function(){
     Route::post('project/call/data',[CallController::class, 'modeldata'])->name('admin.call.enquiries.data');
     Route::post('project/call/status',[CallController::class, 'updateStatus'])->name('admin.call.enquiries.status');
     
+    Route::get('project/metting',[MettingController::class,'index'])->name('admin.metting.enquiries');
+    Route::post('project/metting/data',[MettingController::class, 'modeldata'])->name('admin.metting.enquiries.data');
+    Route::post('project/metting/status',[MettingController::class, 'updateStatus'])->name('admin.metting.enquiries.status');
+    Route::post('metting.link.update',[MettingController::class, 'linkUpdate'])->name('admin.metting.link.update');
+
+    Route::get('visit/enquiries',[VisitController::class,'index'])->name('admin.visit.enquiries');
+
+    Route::get('contact/enquiries',[ContactController::class,'index'])->name('admin.contact');
+
    Route::get('category',[CategoryController::class,'index'])->name('admin.category');
    Route::get('category/create', [CategoryController::class, 'create'])->name("admin.category.create");
    Route::post('category/store', [CategoryController::class, 'store'])->name("admin.category.store");

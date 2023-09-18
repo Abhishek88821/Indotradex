@@ -113,7 +113,7 @@
                                              <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                     <td>{{$item->via }}</td>
-                                                    <td>{{ $item->time }}</td>
+                                                    <td>{{ \Carbon\Carbon::parse($item->time)->format('d-m-Y H:i:s') }}</td>
                                                     <td>{{$item->perpose}}</td>
                                                     <td>{{$item->link ?? 'none' }}</td>
                                                     <td><span class="{{status($item->status)}}">{{status($item->status)}}</span></td>

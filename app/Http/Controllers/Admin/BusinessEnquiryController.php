@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Models\BussinessEnquiry;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class BusinessEnquiryController extends Controller
 {
@@ -31,6 +32,7 @@ class BusinessEnquiryController extends Controller
         }
 
         $enquiry->status = $newStatus;
+        $enquiry->admin_id = Auth::guard('admin')->user()->id;
         $enquiry->save();
     
         return response()->json(['message' => 'Status updated successfully']);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Models\ProductsEnquiry;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ProductEnquiries extends Controller
 {
@@ -28,7 +29,7 @@ class ProductEnquiries extends Controller
         if (!$enquiry) {
             return response()->json(['message' => 'Enquiry not found'], 404);
         }
-
+        $enquiry->admin_id =  Auth::guard('admin')->user()->id;
         $enquiry->status = $newStatus;
         $enquiry->save();
     

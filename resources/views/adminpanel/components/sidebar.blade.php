@@ -43,7 +43,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{ route('admin.business.enquiries') }}" class="sidebar-link">
+                    <a href="{{ route('admin.metting.enquiries') }}" class="sidebar-link">
                         <div class="round-16 d-flex align-items-center justify-content-center">
                             <i class="ti ti-circle"></i>
                         </div>
@@ -52,7 +52,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{ route('admin.business.enquiries') }}" class="sidebar-link">
+                    <a href="{{ route('admin.visit.enquiries') }}" class="sidebar-link">
                         <div class="round-16 d-flex align-items-center justify-content-center">
                             <i class="ti ti-circle"></i>
                         </div>
@@ -159,6 +159,15 @@
                     <i class="ti ti-archive"></i>
                 </span>
                 <span class="hide-menu">About Us</span>
+            </a>
+        </li>
+
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ route('contact') }}" aria-expanded="false">
+                <span class="d-flex">
+                    <i class="ti ti-archive"></i>
+                </span>
+                <span class="hide-menu">Contact Us</span>
             </a>
         </li>
 
