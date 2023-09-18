@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\ProductEnquiries;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Auth\AuthController;
@@ -19,6 +20,10 @@ Route::post('login', [AuthController::class, 'login'])->name('admin.login');
 Route::middleware('admin')->group( function(){
     Route::get('logout', [AuthController::class, 'logout']);
 
+    Route::get('product/enquiries',[ProductEnquiries::class, 'index'])->name('admin.product.enquiries');
+    Route::post('product/enquiries/data',[ProductEnquiries::class, 'modeldata'])->name('admin.product.enquiries.data');
+    Route::post('product/enquiries/status',[ProductEnquiries::class, 'updateStatus'])->name('admin.product.enquiries.status');
+
    Route::get('category',[CategoryController::class,'index'])->name('admin.category');
    Route::get('category/create', [CategoryController::class, 'create'])->name("admin.category.create");
    Route::post('category/store', [CategoryController::class, 'store'])->name("admin.category.store");
@@ -30,8 +35,6 @@ Route::middleware('admin')->group( function(){
    Route::get('trading/category/create/{id?}',[TradingCategoryController::class, 'create'])->name("admin.trading.category.create");
 
    Route::get('trading/category/{id?}', [TradingCategoryController::class, 'index'])->name('admin.trading.category');
-
-
 
    Route::post('trading/category/store', [TradingCategoryController::class, 'store'])->name("admin.trading.category.store");
    Route::get('trading/category/edit/{id}', [TradingCategoryController::class, 'edit'])->name("admin.trading.category.edit");

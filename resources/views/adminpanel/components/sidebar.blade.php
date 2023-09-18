@@ -1,6 +1,41 @@
 <nav class="sidebar-nav scroll-sidebar" data-simplebar>
     <ul id="sidebarnav">
+        <li class="sidebar-item">
+            <a class="sidebar-link has-arrow" href="#" aria-expanded="true">
+                <span class="d-flex">
+                    <i class="ti ti-chart-donut-3"></i>
+                </span>
+                <span class="hide-menu">Enquiries</span>
+            </a>
+            <ul aria-expanded="false" class="collapse first-level">
+                <li class="sidebar-item">
+                    <a href="{{ route('admin.product.enquiries') }}" class="sidebar-link">
+                        <div class="round-16 d-flex align-items-center justify-content-center">
+                            <i class="ti ti-circle"></i>
+                        </div>
+                        <span class="hide-menu">Product</span>
+                    </a>
+                </li>
+                {{-- <li class="sidebar-item">
+                    <a href="{{ route('admin.project.enquiries') }}" class="sidebar-link">
+                        <div class="round-16 d-flex align-items-center justify-content-center">
+                            <i class="ti ti-circle"></i>
+                        </div>
+                        <span class="hide-menu"> Project</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ route('admin.business.enquiries') }}" class="sidebar-link">
+                        <div class="round-16 d-flex align-items-center justify-content-center">
+                            <i class="ti ti-circle"></i>
+                        </div>
+                        <span class="hide-menu"> Business</span>
+                    </a>
+                </li> --}}
 
+               
+            </ul>
+        </li>
 
         <li class="sidebar-item">
             <a class="sidebar-link has-arrow" href="#" aria-expanded="true">

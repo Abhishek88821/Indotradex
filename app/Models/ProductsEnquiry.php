@@ -13,4 +13,20 @@ class ProductsEnquiry extends Model
     {
         return $this->belongsTo(Product::class,'product_id','id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id','id');
+    }
+
+    public function qualityPdf()
+    {
+        return $this->belongsTo(Upload::class, 'quality_pdf');
+    }
+
+    public function photographs()
+    {
+        return $this->belongsTo(Upload::class, 'photograph');
+    }
+
 }
