@@ -45,75 +45,25 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @forelse ($products as $item)
                                                 <tr>
-                                                    <td><input type="checkbox" id="" /></td>
-                                                    <td>1</td>
-                                                    <td><img src="assets/img/cashew1.jpg" style="width: 50px;" class="img-fluid"  alt="cashew nuts" /></td>
-                                                    <td>Premium</td>
-                                                    <td>100kg</td>
-                                                    <td><span class="completed">Approved</span></td>
-                                                    <td><div class="link-supply"><i class="ri-edit-box-fill me-2"></i> <i class="ri-delete-bin-fill"></i></div></td>
+                                                    {{-- <td><input type="checkbox" id="" /></td> --}}
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{$item->product->name }}</td>
+                                                    <td><img src="{{asset($item->product->images?->filepath)}}" style="width: 50px;" class="img-fluid"  alt="{{$item->product->images?->file_original_name }}" /></td>
+                                                    <td>{{$item->quantity}}</td>
+                                                    <td>{{$item->qty}}</td>
+                                                    <td><span class="{{status($item->status)}}">{{status($item->status)}}</span></td>
+                                                    <td>
+                                                        <div class="link-supply">
+                                                            {{-- <a href="{{ route('edit.supply', $item->id) }}"><i class="ri-edit-box-fill me-2"></i></a> --}}
+                                                            <a href="{{ route('delete.Enqueiry', $item->id) }}" class="text-decoration-none" onclick="return confirm('Are you sure you want to delete this supply entry?')"><i class="ri-delete-bin-fill"></i></a>
+                                                        </div>
+                                                    </td>
                                                 </tr>
-                                                <tr>
-                                                    <td><input type="checkbox" id="" /></td>
-                                                    <td>2</td>
-                                                    <td><img src="assets/img/coal.jpg" style="width: 50px;" class="img-fluid"  alt="Coal" /></td>
-                                                    <td>Regular</td>
-                                                    <td>180kg</td>
-                                                    <td><span class="pending">Pending</span></td>
-                                                    <td><div class="link-supply"><i class="ri-edit-box-fill me-2"></i> <i class="ri-delete-bin-fill"></i></div></td>
-                                                 </tr>
-                                                <tr>
-                                                    <td><input type="checkbox" id="" /></td>
-                                                    <td>3</td>
-                                                    <td><img src="assets/img/metal.jpg" style="width: 50px;" class="img-fluid"  alt="metal" /></td>
-                                                    <td>Regular</td>
-                                                    <td>130kg</td>
-                                                    <td><span class="pending">Pending</span></td>
-                                                    <td><div class="link-supply"><i class="ri-edit-box-fill me-2"></i> <i class="ri-delete-bin-fill"></i></div></td>
-                                                
-                                                </tr>
-                                                <tr>
-                                                    <td><input type="checkbox" id="" /></td>
-                                                    <td>4</td>
-                                                    <td><img src="https://images.pexels.com/photos/6003907/pexels-photo-6003907.jpeg" style="width: 50px;" class="img-fluid"  alt="cashew nuts" /></td>
-                                                    <td>Premium</td>
-                                                    <td>200kg</td>
-                                                    <td><span class="completed">Approved</span></td>
-                                                    <td><div class="link-supply"><i class="ri-edit-box-fill me-2"></i> <i class="ri-delete-bin-fill"></i></div></td>
-                                                
-                                                </tr>
-                                                <tr>
-                                                    <td><input type="checkbox" id="" /></td>
-                                                    <td>5</td>
-                                                    <td><img src="https://images.pexels.com/photos/4869355/pexels-photo-4869355.jpeg" style="width: 50px;" class="img-fluid"  alt="cashew nuts" /></td>
-                                                    <td>Premium</td>
-                                                    <td>100kg</td>
-                                                    <td><span class="completed">Approved</span></td>
-                                                    <td><div class="link-supply"><i class="ri-edit-box-fill me-2"></i> <i class="ri-delete-bin-fill"></i></div></td>
-                                                
-                                                </tr>
-                                                <tr>
-                                                    <td><input type="checkbox"id="" /></td>
-                                                    <td>6</td>
-                                                    <td><img src="https://images.pexels.com/photos/4040644/pexels-photo-4040644.jpeg" style="width: 50px;" class="img-fluid"  alt="cashew nuts" /></td>
-                                                    <td>Premium</td>
-                                                    <td>100kg</td>
-                                                    <td><span class="cancel">Cancel</span></td>
-                                                    <td><div class="link-supply"><i class="ri-edit-box-fill me-2"></i> <i class="ri-delete-bin-fill"></i></div></td>
-                                                
-                                                </tr>
-                                                <tr>
-                                                    <td><input type="checkbox" id="" /></td>
-                                                    <td>7</td>
-                                                    <td><img src="https://images.pexels.com/photos/10787584/pexels-photo-10787584.jpeg" style="width: 50px;" class="img-fluid"  alt="cashew nuts" /></td>
-                                                    <td>Premium</td>
-                                                    <td>100kg</td>
-                                                    <td><span class="completed">Approved</span></td>
-                                                    <td><div class="link-supply"><i class="ri-edit-box-fill me-2"></i> <i class="ri-delete-bin-fill"></i></div></td>
-                                                
-                                                </tr>
-
+                                                @empty
+                                                   <tr> Not Have Any Supply Enquiry </tr>
+                                                @endforelse
                                             </tbody>
                                         </table>
                                     </div>

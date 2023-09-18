@@ -10,7 +10,6 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Traits\Upload\UploadTraits;
-use Cron\MonthField;
 
 class AuthController extends Controller
 {  use UploadTraits;
@@ -100,5 +99,47 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('/');
     }
+
+
+    public function update(Request $request)
+    {  
+        $request->validate([
+            'role' => 'required',
+            'firstName' => 'required',
+            'LastName' => 'required',
+            'email' => 'required|email',
+            'remark' => 'required',
+            'pinCode' => 'required|integer'
+        ]);
+    
+        $user = Auth::user();
+    
+        $userData = [
+            'role_id' => $request->role,
+            'firstName' => $request->input('firstName'),
+            'LastName' => $request->input('LastName'),
+            'mobile' => $request->input('mobile'),
+            'email' => $request->input('email'),
+            'website' => $request->input('website'),
+            'address' => $request->input('address'),
+            'city' => $request->input('city'),
+            'pinCode' => $request->input('pinCode'),
+            'remark' => $request->input('remark'),
+          
+        ];
+    
+        if ($request->hasFile('photo_id')) {
+            $userData['photoId'] = $this->createUpload($request->file('photo_id'));
+        }
+    
+        if ($request->hasFile('photo')) {
+            $userData['photo'] = $this->createUpload($request->file('photo'));
+        }
+    
+        $user->update($userData);
+    
+        return redirect()->back()->with('success', 'Profile updated successfully');
+    }
+    
     
 }

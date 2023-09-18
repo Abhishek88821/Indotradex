@@ -26,28 +26,28 @@
                         <div class="pro-div-cnt row">
                             <div class="col-xl-3 col-lg-4" >
                                 <div class="das-div-box position-relative" role="button" >
-                                    <h3>1030<sup>Ton</sup></h3>
+                                    <h3>{{ $supply }}</h3>
                                     <span  >Supply</span>
                                     <p class="pb-0 mb-0" >in your cart</p>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-4" >    
                                 <div class="das-div-box position-relative" role="button" >
-                                    <h3>1240<sup>Kg</sup></h3>
+                                    <h3>{{$buy}}</h3>
                                     <span  >Buy</span>
                                     <p class="pb-0 mb-0" >in your cart</p>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-4" >    
                                 <div class="das-div-box position-relative" role="button" >
-                                    <h3>1440<sup>Ton</sup></h3>
+                                    <h3>{{ $resources}}</h3>
                                     <span  >Sourcing</span>
                                     <p class="pb-0 mb-0" >in your cart</p>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-4" >
                                 <div class="das-div-box position-relative" role="button" >
-                                    <h3>100000<sup>Lac</sup></h3>
+                                    <h3> {{ $inversment }}</h3>
                                     <span  >Investment</span>
                                     <p class="pb-0 mb-0" >in your cart</p>
                                 </div>

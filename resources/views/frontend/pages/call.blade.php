@@ -17,7 +17,8 @@
                             </div>
                             <div
                                 class="profile-div-avatar d-flex align-items-center justify-content-end position-relative">
-                                <div class="profile-search d-flex align-items-center ">
+                                <p> Total Attempt <span class=" h2">{{$remain}}</span> Remaining on  Current Month </p>
+                                <div class="profile-search d-flex align-items-center d-none ">
                                     <i class="ri-search-line"></i>
                                     <input type="text" class="form-control" placeholder="Search Here..." id="search" />
                                 </div>
@@ -26,13 +27,15 @@
                         <div class="call-div-cnt row">
                             <div class="col-xl-12 col-lg-4" >
                                 <div class="call-div-box position-relative" role="button" >
-                                    <a href="javascript:void(0)" rel="nofollow" class="btn-call">
+                                    <a href="javascript:void(0)" rel="nofollow" class="btn-call" id="CallBack">
                                         <div class="btn-call__ico">
                                             <i class="ri-phone-fill"></i>
                                         </div>
-                                        <span>Call Back</span>
+                                        <span>Call Back </span>
+
                                     </a>
                                 </div>
+                                <p id="error" class="text-danger"></p>
                             </div>
                         </div>
                     </div>
@@ -41,4 +44,44 @@
         </div>
     </section>
     <!-- login end -->
+    <script>
+       $(document).ready(function () {
+    $('#CallBack').click(function () {
+        $('#error').html('Please wait...');
+        $.ajax({
+            type: 'POST',
+            url: '{{ route('callback') }}',
+            data: {
+                _token: '{{ csrf_token() }}'
+            },
+            success: function (response) {
+                if (response.status === 'success') {
+                    Swal.fire(
+                        'Good job!',
+                        response.message,
+                        'success'
+                    );
+
+                    var attampt = $('.h2').val() - 1;
+                    $('.h2').html(attampt);
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: response.message
+                    });
+                }
+            },
+            error: function (error) {
+                console.log(error.message);
+            },
+            complete: function () {
+                $('#error').html('');
+            }
+        });
+    });
+});
+
+    </script>
+    
 </x-guest-layout>

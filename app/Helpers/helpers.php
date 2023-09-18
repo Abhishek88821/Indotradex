@@ -29,6 +29,16 @@ if (!function_exists('getModalTarget')) {
     }
 }
 
+if (!function_exists('status')) {
+    function status($status) {
+        $statusLabels = [
+            1 => 'pending',
+            2 => 'completed',
+            0 => 'cancel',
+        ];
+        return $statusLabels[$status] ?? 'Unknown';
+    }
+}
 
 
 

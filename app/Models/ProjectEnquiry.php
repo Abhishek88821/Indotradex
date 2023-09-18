@@ -21,4 +21,9 @@ class ProjectEnquiry extends Model
         'remark',
         'admin_id',
     ];
+
+    public function project()
+    {
+        return $this->belongsTo(project::class,'id');
+    }
 }

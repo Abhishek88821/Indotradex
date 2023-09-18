@@ -24,30 +24,18 @@
                             </div>
                         </div>
                         <div class="res-div-cnt row">
+                            @forelse ($resources as $item)
                             <div class="col-xl-4 col-lg-4" >
+                                <a href="{{ $item->images->filepath }}" download >
                                 <div class="res-div-box position-relative" role="button" >
                                     <i class="ri-download-2-line"></i>
-                                    <span class="res-span">Indonesian Rules</span>
+                                    <span class="res-span"> {{ $item->title }} </span>
                                 </div>
+                            </a>
                             </div>
-                            <div class="col-xl-4 col-lg-4" >
-                                <div class="res-div-box position-relative" role="button" >
-                                    <i class="ri-download-2-line"></i>
-                                    <span class="res-span">IndoTradex Rules</span>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4" >
-                                <div class="res-div-box position-relative" role="button" >
-                                    <i class="ri-download-2-line"></i>
-                                    <span class="res-span">Tranding Profit</span>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4" >
-                                <div class="res-div-box position-relative" role="button" >
-                                    <i class="ri-download-2-line"></i>
-                                    <span class="res-span">Projects</span>
-                                </div>
-                            </div>
+                            @empty
+                            <tr> Not Have Any Resources</tr>
+                         @endforelse
                         </div>
                     </div>
                 </div>

@@ -290,7 +290,7 @@
                     <div class="foo-soc-div mb-0">
                         <h3 class="foo-counter mt-md-4 mt-3 me-md-5">
                             <span class="d-block">Visitor's Counter</span>
-                            <strong>93,02,390</strong>
+                            <strong id="visitor-count" > </strong>
                         </h3>
                     </div>
                 </div>
@@ -318,7 +318,25 @@
     </div>
     <!-- footer end -->
 
+
+
  @include('frontend/inc/models')
 
+ <script>
+    $(document).ready(function () {
+     
+     $.ajax({
+         type: 'get',
+         url: '{{ route("visitor_counter") }}',
+         data: {
+             _token: '{{ csrf_token() }}'
+         },
+         success: function (response) {
+             $('#visitor-count').text(response.count);
+         }
+     });
+
+});
+ </script>
     </body>
 </html>

@@ -23,14 +23,26 @@
                                 </div>
                             </div>
                         </div>
+                        @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    
+                        <form action="{{route('profile.update')}}" method="post" enctype="multipart/form-data">
                         <div class="register-form row">
+                           @csrf
                             <div class="col-lg-6 col-xl-6">
                                 <div class="form-group mb-md-4">
                                     <label for="registerby">
                                         Register As <span>*</span>
                                     </label>
-                                    <select class="form-control" id="register_as">
-                                        <option value="buyer" selected >Buyer</option>
+                                    <select class="form-control" id="register_as" name="role" >
+                                        <option value="{{ $profile->role->id }}" selected >{{ $profile->role->name }}</option>
                                        </select>
                                 </div>
                             </div>
@@ -39,8 +51,8 @@
                                     <label for="first_name">
                                         First Name <span>*</span>
                                     </label>
-                                    <input type="text" value="Abhishek" class="form-control" name="first_name"
-                                        id="first_name">
+                                    <input type="text" value="{{ $profile->firstName}}" class="form-control" name="firstName"
+                                        id="firstName">
                                 </div>
                             </div>
 
@@ -49,7 +61,7 @@
                                     <label for="last_name">
                                         Last Name <span>*</span>
                                     </label>
-                                    <input type="text" value="Jha" class="form-control" name="last_name" id="last_name">
+                                    <input type="text" value="{{ $profile->LastName }}" class="form-control" name="LastName" id="LastName">
                                 </div>
                             </div>
 
@@ -58,8 +70,8 @@
                                     <label for="first_name">
                                         E-mail <span>*</span>
                                     </label>
-                                    <input type="text" value="jhaabhishek88821@gmail.com" class="form-control"
-                                        name="first_name" id="first_name">
+                                    <input type="email" value="{{ $profile->email  }}" class="form-control"
+                                        name="email" id="email">
                                 </div>
                             </div>
 
@@ -69,7 +81,7 @@
                                         Mobile <span>*</span>
                                     </label>
                                     <div class="mobile-div d-flex align-items-center">
-                                        <input type="text" class="form-control" name="mobile" value="8882130397"
+                                        <input type="number" class="form-control" name="mobile" value="{{ $profile->mobile  }}"
                                             id="mobile" />
                                     </div>
                                 </div>
@@ -80,7 +92,7 @@
                                     <label for="website">
                                         Website <span>*</span>
                                     </label>
-                                    <input type="text" class="form-control" value="aspireindia.com" name="website"
+                                    <input type="text" class="form-control" value="{{ $profile->website }}" name="website"
                                         id="website">
                                 </div>
                             </div>
@@ -91,7 +103,7 @@
                                         Address Name <span>*</span>
                                     </label>
                                     <textarea type="text" class="form-control" name="address" id="message" rows="3"
-                                        cols="3">Sector-49, Gurugram</textarea>
+                                        cols="3">{{ $profile->address }}</textarea>
                                 </div>
                             </div>
 
@@ -100,7 +112,7 @@
                                     <label for="first_name">
                                         City/Town <span>*</span>
                                     </label>
-                                    <input type="text" class="form-control" value="Gurugram" name="city" id="city">
+                                    <input type="text" class="form-control" value="{{ $profile->city }}" name="city" id="city">
                                 </div>
                             </div>
 
@@ -109,7 +121,7 @@
                                     <label for="pin_code">
                                         Pin Code <span>*</span>
                                     </label>
-                                    <input type="text" class="form-control" value="120023" name="pin_code"
+                                    <input type="number" class="form-control" value="{{ $profile->pinCode }}" name="pinCode"
                                         id="pin_code">
                                 </div>
                             </div>
@@ -121,7 +133,7 @@
                                     </label>
                                     <div class="pho-id d-flex align-items-center">
                                         <div class="pho-div-preview">
-                                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&w=1000&q=80"
+                                            <img src="{{ $profile->photoIds->filepath}}"
                                                 class="img-fluid w-100" alt="Preview" title="" />
                                         </div><input type="file" class="form-control" name="photo_id" id="photo_id">
                                     </div>
@@ -134,7 +146,7 @@
                                     </label>
                                     <div class="pho-id d-flex align-items-center">
                                         <div class="pho-div-preview">
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeDHYntDanD7apZJ4x7oe3I3SSWyrQRQsqRA&usqp=CAU"
+                                            <img src="{{ $profile->photos->filepath}}"
                                                 class="img-fluid w-100" alt="Preview" title="" />
                                         </div><input type="file" class="form-control" name="photo" id="photo">
                                     </div>
@@ -146,16 +158,18 @@
                                         Remark <span>*</span>
                                     </label>
                                     <textarea type="text" class="form-control" name="remark" id="remark" rows="3"
-                                        cols="3">Write Remark</textarea>
+                                        cols="3">{{ $profile->remark }}</textarea>
                                 </div>
                             </div>
                             <div class="col-xl-12 col-lg-12">
                                 <div class="register-lnk position-relative d-flex align-items-center">
-                                    <input type="button" class="btn-link mt-md-4 me-md-3 text-decoration-none"
+                                    <input type="submit" class="btn-link mt-md-4 me-md-3 text-decoration-none"
                                         value="Submit">
                                 </div>
                             </div>
+                     
                         </div>
+                    </form>
                     </div>
                 </div>
             </div>

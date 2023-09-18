@@ -77,5 +77,22 @@ class User extends Authenticatable
     {
         return $this->hasOne(Plan::class, 'user_id');
     }
+
+    public function role()
+    {
+        return $this->hasOne(Role::class,'id','role_id');
+    }
+
+    public function photoIds()
+    {
+        return $this->belongsTo(Upload::class, 'photoId');
+    }
+
+    public function photos()
+    {
+        return $this->belongsTo(Upload::class, 'photo');
+    }
+
+
     
 }

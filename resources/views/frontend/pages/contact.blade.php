@@ -30,6 +30,8 @@
         <div class="container">
             <div class="row mx-0">
                 <div class="col-xl-7 col-lg-7">
+                    <form action="{{route('contact.save')}}" method="post" id="contactForm">
+                        @csrf
                     <div class="register-form mt-0">
                         <div class="title mb-md-5">
                             <h2 class="mb-20" >Contact Us</h2>
@@ -59,10 +61,10 @@
                                     <label for="category">
                                         Country<span>*</span>
                                     </label>
-                                    <select class="form-control" id="category">
-                                        <option value="india" style="background-image:url('assets/img/india.png');">
+                                    <select class="form-control" id="category" name="category">
+                                        <option value="india" style="background-image:url({{asset('frontend/assets/img/india.png')}});">
                                             India</option>
-                                        <option value="indonesia"><img src="assets/img/indonesia.png"
+                                        <option value="indonesia"><img src="{{asset('frontend/assets/img/indonesia.png')}}"
                                                 class="img-fluid me-1" alt="" title="" /> Indonesia</option>
                                     </select>
                                 </div>
@@ -135,21 +137,23 @@
                             <div class="col-lg-12 col-xl-12">
                                 <div class="form-group  mb-md-4">
                                     <label for="first_name">
-                                        Questions<span>*</span>
+                                        Message<span>*</span>
                                     </label>
-                                    <textarea type="text" class="form-control" name="address" id="message" rows="3"
+                                    <textarea type="text" class="form-control" name="message" id="message" rows="3"
                                         cols="3"></textarea>
                                 </div>
                             </div>
 
                             <div class="col-xl-12 col-lg-12">
                                 <div class="register-lnk position-relative d-flex align-items-center">
-                                    <input type="button" class="btn-link mt-md-4 mb-0 me-md-3 text-decoration-none"
+                                    <input type="submit" class="btn-link mt-md-4 mb-0 me-md-3 text-decoration-none"
                                         value="Submit" />
                                 </div>
                             </div>
                         </div>
                     </div>
+                </form>
+                <div id="response"></div>
                 </div>
                 <div class="col-lg-5 col-xl-5">
                     <div class="contact-addres-div">
@@ -198,4 +202,39 @@
         </div>
     </section>
     <!-- agro end -->
+
+
+    
+
+<script>
+    $(document).ready(function () {
+        $('#contactForm').submit(function (event) {
+            event.preventDefault(); 
+            var formData = $(this).serialize();
+            var form = this;
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                data: formData,
+                success: function (response) {
+                    $('#response').html(response.message);
+                    Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: response.message,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                },
+                error: function (error) {
+                    console.error('Error:', error);
+                },
+                complete: function () {
+                    $('#contactForm')[0].reset();
+                }
+            });
+        });
+    });
+
+    </script>
 </x-guest-layout>

@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductsEnquiry extends Model
+class Resources extends Model
 {
     use HasFactory;
 
-    public function product()
+    public function images()
     {
-        return $this->belongsTo(Product::class,'product_id','id');
+        return $this->belongsTo(Upload::class, 'file');
     }
 }
