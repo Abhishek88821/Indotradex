@@ -48,7 +48,7 @@
                             <div class="form-group position-relative">
                                 <label for="password">Password<span>*</span></label>
                                 <input type="password" class="form-control" name="password" id="password" required />
-                                <a href="forget-password.html" role="link" class="forget-password position-absolute">Forget Password?</a>
+                                <a href="{{route('forgetPassword')}}" role="link" class="forget-password position-absolute">Forget Password?</a>
                                 <i toggle="#password" class="ri-eye-off-line password-icn position-absolute"></i>
                                 @error('password')
                                     <span class="text-danger">{{ $message }}</span>

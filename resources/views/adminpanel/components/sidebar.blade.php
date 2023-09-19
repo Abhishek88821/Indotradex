@@ -180,6 +180,16 @@
             </a>
         </li>
 
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ route('setting.index') }}" aria-expanded="false">
+                <span class="d-flex">
+                    <i class="ti ti-archive"></i>
+                </span>
+                <span class="hide-menu">Setting</span>
+            </a>
+        </li>
+
+
 
     </ul>
 </nav>

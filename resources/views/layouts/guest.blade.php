@@ -38,7 +38,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
-
+    @php 
+    $setting  = App\Models\setting::first();
+    @endphp
            <!-- header start -->
     <header class="hea-div position-relative py-md-3">
         <div class="container">
@@ -51,16 +53,17 @@
                         </select>
                     </div>
                 </div>
+                @if(isset($setting->nav_header))
                 <div class="col-lg-12 col-xl-12">
                     <div class="hea-div-box text-center">
                         <a href="javascript:void(0)" class="text-decoration-none" role="link">
                             <p class="mb-0 pb-0">
-                                With Indotradex, you can start doing business in Indonesia quickly and
-                                easily <span class="new ms-2">New</span>
+                               {{ $setting->nav_header }} <span class="new ms-2">New</span>
                             </p>
                         </a>
                     </div>
                 </div>
+                @endif
                 <div class="col-lg-3 col-xl-3 d-none">
                     <div class="hea-sea-div d-flex justify-content-end align-items-center">
                         <div class="hea-sea-box">
@@ -191,24 +194,22 @@
                         <div class="foo-abt-logo mb-md-2">
                             <h1><span>Indo</span>Tradex</h1>
                         </div>
-                        <p class="pe-md-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                            unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <p class="pe-md-5">{{ $setting->about_footer }}.</p>
                     </div>
                     <div class="foo-soc-div mb-lg-1 mb-md-5">
                         <ul class="list-unstyled d-flex align-items-center justify-content-start">
                             <li>
-                                <a href="javascript:void(0)" class="text-decoration-none" role="link">
+                                <a href="{{ $setting->facebook }}" target="_black" class="text-decoration-none" role="link">
                                     <i class="ri-facebook-fill"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="text-decoration-none" role="link">
+                                <a href="{{ $setting->twiter }}"  target="_black" class="text-decoration-none" role="link">
                                     <i class="ri-twitter-fill"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" class="text-decoration-none" role="link">
+                                <a href="{{ $setting->linkedin }}"  target="_black"  class="text-decoration-none" role="link">
                                     <i class="ri-linkedin-fill"></i>
                                 </a>
                             </li>
@@ -302,7 +303,7 @@
             <div class="row">
                 <div class="col-lg-6 col-xl-6 col-12 col-sm-6 col-md-6">
                     <div class="foo-div-copy d-flex align-items-center justify-content-between">
-                        <span>&copy;2023 Copyright | All Rights Reserved</span>
+                        <span> {{ $setting->copyright }}</span>
                     </div>
                 </div>
                 <div class="col-lg-6 col-xl-6  col-12 col-sm-6 col-md-6 text-end">

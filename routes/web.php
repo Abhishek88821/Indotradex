@@ -28,10 +28,14 @@ Route::get('/project/{slug}',[TrendingController::class,'project'])->name('proje
 Route::get('our-team',[UserDashboardController::class,'team'])->name('our-team');
 Route::get('/visitor-counter',[VisitorCounterController::class,'index'])->name('visitor_counter');
 
+
 Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::get('/register',[AuthController::class,'register'])->name('register');
 Route::post('sign_in',[AuthController::class,'sign_in'])->name('sign_in');
 Route::post('sign_up',[AuthController::class,'signUp'])->name('sign_up');
+Route::get('forgetpassword', [AuthController::class,'forgetpassword'])->name('forgetPassword');
+Route::post('/password/reset', [AuthController::class,'sendResetLinkEmail'])->name('password.reset');
+
 Route::middleware('user')->group( function(){
 Route::get('logout',[AuthController::class,'logout'])->name('logout');
 Route::get('dashboard',[UserDashboardController::class,'index'])->name('dashboard');

@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ProductEnquiries;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\MettingController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\ProjectEnquiryController;
@@ -112,5 +113,6 @@ Route::middleware('admin')->group( function(){
    Route::resource('slider', SliderController::class);
    Route::resource('about', AboutController::class);
    Route::resource('teams', TeamController::class);
+   Route::resource('setting', SettingController::class);
 
 });

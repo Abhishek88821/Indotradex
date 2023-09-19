@@ -40,6 +40,7 @@ class User extends Authenticatable
         'photo',
         'remark',
         'email_verified_at',
+        'otp',
     ];
 
     /**

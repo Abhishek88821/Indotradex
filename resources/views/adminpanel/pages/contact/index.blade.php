@@ -11,7 +11,7 @@
 
                         </div>
 
-                        <div class="">
+                        <div class="table-responsive">
                             <table id="file_export"
                             class="table border table-striped table-bordered display text-nowrap">
                             <thead>
