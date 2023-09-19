@@ -1,8 +1,13 @@
 <?php 
 namespace App\Http\Controllers\Admin\Auth;
 
+use App\Models\Product;
+use App\Models\project;
 use PharIo\Manifest\Email;
 use Illuminate\Http\Request;
+use App\Models\ProjectEnquiry;
+use App\Models\ProductsEnquiry;
+use App\Models\BussinessEnquiry;
 use Yoeunes\Toastr\Facades\Toastr;
 use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
@@ -13,9 +18,17 @@ class AuthController extends Controller
 {
     public function index()
     {
-       return Auth::guard('admin')->check()
-          ?  view('adminpanel.dashboard')
-          :  view('adminpanel.auth.login');
+        if( Auth::guard('admin')->check()){
+
+            $Product  = Product::count();
+            $Project = project::count();
+            $ProductsEnquiry  = ProductsEnquiry::count();
+            $ProjectEnquiry = ProjectEnquiry::count();
+            $BussinessEnquiry = BussinessEnquiry::count();
+
+          return  view('adminpanel.dashboard' , compact('ProjectEnquiry', 'BussinessEnquiry','Project','Product','ProductsEnquiry'));
+        }
+         return  view('adminpanel.auth.login');
        
     }
 

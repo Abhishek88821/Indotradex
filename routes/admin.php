@@ -2,10 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CallController;
+use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\VisitController;
 use App\Http\Controllers\Admin\ProductEnquiries;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\MettingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Auth\AuthController;
@@ -109,5 +111,6 @@ Route::middleware('admin')->group( function(){
 
    Route::resource('slider', SliderController::class);
    Route::resource('about', AboutController::class);
+   Route::resource('teams', TeamController::class);
 
 });

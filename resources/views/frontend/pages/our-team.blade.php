@@ -40,17 +40,19 @@
                     <div class="team-div-box mt-md-5">
                         <div class="team-div">
                             <ul class="nav nav-pills mb-3 justify-content-between" id="pills-tab" role="tablist">
+                                @foreach($team as $key => $list)
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                                    <button class="nav-link @if($key == 0)  active @endif " id="pills-home-tab-{{$list->id}}" data-bs-toggle="pill" data-bs-target="#pills-home-{{$list->id}}" type="button" role="tab" aria-controls="pills-home-{{$list->id}}" aria-selected="true">
                                         <div class="team-img position-relative">
                                             <div class="circle position-relative"  >
                                                 <span></span>
                                             </div>
-                                            <img src="https://acodez.in/facespa/images/p1.png" class="img-fluid" alt="our team" title="our team" />
+                                            <img src="{{ $list->images->filepath }}" class="img-fluid" alt="{{ $list->images->file_original_name }}" title="{{ $list->name }}" />
                                         </div>
                                     </button>
                                 </li>
-                                <li class="nav-item" role="presentation">
+                                @endforeach
+                                {{-- <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
                                         <div class="team-img position-relative">
                                             <div class="circle position-relative">
@@ -80,21 +82,23 @@
                                             <img src="https://acodez.in/facespa/images/p4.png" class="img-fluid" alt="our team" title="our team" />
                                         </div>
                                     </button>
-                                </li>
+                                </li> --}}
                             </ul>
                             <div class="tab-content" id="pills-tabContent">
-                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                @foreach ($team as  $key => $item)
+                                <div class="tab-pane fade show  @if($key == 0)  active @endif " id="pills-home-{{$item->id}}" role="tabpanel" aria-labelledby="pills-home-tab-{{$item->id}}">
                                     <div class="tab-team mt-md-5" >
                                         <div class="team-title  my-md-4" >
-                                            <h4>Sameer Kumar <span>Advisor</span></h4>
+                                            <h4>{{ $item->name}} <span> {{ $item->position}}</span></h4>
                                         </div>
                                         <div class="team-cnt">
-                                            <p class="mb-0">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-                                            <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
+                                            <p class="mb-0"> {{ $item->about }} .</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                                @endforeach
+                                {{-- <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                                     <div class="tab-team mt-md-5">
                                         <div class="team-title  my-md-4">
                                             <h4>Simran Kumar <span>Manager</span></h4>
@@ -126,7 +130,7 @@
                                             <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

@@ -163,13 +163,23 @@
         </li>
 
         <li class="sidebar-item">
-            <a class="sidebar-link" href="{{ route('contact') }}" aria-expanded="false">
+            <a class="sidebar-link" href="{{ route('admin.contact') }}" aria-expanded="false">
                 <span class="d-flex">
                     <i class="ti ti-archive"></i>
                 </span>
                 <span class="hide-menu">Contact Us</span>
             </a>
         </li>
+
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ route('teams.index') }}" aria-expanded="false">
+                <span class="d-flex">
+                    <i class="ti ti-archive"></i>
+                </span>
+                <span class="hide-menu">Team</span>
+            </a>
+        </li>
+
 
     </ul>
 </nav>

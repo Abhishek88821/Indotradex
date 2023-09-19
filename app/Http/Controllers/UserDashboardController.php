@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Call;
-use App\Models\metting;
+use App\Models\Team;
 use App\Models\Visit;
+use App\Models\metting;
 use App\Models\Resources;
 use Illuminate\Http\Request;
 use App\Models\ProjectEnquiry;
@@ -144,7 +145,8 @@ class UserDashboardController extends Controller
   }
 
   public function team(){
-    return view('frontend.pages.our-team');
+    $team = Team::latest()->where('status',1)->get();
+    return view('frontend.pages.our-team' , compact('team'));
   }
 
  

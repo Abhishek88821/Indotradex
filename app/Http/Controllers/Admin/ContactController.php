@@ -10,5 +10,6 @@ class ContactController extends Controller
 {
     Public function index(){
         $contact = Contact::latest()->get();
+        return view('adminpanel.pages.contact.index' , compact('contact'));
     }
 }
