@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin\Auth;
 
 use App\Models\Product;
 use App\Models\project;
+use App\Models\AdminUser;
 use PharIo\Manifest\Email;
 use Illuminate\Http\Request;
 use App\Models\ProjectEnquiry;
@@ -12,6 +13,7 @@ use Yoeunes\Toastr\Facades\Toastr;
 use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Symfony\Contracts\Service\Attribute\Required;
 
 class AuthController extends Controller
@@ -46,5 +48,54 @@ class AuthController extends Controller
         Auth::guard('admin')->logout();
         return redirect()->route('admin');
     }
+
+
+    Public function profile(){
+        return view('adminpanel.profile');
+    }
     
+
+    // app/Http/Controllers/AdminController.php
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:6',
+        ]);
+    
+        $user = Auth::guard('admin')->user();
+    
+        if (Hash::check($request->current_password, $user->password)) {
+            $user->update([
+                'password' => Hash::make($request->new_password),
+            ]);
+    
+            return response()->json(['success' => true]);
+        } else {
+            return response()->json(['success' => false, 'message' => 'The current password is incorrect.'], 422);
+        }
+    }
+    
+
+
+    public function createSubAdmin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|unique:admin_users',
+            'password' => 'required|min:6',
+        ]);
+
+    
+        $subadmin = new AdminUser([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => 2, //  2 represents SubAdmin role
+        ]);
+
+        $subadmin->save();
+
+        return response()->json(['success' => true]);
+    }
+
 }

@@ -26,6 +26,10 @@ use App\Http\Controllers\Admin\Trading\TrandingSubcategoryController;
 Route::get('/', [AuthController::class, 'index'])->name('admin');
 Route::post('login', [AuthController::class, 'login'])->name('admin.login');
 Route::middleware('admin')->group( function(){
+    Route::get('profile',[AuthController::class, 'profile'])->name('admin.profile');
+Route::post('admin/change-password',[AuthController::class,'changePassword'])->name('admin.changePassword');
+Route::post('admin/createsubadmin', [AuthController::class, 'createSubAdmin'])->name('admin.createSubAdmin');
+
     Route::get('logout', [AuthController::class, 'logout']);
 
     Route::get('product/enquiries',[ProductEnquiries::class, 'index'])->name('admin.product.enquiries');

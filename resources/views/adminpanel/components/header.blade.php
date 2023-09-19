@@ -117,14 +117,14 @@
                     <img src="{{asset('adminpanel/dist/images/profile/user-1.jpg')}}" class="rounded-circle" width="80" height="80" alt="" />
                     <div class="ms-3">
                       <h5 class="mb-1 fs-3"> {{ Auth::guard('admin')->user()->name }}</h5>
-                      <span class="mb-1 d-block text-dark">Designer</span>
+                      {{-- <span class="mb-1 d-block text-dark">Designer</span> --}}
                       <p class="mb-0 d-flex text-dark align-items-center gap-2">
                         <i class="ti ti-mail fs-4"></i>{{ Auth::guard('admin')->user()->email }}
                       </p>
                     </div>
                   </div>
                   <div class="message-body">
-                    <a href="page-user-profile.html" class="py-8 px-7 mt-8 d-flex align-items-center">
+                    <a href="{{route('admin.profile')}}" class="py-8 px-7 mt-8 d-flex align-items-center">
                       <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
                         <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-account.svg" alt="" width="24" height="24">
                       </span>
