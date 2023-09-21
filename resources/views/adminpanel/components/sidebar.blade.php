@@ -3,7 +3,7 @@
         <li class="sidebar-item">
             <a class="sidebar-link has-arrow" href="#" aria-expanded="true">
                 <span class="d-flex">
-                    <i class="ti ti-chart-donut-3"></i>
+                    <i class="ti ti-adjustments-question"></i>
                 </span>
                 <span class="hide-menu">Enquiries</span>
             </a>
@@ -68,7 +68,7 @@
         <li class="sidebar-item">
             <a class="sidebar-link has-arrow" href="#" aria-expanded="true">
                 <span class="d-flex">
-                    <i class="ti ti-chart-donut-3"></i>
+                    <i class="ti ti-analyze-filled"></i>
                 </span>
                 <span class="hide-menu">Trading</span>
             </a>
@@ -104,7 +104,7 @@
         <li class="sidebar-item">
             <a class="sidebar-link has-arrow" href="#" aria-expanded="true">
                 <span class="d-flex">
-                    <i class="ti ti-chart-donut-3"></i>
+                    <i class="ti ti-arrow-bounce"></i>
                 </span>
                 <span class="hide-menu">Tranding</span>
             </a>
@@ -131,7 +131,7 @@
         <li class="sidebar-item">
             <a class="sidebar-link" href="{{ route('admin.category') }}" aria-expanded="false">
                 <span class="d-flex">
-                    <i class="ti ti-archive"></i>
+                    <i class="ti ti-artboard"></i>
                 </span>
                 <span class="hide-menu">Category</span>
             </a>
@@ -140,7 +140,7 @@
         <li class="sidebar-item">
             <a class="sidebar-link" href="{{ route('admin.business') }}" aria-expanded="false">
                 <span class="d-flex">
-                    <i class="ti ti-archive"></i>
+                    <i class="ti ti-air-balloon"></i>
                 </span>
                 <span class="hide-menu">Business</span>
             </a>
@@ -148,7 +148,7 @@
         <li class="sidebar-item">
             <a class="sidebar-link" href="{{ route('slider.index') }}" aria-expanded="false">
                 <span class="d-flex">
-                    <i class="ti ti-archive"></i>
+                    <i class="ti ti-align-left"></i>
                 </span>
                 <span class="hide-menu">Slider</span>
             </a>
@@ -156,7 +156,7 @@
         <li class="sidebar-item">
             <a class="sidebar-link" href="{{ route('about.index') }}" aria-expanded="false">
                 <span class="d-flex">
-                    <i class="ti ti-archive"></i>
+                    <i class="ti ti-alert-octagon"></i>
                 </span>
                 <span class="hide-menu">About Us</span>
             </a>
@@ -165,7 +165,7 @@
         <li class="sidebar-item">
             <a class="sidebar-link" href="{{ route('admin.contact') }}" aria-expanded="false">
                 <span class="d-flex">
-                    <i class="ti ti-archive"></i>
+                    <i class="ti ti-alien"></i>
                 </span>
                 <span class="hide-menu">Contact Us</span>
             </a>
@@ -174,7 +174,7 @@
         <li class="sidebar-item">
             <a class="sidebar-link" href="{{ route('teams.index') }}" aria-expanded="false">
                 <span class="d-flex">
-                    <i class="ti ti-archive"></i>
+                    <i class="ti ti-balloon"></i>
                 </span>
                 <span class="hide-menu">Team</span>
             </a>
@@ -183,7 +183,7 @@
         <li class="sidebar-item">
             <a class="sidebar-link" href="{{ route('setting.index') }}" aria-expanded="false">
                 <span class="d-flex">
-                    <i class="ti ti-archive"></i>
+                    <i class="ti ti-ampersand"></i>
                 </span>
                 <span class="hide-menu">Setting</span>
             </a>

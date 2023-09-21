@@ -30,9 +30,8 @@ class SettingController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate the form data
         $validatedData = $request->validate([
-            'nav_header' => 'required|string',
+            'nav_header' => 'nullable|string',
             'about_footer' => 'required|string',
             'facebook' => 'nullable|string',
             'twiter' => 'nullable|string',
@@ -40,16 +39,9 @@ class SettingController extends Controller
             'copyright' => 'nullable|string',
         ]);
     
-        // Retrieve the current setting or create a new one if it doesn't exist
         $setting = Setting::firstOrNew();
-    
-        // Update the setting attributes with the validated data
         $setting->fill($validatedData);
-    
-        // Save the setting to the database
         $setting->save();
-    
-        // Redirect back with a success message
         return redirect()->route('setting.index')->with('success', 'Settings updated successfully');
     }
     
