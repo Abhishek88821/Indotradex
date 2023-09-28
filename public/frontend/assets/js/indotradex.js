@@ -47,64 +47,127 @@ $(document).ready(function (e) {
 
     /* icon start */
     $("#pro-link-div").owlCarousel({
-        items: 6,
-        itemsDesktop: [1000, 6],
-        itemsDesktopSmall: [980, 4],
-        itemsTablet: [768, 3],
-        itemsMobile: [568, 3],
         pagination: false,
-        navigation: false,
-        autoPlay: false,
-        navigationText: ['<i class="ri-arrow-left-line"></i>', '<i class="ri-arrow-right-line"></i>']
+        autoPlay: true,
+        responsiveClass:true,
+            responsive:{
+                0:{
+                    items:3,
+                    nav:true
+                },
+                768:{
+                    items:4,
+                    nav:false
+                },
+                991:{
+                    items:5,
+                    nav:false,
+                },
+                1200:{
+                    items:6,
+                    nav:false,
+                }
+        }
     });
     /* icon end */
     /* tranding start   */
     $("#agro-div-box, #mining-div-box, #metal-div-box, #sea-div-box, #precious-div-box, #tre-div-gal-carousel").owlCarousel({
-        items: 3,
-        itemsDesktop: [1000, 3],
-        itemsDesktopSmall: [980, 3],
-        itemsTablet: [768, 2],
-        
-        itemsMobile: [568, 1.5],
-        pagination: false,
-        navigation: false,
+        loop: true,
         autoPlay: true,
-        navigationText: ['<i class="ri-arrow-left-line"></i>', '<i class="ri-arrow-right-line"></i>']
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1.4,
+                nav:false
+            },
+            768:{
+                items:2,
+                nav:false
+            },
+            991:{
+                items:3,
+                nav:false
+            },
+            1200:{
+                items:4,
+                nav:false
+            }
+        }
     });
 
     $("#tra-div-box, #tre-div-box").owlCarousel({
-        items: 3,
-        itemsDesktop: [1000, 3],
-        itemsDesktopSmall: [980, 3],
-        itemsTablet: [768, 2],
-        itemsMobile: [568, 1.2],
         pagination: false,
-        navigation: true,
+        loop: true,
         autoPlay: true,
-        navigationText: ['<i class="ri-arrow-left-line"></i>', '<i class="ri-arrow-right-line"></i>']
+        navText: ['<i class="ri-arrow-left-line"></i>','<i class="ri-arrow-right-line"></i>'],
+        responsive:{
+            0:{
+                items:1.4,
+                nav:true
+            },
+            768:{
+                items:3,
+                nav:true
+            },
+            991:{
+                items:3,
+                nav:true
+            },
+            1200:{
+                items:3,
+                nav:true
+            }
+        }
     });
     $("#bus-div-box").owlCarousel({
-        items: 3,
-        itemsDesktop: [1000, 3],
-        itemsDesktopSmall: [980, 3],
-        itemsTablet: [768, 2],
-        itemsMobile: [568, 1.5],
+        responsive:{
+            0:{
+                items:1.4,
+                nav:false
+            },
+            768:{
+                items:3,
+                nav:false
+            },
+            991:{
+                items:3,
+                nav:false,
+            },
+            1200:{
+                items:3,
+                nav:false,
+            }
+        },
+        loop: true,
         pagination: true,
-        navigation: false,
-        autoPlay: true,
-        navigationText: ['<i class="ri-arrow-left-line"></i>', '<i class="ri-arrow-right-line"></i>']
+        center: true,
+        Infinity: true,
+        autoPlay: true
     });
 
     $("#rel-div-box").owlCarousel({
-        items: 3,
-        itemsDesktop: [1000, 3],
-        itemsDesktopSmall: [980, 3],
-        itemsTablet: [768, 2],
-        itemsMobile: [568, 1.5],
+        responsive:{
+            0:{
+                items:1.5,
+                nav:true
+            },
+            768:{
+                items:3,
+                nav:false
+            },
+            991:{
+                items:3,
+                nav:false,
+            },
+            1200:{
+                items:3,
+                nav:false,
+            }
+        },
         pagination: true,
-        navigation: true,
-        autoPlay: true,
-        navigationText: ['<i class="ri-arrow-left-line"></i>', '<i class="ri-arrow-right-line"></i>']
+        loop: true,
+        Infinity: true,
+        autoPlay: true
     });
     /* tranding end */
     

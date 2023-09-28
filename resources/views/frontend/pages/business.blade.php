@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            @foreach ($business as $list)
+            <!-- @foreach ($business as $list)
             <div class="row my-md-5">
                 <div class="col-lg-4 col-xl-4 {{ $loop->iteration % 2 == 0 ? 'order-2 order-md-1' : ''}}">
                     <div class="bus-div-img position-relative">
@@ -52,7 +52,93 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+            @endforeach -->
+
+            <div class="row my-md-5">
+                <div class="col-lg-4 col-xl-4 order-lg-1">
+                    <div class="bus-div-img position-relative">
+                        <span>1</span>
+                        <img src="https://images.pexels.com/photos/716411/pexels-photo-716411.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1260&amp;h=750&amp;dpr=2" class="img-fluid" alt="" title="">
+                        <h4>Establishment</h4>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-xl-8">
+                    <div class="bus-div-box-1 pe-md-4">
+                        <p class="">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.
+                        </p>
+                        <p class="mb-0">
+                            but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                            popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-md-5">
+                <div class="col-lg-4 col-xl-4">
+                    <div class="bus-div-img position-relative">
+                        <span>2</span>
+                        <img src="https://images.pexels.com/photos/3943727/pexels-photo-3943727.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1260&amp;h=750&amp;dpr=2" class="img-fluid" alt="" title="">
+                        <h4>Investment</h4>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-xl-8">
+                    <div class="bus-div-box-1">
+                        <p class="">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.
+                        </p>
+                        <p class="mb-0">
+                            but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                            popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-md-5">
+                <div class="col-lg-8 col-xl-8 order-2 order-md-2 order-lg-1">
+                    <div class="bus-div-box-1">
+                        <p class="">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.
+                        </p>
+                        <p class="mb-0">
+                            but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                            popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                            passages, and more recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-4 order-md-1">
+                    <div class="bus-div-img position-relative">
+                        <span>3</span>
+                        <img src="https://images.pexels.com/photos/17392394/pexels-photo-17392394/free-photo-of-young-woman-sitting-at-the-desk-with-a-laptop-and-talking-on-the-phone.jpeg" class="img-fluid" alt="" title="">
+                        <h4>Procurement &amp; Sourcing</h4>
+                    </div>
+                </div>
+            </div>
+
             
             <div class="row mt-md-5 pt-md-5">
                 <div class="col-xl-12 col-lg-12 text-center">

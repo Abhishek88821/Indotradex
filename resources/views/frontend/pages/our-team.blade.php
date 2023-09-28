@@ -52,41 +52,10 @@
                                     </button>
                                 </li>
                                 @endforeach
-                                {{-- <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
-                                        <div class="team-img position-relative">
-                                            <div class="circle position-relative">
-                                                <span></span>
-                                            </div>
-                                            <img src="https://acodez.in/facespa/images/p2.png" class="img-fluid" alt="our team" title="our team" />
-                                        </div>
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
-                                        <div class="team-img position-relative">
-                                            <div class="circle position-relative">
-                                                <span></span>
-                                            </div>
-
-                                            <img src="https://acodez.in/facespa/images/p3.png" class="img-fluid" alt="our team" title="our team" />
-                                        </div>
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="pills-contact-tab1" data-bs-toggle="pill" data-bs-target="#pills-contact1" type="button" role="tab" aria-controls="pills-contact1" aria-selected="false">
-                                        <div class="team-img position-relative">
-                                            <div class="circle position-relative">
-                                                <span></span>
-                                            </div>
-                                            <img src="https://acodez.in/facespa/images/p4.png" class="img-fluid" alt="our team" title="our team" />
-                                        </div>
-                                    </button>
-                                </li> --}}
                             </ul>
                             <div class="tab-content" id="pills-tabContent">
                                 @foreach ($team as  $key => $item)
-                                <div class="tab-pane fade show  @if($key == 0)  active @endif " id="pills-home-{{$item->id}}" role="tabpanel" aria-labelledby="pills-home-tab-{{$item->id}}">
+                                <div  class="tab-pane fade show  @if($key == 0)  active @endif " id="pills-home-{{$item->id}}" role="tabpanel" aria-labelledby="pills-home-tab-{{$item->id}}">
                                     <div class="tab-team mt-md-5" >
                                         <div class="team-title  my-md-4" >
                                             <h4>{{ $item->name}} <span> {{ $item->position}}</span></h4>
@@ -98,39 +67,6 @@
                                 </div>
 
                                 @endforeach
-                                {{-- <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                    <div class="tab-team mt-md-5">
-                                        <div class="team-title  my-md-4">
-                                            <h4>Simran Kumar <span>Manager</span></h4>
-                                        </div>
-                                        <div class="team-cnt">
-                                            <p class="mb-0">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-                                            <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                                    <div class="tab-team mt-md-5">
-                                        <div class="team-title  my-md-4">
-                                            <h4>Neha Kumar <span>Administrator</span></h4>
-                                        </div>
-                                        <div class="team-cnt">
-                                            <p class="mb-0">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-                                            <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab1">
-                                    <div class="tab-team mt-md-5">
-                                        <div class="team-title  my-md-4">
-                                            <h4>Pankaj Kaushal <span>HR</span></h4>
-                                        </div>
-                                        <div class="team-cnt">
-                                            <p class="mb-0">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-                                            <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
-                                        </div>
-                                    </div>
-                                </div> --}}
                             </div>
                         </div>
                     </div>

@@ -22,8 +22,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <link rel="stylesheet" media="all" href="{{asset('frontend/assets/css/indotradex.css')}}" />
-        <link rel="stylesheet" media="all" href="{{asset('forntend/assets/css/mobile.css')}}" />
-        <link href="https://www.aspireindia.com/itforte/assets/css/owl.carousel.min.css" rel="Stylesheet" type="text/css" />
+        <link rel="stylesheet" media="all" href="{{asset('frontend/assets/css/mobile.css')}}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
     
         <!-- javascript start -->
@@ -32,7 +32,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
             integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
             crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://www.aspireindia.com/itforte/assets/js/owl.carousel.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- <script type="text/javascript" src="https://www.aspireindia.com/itforte/assets/js/owl.carousel.min.js"></script> -->
         <script type="text/javascript" src="{{asset('frontend/assets/js/indotradex.js')}}"></script>
         <script type="text/javascript" src="{{asset('frontend/assets/js/custom.js')}}"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -80,20 +81,20 @@
     <section class="nav-div position-relative py-md-3">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-3 col-xl-3  col-md-7 col-7">
+                <div class="col-lg-3 col-xl-3  col-md-5 col-7" >
                     <div class="d-flex align-items-center">
-                        <div class="menu-icon d-md-none d-block" id="menu-icon">
-                            <img src="assets/img/icon/menu.svg" class="img-fluid" alt="Menu Icon" title="Menu" />
-                            <img src="assets/img/icon/close.svg" class="img-fluid d-none" alt="Menu Icon" title="Menu" />
+                        <div class="menu-icon d-lg-none d-block" id="menu-icon">
+                            <img src="{{asset('frontend/assets/img/icon/menu.svg')}}" class="img-fluid" alt="Menu Icon" title="Menu" />
+                            <img src="{{asset('frontend/assets/img/icon/close.svg')}}" class="img-fluid d-none" alt="Menu Icon" title="Menu" />
                         </div>
-                        <div class="log-div ms-md-0 ms-3">
+                        <div class="log-div ms-lg-0 ms-md-2 ms-3">
                             <a href="{{route('/')}}" class="text-decoration-none" role="link">
                                 <h1><span>Indo</span>Tradex</h1>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-9 col-xl-9 col-md-7 col-5">
+                <div class="col-lg-9 col-xl-9 col-md-7 col-5" >
                     <div class="navbar-div d-flex align-items-center justify-content-end">
                         <div class="nav-div-lst">
                             <ul class="list-unstyled d-md-flex d-grid align-items-md-center mb-0">
@@ -124,34 +125,41 @@
                             <ul class="list-unstyled  d-md-flex d-flex align-items-md-center  ms-md-4 mb-0">
                                 <li class="d-flex align-items-center">
                                     <a href="javascript:void(0)"
-                                        class="text-decoration-none d-md-none d-block align-items-center" role="link">
-                                        <img src="assets/img/icon/eStore.svg" class="img-fluid w-100" alt="eStore"
+                                        class="text-decoration-none d-lg-none d-block align-items-center" role="link">
+                                        <img  src="{{asset('frontend/assets/img/icon/eStore.svg')}}" class="img-fluid w-100" alt="eStore"
                                             title="eStore" />
                                     </a>
 
                                     <a href="javascript:void(0)"
-                                        class="text-decoration-none d-md-flex  d-none align-items-center" role="link">
+                                        class="text-decoration-none d-lg-flex  d-none align-items-center" role="link">
                                         <i class="ri-shopping-cart-2-line pe-2"></i>e-Store
                                     </a>
                                 </li>
                                 <li class="d-flex align-items-center">
-                                    <a href="login.html"
-                                        class="text-decoration-none text-white d-md-none  d-block align-items-center"
-                                        role="link">
-                                        <img src="{{asset('frontend/assets/img/icon/login.svg')}}" class="img-fluid w-100" alt="login"
-                                            title="login" />
-                                    </a>
+                                    
                                     @if(Auth::check())
                                     <a href="{{route('dashboard')}}"
-                                    class="text-decoration-none text-white d-md-flex  d-none align-items-center"
+                                    class="text-decoration-none text-white d-lg-flex  d-none align-items-center"
                                     role="link">
                                     <i class="ri-logout-box-r-line pe-2"></i>Dashboard
+                                    <a href="login.html"
+                                        class="text-decoration-none text-white d-lg-none  d-block align-items-center"
+                                        role="link">
+                                        <img src="{{asset('frontend/assets/img/user.png')}}" class="img-fluid w-100" alt="login"
+                                            title="login" />
+                                    </a>
                                 </a>
                                     @else
                                     <a href="{{route('login')}}"
-                                        class="text-decoration-none text-white d-md-flex  d-none align-items-center"
+                                        class="text-decoration-none text-white d-lg-flex  d-none align-items-center"
                                         role="link">
                                         <i class="ri-logout-box-r-line pe-2"></i>Login
+                                    </a>
+                                    <a href="{{route('login')}}"
+                                        class="text-decoration-none text-white d-lg-none  d-block align-items-center"
+                                        role="link">
+                                        <img src="{{asset('frontend/assets/img/icon/login.svg')}}" class="img-fluid w-100" alt="login"
+                                            title="login" />
                                     </a>
                                     @endif 
                                 </li>

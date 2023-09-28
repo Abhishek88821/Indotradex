@@ -32,7 +32,7 @@
                 <div class="col-xl-12 col-lg-12">
                     <div class="register-form">
                         <div class="title mb-md-5">
-                            <h2>Register Page</h2>
+                            <h2 class="mb-20" >Register Page</h2>
                         </div>
                         <form action="{{route('sign_up')}}" method="post" enctype="multipart/form-data">
                             @csrf

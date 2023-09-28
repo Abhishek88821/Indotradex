@@ -5,12 +5,12 @@
             <div class="row mx-0">
                 <div class="col-xl-3 col-lg-3 p-md-0">
                     <div class="profile-menu position-relative d-block d-md-none" >
-                        <img src="assets/img/icon/menu.svg" class="img-fluid me-2" alt="Menu Icon" title="Menu"><span>Menu</span>
+                        <img src="{{asset('frontend/assets/img/icon/menu.svg')}}" class="img-fluid me-2" alt="Menu Icon" title="Menu"><span>Menu</span>
                     </div>
                     @include('frontend.inc.sidebar')
                 </div>
                 <div class="col-xl-9 col-lg-9 col-12 col-sm-12 p-md-0 ">
-                    <div class="pro-div-box bg-white">
+                    <div class="pro-div-box ">
                         <div class="pro-div-box-title position-relative">
                             <div class="">
                                 <h2>Meeting</h2>
@@ -35,12 +35,12 @@
                         @endif
                         
                             <form action="{{route('metting.request')}}" method="post" enctype="multipart/form-data">
-                            <div class="meeting-div-cnt row">
+                            <div class="meeting-div-cnt register-form row">
                                @csrf
                                
-                                <div class="col-lg-6 col-xl-6">
-                                    <div class="form-group  mb-md-4">
-                                        <label for="first_name">
+                                <div class="col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group  mb-md-4 mb-3">
+                                        <label>
                                             Via<span>*</span>
                                         </label>
                                         <select name="via" id="" class="form-control">
@@ -50,8 +50,8 @@
                                     </div>
                                 </div>
     
-                                <div class="col-lg-6 col-xl-6">
-                                    <div class="form-group  mb-md-4">
+                                <div class="col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group  mb-md-4  mb-3">
                                         <label for="last_name">
                                             Time <span>*</span>
                                         </label>
@@ -59,39 +59,39 @@
                                     </div>
                                 </div>
     
-                                <div class="col-lg-6 col-xl-6">
-                                    <div class="form-group  mb-md-4">
+                                <div class="col-lg-4 col-xl-4 col-md-12 col-sm-12 col-12">
+                                    <div class="form-group  mb-md-4  mb-3">
                                         <label for="first_name">
-                                           Perpose <span>*</span>
+                                           Purpose <span>*</span>
                                         </label>
-                                        <input type="text" class="form-control" placeholder=" Enter Perpose Here ..."
+                                        <input type="text" class="form-control" placeholder=""
                                             name="perpose" id="perpose">
                                     </div>
                                 </div>
     
-                                <div class="col-lg-6 col-xl-6">
-                                    <div class="form-group  mb-md-4">
+                                <div class="col-lg-12 col-xl-12 col-12">
+                                    <div class="form-group  mb-md-4  mb-3">
                                         <label for="first_name">
                                             Message <span>*</span>
                                         </label>
                                         <div class="mobile-div d-flex align-items-center">
-                                            <textarea type="text" class="form-control" name="message"
-                                                id="mobile" > Enter Message Here ...</textarea>
+                                            <textarea type="text"  rows="4" cols="4" class="form-control" name="message"
+                                                id="mobile" value="" ></textarea>
                                         </div>
                                     </div>
                                 </div>
     
                               
-                                <div class="col-xl-12 col-lg-12">
+                                <div class="col-xl-12 col-lg-12 ">
                                     <div class="register-lnk position-relative d-flex align-items-center">
-                                        <input type="submit" class="btn-link mt-md-4 me-md-3 text-decoration-none"
+                                        <input type="submit" class="btn-link mt-md-3 mt-2 text-decoration-none"
                                             value="Submit">
                                     </div>
                                 </div>
                          
                             </div>
                         </form>
-                        <div class="pro-div-cnt row align-items-center my-2">
+                        <div class="pro-div-cnt row align-items-center my-md-5 my-3">
                             <div class="col-lg-12 col-xl-12" >
                                     <div class="supply-div-box" >
                                         @if($metting->isnotempty())
@@ -120,12 +120,12 @@
                                                     <td>
                                                         <div class="link-supply">
                                                             {{-- <a href="{{ route('edit.supply', $item->id) }}"><i class="ri-edit-box-fill me-2"></i></a> --}}
-                                                            <a href="{{ route('delete.metting', ['id' => $item->id]) }}" class="text-decoration-none" onclick="return confirm('Are you sure you want to delete this supply entry?')"><i class="ri-delete-bin-fill"></i></a>
+                                                            <a href="{{ route('delete.metting', ['id' => $item->id]) }}" class="text-decoration-none" onclick="return confirm('Are you sure you want to delete meeting entry?')"><i class="ri-delete-bin-fill"></i></a>
                                                         </div>
                                                     </td>
                                             </tr> 
                                              @empty
-                                                 <tr> No Metting data found</tr>
+                                                 <tr> No Meeting data found</tr>
                                              @endforelse
                                                
                                              
@@ -134,7 +134,12 @@
                                     
                                             
                                         @else
-                                               <h4>No Metting data found !! </h4>
+                                        <tr>
+                                                    <div class="no-found" > No Meeting Found </div>
+                                                    </tr>
+                                                   <script type="text/javascript"> 
+                                                            $('.supply-div-box table').css('display', 'none');
+                                                    </script>
                                         @endif
                                     </div>
                             </div>

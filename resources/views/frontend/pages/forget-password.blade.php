@@ -30,7 +30,6 @@
         <div class="container">
             <div class="row mx-0">
                 <div class="col-xl-12 col-lg-12">
-                    <a href="{{route('login')}}" class=" btn btn-outline-primary center m-2 "> Go to Login </a>
                     <div class="login-form"> 
                         <div class="title mb-md-5">
                             <h2 class="mb-20" >Forget Password </h2>
@@ -62,12 +61,16 @@
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-                            
+                            <div class="col-xl-12 col-lg-12 col-12  text-end" >
+                            <label class="signup" >
+                            Back to <a href="{{route('login')}}" class="text-decoration-none" role="button" >Login </a>
+                            </label>
+                        </div>
                         
                            
                         
                             <div class="register-lnk position-relative d-flex align-items-center">
-                                <button type="submit" class="btn-link mt-3 text-decoration-none mb-0">Submit</button>
+                                <button type="submit" class="btn-link mt-md-3 mt-2 text-decoration-none mb-0">Submit</button>
                             </div>
                         </form>
                            

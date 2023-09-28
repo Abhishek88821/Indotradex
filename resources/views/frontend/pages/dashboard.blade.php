@@ -10,7 +10,7 @@
                     @include('frontend.inc.sidebar')
                 </div>
                 <div class="col-xl-9 col-lg-9 col-12 col-sm-12 p-md-0 ">
-                    <div class="pro-div-box bg-white">
+                    <div class="pro-div-box">
                         <div class="pro-div-box-title position-relative">
                             <div class="">
                                 <h2>Dashboard</h2>

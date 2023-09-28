@@ -44,7 +44,7 @@
     <!-- trending start  -->
     <section class="trending-div tra-pro-div1 position-relative py-70">
         <div class="container">
-            <div class="row">
+            <div class="row mb-20">
                 <div class="col-lg-12 col-md-12 col-xl-12">
                     <div class="trending-div-search mx-auto d-flex position-relative align-items-center justify-content-center mt-md-4 mb-md-5">
                         <div class="trending-sel position-relative">
@@ -65,10 +65,10 @@
             </div>
             <div class="row" id="trending-box-product" >
                 @forelse ($projects as $project)
-                <div class="col-lg-6 col-md-6 col-xl-6 col-6 col-sm-6">
+                <div class="col-lg-6 col-md-6 col-xl-6 col-12 col-sm-6">
                     <div class="trending-div-box d-flex">
                         <div class="trending-div-img position-relative">
-                            <span>1</span>
+                            <span>{{ $project->id }}</span>
                             <img src="{{  $project->images->filepath ?? ''}}" class="img-fluid" alt="{{ $project->images->file_original_name ?? '' }}" title="{{ $project->name ?? '' }}" />
                             <div class="d-flex align-items-center trending-div-avtar ">
                                 <div class="trending-div-icn me-2 me-md-3">

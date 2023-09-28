@@ -61,7 +61,7 @@
     <!-- product link end -->
    
     <!-- tab start -->
-    <section class="tab-div position-relative py-70">
+    <section class="tab-div tre-tra-bus-div position-relative py-70">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-xl-12">
@@ -89,7 +89,7 @@
                 <div class="col-lg-6 col-xl-6">
                     <div class="tab-div-cnt">
                         <div class="tab-title position-relative ">
-                            <h3><span class="">{{ $loop->iteration }}</span>{{$categoryItem->name }}</h3>
+                            <h3><span class="">{{ $loop->iteration }}</span>{{$categoryItem->meta_title }}</h3>
                         </div>
                         <div class="tab-div-cnt-desc">
                             <p class="mt-md-4 mt-1">
@@ -125,7 +125,9 @@
                 <div class="col-xl-6 col-lg-6  col-12 col-sm-12">
                     <div class="abt-title">
                         <p class="mb-2">About</p>
-                        <h2 class="text-white"> {{ $about->title}}</h2>
+                        <h2 class="text-white">
+                        Brief Overview Of <br />IndoTradex
+                        </h2>
                     </div>
                     <div class="abt-cnt">
                         <p class="pt-md-4">
@@ -160,17 +162,17 @@
                                         <img src="{{asset( $Items->images->filepath )}}" class="img-fluid w-100" alt="" title="" />
                                         <div class="intereseted position-absolute">
                                            
-                                                <span class="so" title="Supplier Enquiry" data-bs-toggle="modal" 
-                                                    data-bs-target="{{ getModalTarget('#ProductSupplierEnquiry') }}" data-product="{{$Items}}">
+                                                <span class="so" title="Soucing Enquiry" data-bs-toggle="modal" 
+                                                    data-bs-target="{{ getModalTarget('#ProductSourcingEnquiry') }}" data-product="{{$Items}}">
                                                     SO
                                                 </span>
 
                                                 <span class="bu" title="Sourcing Enquiry" data-product="{{$Items}}" data-bs-target="{{ getModalTarget('#ProductBuyingEnquiry') }}" data-bs-toggle="modal"  >
-                                                    BE
+                                                    BU
                                                 </span>
-                                                <span class="se" title="Supplier Enquiry" data-bs-toggle="modal" 
-                                                data-bs-target="{{ getModalTarget('#ProductSourcingEnquiry') }}" data-product="{{$Items}}">
-                                                SE
+                                                <span class="su" title="Supplier Enquiry" data-bs-toggle="modal" 
+                                                data-bs-target="{{ getModalTarget('#ProductSupplierEnquiry') }}" data-product="{{$Items}}">
+                                                SU
                                                 </span> 
                                                 
                                         </div>
@@ -260,7 +262,7 @@
                                 <div class="bus-pro-div position-relative">
                                     <a href="javascript:void(0)" class="text-decoration-none" role="link">
                                         <div class="bus-pro-cnt">
-                                            <h5>{{ $list->short_desc }}<span>{{ $list->name }}</span></h5>
+                                            <h5>{{ $list->short_desc }} <span>{{ $list->name }}</span></h5>
                                         </div>
                                         <div class="tra-pro-img position-relative">
                                             <img src="{{asset( $list->images->filepath)}}" class="img-fluid w-100" alt="{{$list->images->file_original_name}}"

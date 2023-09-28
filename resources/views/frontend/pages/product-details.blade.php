@@ -1,28 +1,68 @@
 <x-guest-layout>
+ <!-- slider start -->
+ <section class="sli-div inn-div-slider position-relative">
+        <!-- slider img start -->
+        <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false"
+            data-bs-interval="false">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img style="object-position: top!important;"
+                        src="{{ asset($product->banners?->filepath ?? 'uploads/1hxD9JQ6vg7yEOItIe4A.jpeg')}}"
+                        class="d-block w-100" alt="{{$product->banners?->file_original_name ?? ''}}">
+                </div>
+            </div>
+            <button class="carousel-control-prev d-none" type="button"
+                data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden"></span>
+            </button>
+            <button class="carousel-control-next  d-none" type="button"
+                data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden"></span>
+            </button>
+        </div>
+        <!-- slider img end -->
+    </section>
+    <!-- slider end -->
+ <!-- breadcrumbs start -->
+ <section class="breadcrumbs-div d-md-none d-none">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xl-12 col-12  ">
+                 
+    <div class="breadcrumbs text-start py-2 d-flex align-items-center jusify-content-start">
+                            <a href="{{route('/')}}" class="text-decoration-none" role="link">
+                                Home
+                            </a>
+                            <i class="ri-arrow-right-line"></i>
+                            <a href="#" class="text-decoration-none" role="link">{{ $product->name }}</a>
+                        </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- breadcrumbs end -->
+
     <!-- agro start -->
     <section class="agro-div position-relative py-70">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-xl-12  col-12 col-sm-12 col-md-12">
                     <div class="title text-center d-none">
-                        <h3>Products Details</h3>
-                        <div class="breadcrumbs text-center">
-                            <a href="{{ route('/')}}" class="text-decoration-none" role="link">
-                                Home
-                            </a><a href="#" class="text-decoration-none" role="link">Products Details</a>
-                        </div>
+                        <h3>{{ $product->name }}</h3>
                     </div>
                 </div>
-                <div class="col-lg-4 col-xl-4 col-12 col-sm-12 col-md-12">
+                <div class="col-lg-4 col-xl-4 col-12 col-sm-12 col-md-4">
                     <div class="agro-div-filter-mobile d-md-none d-block" id="agro-div-filter-mobile">
-                        <img src="assets/img/icon/filter.svg" class="img-fluid me-1" alt="Filter" title="Filter" />
+                        <img src="{{asset('frontend/assets/img/icon/filter.svg')}}" class="img-fluid me-1" alt="Filter" title="Filter" />
                         <span>Filter</span>
                     </div>
                     <div class="agro-div-box filter-div">
                         <div class="agro-div-lst">
                             <h3 class="py-md-4">Filter</h3>
                             <span class="filter-close d-md-none d-block">
-                                <img src="assets/img/icon/close.svg" class="img-fluid w-100" alt="Close Icon"
+                                <img src="{{asset('frontend/assets/img/icon/close.svg')}}" class="img-fluid w-100" alt="Close Icon"
                                     Title="Close" />
                             </span>
                         </div>
@@ -53,7 +93,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8 col-xl-8  col-12 col-sm-12 col-md-12">
+                <div class="col-lg-8 col-xl-8  col-12 col-sm-12 col-md-8">
                     <div class="agro-dtl-div">
                         <div class="agro-dtl-img">
                             <img src="{{asset($product->images->filepath )}}" class="img-fluid w-100" alt="{{ $product->images->file_original_name }}" />
@@ -66,6 +106,7 @@
                             <h5 class="mb-md-3">
                                 Specifications
                             </h5>
+                            <div class="table-overflow">
                             <table class="agro-dtl-cnt-table table table-responsive table-bordered">
                                 <thead>
                                     <tr>
@@ -87,23 +128,19 @@
                                     </tr>
                                 </tbody>
                             </table>
+</div>
                         </div>
                     </div>
                     <div class="col-lg-12 col-xl-12">
                         <div class="trending-div-link d-flex mt-md-5 me-2 align-items-center justify-content-around">
-
-                            <div data-bs-toggle="modal"  data-bs-target="{{ getModalTarget('#ProductSupplierEnquiry') }}" data-product="{{$product}}" class="trending-div-link-1  ms-2 orange so">
-                                <a href="javascript:void(0)" class="text-decoration-none" role="link">Intested To Supply</a>
-                                <p>(For Suppliers)</p>
-                            </div>
-
-                            <div data-bs-toggle="modal" data-product="{{$product}}" data-bs-target="{{ getModalTarget('#ProductBuyingEnquiry') }}" class="trending-div-link-2 green bu ">
+                    
+                        <div data-bs-toggle="modal" data-product="{{$product}}" data-bs-target="{{ getModalTarget('#ProductBuyingEnquiry') }}" class="trending-div-link-2 green ">
                                 <a href="javascript:void(0)" class="text-decoration-none" role="link">Interested To Buy</a>
                                 <p>(For Buyer)</p>
                             </div>
                             
 
-                            <div data-bs-toggle="modal"  data-bs-target="{{ getModalTarget('#ProductSourcingEnquiry') }}" data-product="{{$product}}" class="trending-div-link-1  ms-2 blue se ">
+                            <div data-bs-toggle="modal"  data-bs-target="{{ getModalTarget('#ProductSupplierEnquiry') }}" data-product="{{$product}}" class="trending-div-link-1  ms-2 orange ">
                                 <a href="javascript:void(0)" class="text-decoration-none" role="link">Intested To Supplier</a>
                                 <p>(For Suppliers)</p>
                             </div>
@@ -132,12 +169,12 @@
                                                             SO
                                                         </span>
 
-                                                        <span class="bu" title="Sourcing Enquiry" data-product="{{$list}}" data-bs-target="{{ getModalTarget('#ProductBuyingEnquiry') }}" data-bs-toggle="modal"  >
-                                                            BE
+                                                        <span class="bu" title="Buying Enquiry" data-product="{{$list}}" data-bs-target="{{ getModalTarget('#ProductBuyingEnquiry') }}" data-bs-toggle="modal"  >
+                                                            BU
                                                         </span>
-                                                        <span class="se" title="Supplier Enquiry" data-bs-toggle="modal" 
+                                                        <span class="su" title="Supplier Enquiry" data-bs-toggle="modal" 
                                                         data-bs-target="{{ getModalTarget('#ProductSourcingEnquiry') }}" data-product="{{$list}}">
-                                                        SE
+                                                        SU
                                                         </span> 
 
                                                 </div>

@@ -49,7 +49,7 @@
                     <div class="tra-pro-div-filter">
                         <p class="mb-2 d-block">Filter</p>
                         <div class="d-flex align-items-center">
-                            <select class="me-md-2">
+                            <select class="me-md-2 me-2">
                                 <option value="agro">Select Activity</option>
                                 <option value="mining">To Supply</option>
                                 <option value="metal">To Buy</option>
@@ -91,17 +91,17 @@
                                                     <img src="{{ $product->images->filepath }}" class="img-fluid w-100" alt="{{ $product->images->file_original_name }}"
                                                         title="{{ $product->name }}" />
                                                     <div class="intereseted position-absolute">
-                                                        <span class="so" title="Supplier Enquiry" data-bs-toggle="modal" 
+                                                        <span class="so" title="Sourcing Enquiry" data-bs-toggle="modal" 
                                                         data-bs-target="{{ getModalTarget('#ProductSupplierEnquiry') }}" data-product="{{$product}}">
                                                         SO
                                                     </span>
     
-                                                    <span class="bu" title="Sourcing Enquiry" data-product="{{$product}}" data-bs-target="{{ getModalTarget('#ProductBuyingEnquiry') }}" data-bs-toggle="modal"  >
-                                                        BE
+                                                    <span class="bu" title="Buying Enquiry" data-product="{{$product}}" data-bs-target="{{ getModalTarget('#ProductBuyingEnquiry') }}" data-bs-toggle="modal"  >
+                                                        BU
                                                     </span>
-                                                    <span class="se" title="Supplier Enquiry" data-bs-toggle="modal" 
+                                                    <span class="su" title="Supplier Enquiry" data-bs-toggle="modal" 
                                                     data-bs-target="{{ getModalTarget('#ProductSourcingEnquiry') }}" data-product="{{$product}}">
-                                                    SE
+                                                    SU
                                                     </span> 
 
                                                     </div>
